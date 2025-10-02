@@ -1,0 +1,234 @@
+:root {
+  --default-font-family: SegoeUI, Arial;
+}
+
+:root {
+  --primary-text-color: #000;
+  --theme-color: #ffffff;
+}
+
+a, abbr, acronym, address, applet, b, big, blockquote, body, button, caption, center, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, font, footer, form, h1, h2, h3, h4, h5, h6, header, html, i, iframe, img, ins, kbd, label, legend, li, nav, object, ol, p, pre, q, s, samp, section, small, span, strike, strong, sub, sup, table, tbody, td, tfoot, th, thead, title, tr, tt, u, ul, var {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: 0 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: var(--default-font-family);
+  color: var(--primary-text-color);
+}
+
+div.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  content: "";
+}
+div.container:before, div.container:after {
+  content: "";
+  position: absolute;
+}
+
+.root {
+  display: block;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+.root__content {
+  position: relative;
+  display: block;
+}
+.root__content .scene-wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+.root__content .scene-wrapper canvas {
+  display: block;
+  position: relative;
+}
+
+@font-face {
+  font-family: "Montserrat Black";
+  src: url("/assets/font-families/Montserrat/Montserrat-Black.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Black Italic";
+  src: url("/assets/font-families/Montserrat/Montserrat-BlackItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Bold";
+  src: url("/assets/font-families/Montserrat/Montserrat-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Bold Italic";
+  src: url("/assets/font-families/Montserrat/Montserrat-BoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Extra Bold";
+  src: url("/assets/font-families/Montserrat/Montserrat-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Extra Bold Italic";
+  src: url("/assets/font-families/Montserrat/Montserrat-ExtraBoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Extra Light";
+  src: url("/assets/font-families/Montserrat/Montserrat-ExtraLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Extra Light Italic";
+  src: url("/assets/font-families/Montserrat/Montserrat-ExtraLightItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Italic";
+  src: url("/assets/font-families/Montserrat/Montserrat-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Light";
+  src: url("/assets/font-families/Montserrat/Montserrat-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Light Italic";
+  src: url("/assets/font-families/Montserrat/Montserrat-LightItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Medium";
+  src: url("/assets/font-families/Montserrat/Montserrat-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Medium Italic";
+  src: url("/assets/font-families/Montserrat/Montserrat-MediumItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Regular";
+  src: url("/assets/font-families/Montserrat/Montserrat-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Semi Bold";
+  src: url("/assets/font-families/Montserrat/Montserrat-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Semi Bold Italic";
+  src: url("/assets/font-families/Montserrat/Montserrat-SemiBoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Thin";
+  src: url("/assets/font-families/Montserrat/Montserrat-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Thin Italic";
+  src: url("/assets/font-families/Montserrat/Montserrat-ThinItalic.ttf") format("truetype");
+}
+.text {
+  font-family: var(--default-font-family);
+  color: var(--primary-text-color);
+  font-size: 12px;
+}
+.text.weight-regular {
+  font-weight: 100;
+}
+.text.weight-medium {
+  font-weight: 300;
+}
+.text.weight-semi-bold {
+  font-weight: 500;
+}
+.text.weight-bold {
+  font-weight: 700;
+}
+.text.weight-extra-bold {
+  font-weight: 900;
+}
+.text.size-small {
+  font-size: 12px;
+}
+.text.size-regular {
+  font-size: 14px;
+}
+.text.size-medium {
+  font-size: 18px;
+}
+.text.size-large {
+  font-size: 24px;
+}
+.text.size-extra-large {
+  font-size: 32px;
+}
+.text.size-big {
+  font-size: 44px;
+}
+.text.size-extra-big {
+  font-size: 5.2rem;
+}
+.text.size-massive-dynamic {
+  font-size: max(7.2vw, 7.1vh);
+}
+.text.spacing {
+  width: 100%;
+  height: 0px;
+  margin: 10px 0;
+}
+.text.shade-medium-dark {
+  color: #565656;
+}
+.text.apply-on-links a {
+  color: inherit;
+  text-decoration: inherit;
+}
+.text.rotate {
+  display: inline-block;
+}
+.text.rotate.slightly-positive {
+  -moz-transform: rotate(2deg);
+  -ms-transform: rotate(2deg);
+  -o-transform: rotate(2deg);
+  -webkit-transform: rotate(2deg);
+  transform: rotate(2deg);
+}
+.text.rotate.slightly-negative {
+  -moz-transform: rotate(-2deg);
+  -ms-transform: rotate(-2deg);
+  -o-transform: rotate(-2deg);
+  -webkit-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+}
+.text.center {
+  text-align: center;
+}
+.text.secondary-color {
+  color: var(--secondary-text-color);
+}
+.text.color-red {
+  color: red;
+}
+.text.color-black {
+  color: black;
+}
+.text.color-green {
+  color: green;
+}
+.text.color-lime {
+  color: lime;
+}
+.text.hidden {
+  display: none;
+}
+.text.full-width {
+  width: 100%;
+}
+.text.full-caps {
+  text-transform: uppercase;
+}
+
+.app {
+  background-size: cover;
+  background-color: #fff;
+  background-repeat: no-repeat;
+}

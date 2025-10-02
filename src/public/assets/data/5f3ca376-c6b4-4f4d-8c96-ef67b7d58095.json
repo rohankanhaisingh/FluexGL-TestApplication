@@ -1,0 +1,1666 @@
+{
+    "name": "Bedrijf 't Zandkasteel",
+    "streetName": "Haart 1",
+    "postalCode": "1234 AB",
+    "city": "Beugen",
+    "energyLabel": "C",
+    "buildings": [
+        {
+            "label": "Gebouw 1",
+            "floors": [
+                {
+                    "label": "Verdieping 1",
+                    "rooms": [
+                        {
+                            "label": "Ruimte 1",
+                            "systems": [
+                                {
+                                    "label": "Systeem 1",
+                                    "components": [
+                                        {
+                                            "label": "Component 1",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 1",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "64.0",
+                                                            "set": "64.9"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 2",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "0.7",
+                                                            "set": "-1.0"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 2",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 3",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "46.9",
+                                                            "set": "45.1"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 4",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "1945.9",
+                                                            "set": "1947.8"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 3",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 5",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "57.4",
+                                                            "set": "58.2"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 6",
+                                                    "measures": [
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "1366.6",
+                                                            "set": "1366.7"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Ruimte 2",
+                            "systems": [
+                                {
+                                    "label": "Systeem 2",
+                                    "components": [
+                                        {
+                                            "label": "Component 4",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 7",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "1.4",
+                                                            "set": "2.6"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 8",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "3.2",
+                                                            "set": "2.5"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 5",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 9",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Vochtigheid",
+                                                            "type": "humidity",
+                                                            "value": "75.4",
+                                                            "set": "74.7"
+                                                        },
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "1104.5",
+                                                            "set": "1104.7"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 10",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "84.7",
+                                                            "set": "84.0"
+                                                        },
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "59.2",
+                                                            "set": "57.5"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label": "Systeem 3",
+                                    "components": [
+                                        {
+                                            "label": "Component 6",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 11",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "2.4",
+                                                            "set": "1.7"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 12",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "57.3",
+                                                            "set": "57.0"
+                                                        },
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "609.6",
+                                                            "set": "611.0"
+                                                        },
+                                                        {
+                                                            "label": "Vochtigheid",
+                                                            "type": "humidity",
+                                                            "value": "44.3",
+                                                            "set": "43.0"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 7",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 13",
+                                                    "measures": [
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "1018.8",
+                                                            "set": "1017.4"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 8",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 14",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Vochtigheid",
+                                                            "type": "humidity",
+                                                            "value": "63.6",
+                                                            "set": "61.9"
+                                                        },
+                                                        {
+                                                            "label": "Vochtigheid",
+                                                            "type": "humidity",
+                                                            "value": "51.4",
+                                                            "set": "51.8"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 15",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "73.6",
+                                                            "set": "73.0"
+                                                        },
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "40.8",
+                                                            "set": "40.2"
+                                                        },
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "3.0",
+                                                            "set": "4.9"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Verdieping 2",
+                    "rooms": [
+                        {
+                            "label": "Ruimte 3",
+                            "systems": [
+                                {
+                                    "label": "Systeem 4",
+                                    "components": [
+                                        {
+                                            "label": "Component 9",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 16",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "27.1",
+                                                            "set": "25.6"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 10",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 17",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "1674.3",
+                                                            "set": "1672.4"
+                                                        },
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "3.5",
+                                                            "set": "4.2"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 18",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Vochtigheid",
+                                                            "type": "humidity",
+                                                            "value": "79.8",
+                                                            "set": "78.4"
+                                                        },
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "1089.2",
+                                                            "set": "1087.4"
+                                                        },
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "1975.7",
+                                                            "set": "1974.8"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 11",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 19",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Vochtigheid",
+                                                            "type": "humidity",
+                                                            "value": "23.2",
+                                                            "set": "21.9"
+                                                        },
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "31.0",
+                                                            "set": "30.8"
+                                                        },
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "31.5",
+                                                            "set": "33.4"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 20",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "1909.9",
+                                                            "set": "1911.4"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label": "Systeem 5",
+                                    "components": [
+                                        {
+                                            "label": "Component 12",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 21",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "1.3",
+                                                            "set": "1.1"
+                                                        },
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "904.7",
+                                                            "set": "903.3"
+                                                        },
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "3.3",
+                                                            "set": "3.6"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 13",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 22",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "2.7",
+                                                            "set": "4.0"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 23",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "18.4",
+                                                            "set": "19.2"
+                                                        },
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "17.6",
+                                                            "set": "19.5"
+                                                        },
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "1377.5",
+                                                            "set": "1377.2"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 14",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 24",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "2.7",
+                                                            "set": "4.7"
+                                                        },
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "930.5",
+                                                            "set": "929.8"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Ruimte 4",
+                            "systems": [
+                                {
+                                    "label": "Systeem 6",
+                                    "components": [
+                                        {
+                                            "label": "Component 15",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 25",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "87.5",
+                                                            "set": "87.1"
+                                                        },
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "579.4",
+                                                            "set": "579.0"
+                                                        },
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "14.4",
+                                                            "set": "13.2"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 26",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "28.7",
+                                                            "set": "29.5"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Verdieping 3",
+                    "rooms": [
+                        {
+                            "label": "Ruimte 5",
+                            "systems": [
+                                {
+                                    "label": "Systeem 7",
+                                    "components": [
+                                        {
+                                            "label": "Component 16",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 27",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "4.0",
+                                                            "set": "2.9"
+                                                        },
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "1322.0",
+                                                            "set": "1320.7"
+                                                        },
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "4.7",
+                                                            "set": "2.9"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 28",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "3.5",
+                                                            "set": "3.3"
+                                                        },
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "665.5",
+                                                            "set": "666.0"
+                                                        },
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "557.4",
+                                                            "set": "559.2"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Ruimte 6",
+                            "systems": [
+                                {
+                                    "label": "Systeem 8",
+                                    "components": [
+                                        {
+                                            "label": "Component 17",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 29",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Vochtigheid",
+                                                            "type": "humidity",
+                                                            "value": "27.7",
+                                                            "set": "28.6"
+                                                        },
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "87.3",
+                                                            "set": "85.5"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 18",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 30",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "3.6",
+                                                            "set": "4.2"
+                                                        },
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "55.7",
+                                                            "set": "56.6"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 31",
+                                                    "measures": [
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "1159.0",
+                                                            "set": "1159.2"
+                                                        },
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "34.6",
+                                                            "set": "35.2"
+                                                        },
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "75.5",
+                                                            "set": "73.6"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label": "Systeem 9",
+                                    "components": [
+                                        {
+                                            "label": "Component 19",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 32",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "46.3",
+                                                            "set": "47.5"
+                                                        },
+                                                        {
+                                                            "label": "Vochtigheid",
+                                                            "type": "humidity",
+                                                            "value": "49.4",
+                                                            "set": "51.0"
+                                                        },
+                                                        {
+                                                            "label": "Vochtigheid",
+                                                            "type": "humidity",
+                                                            "value": "66.9",
+                                                            "set": "67.1"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 33",
+                                                    "measures": [
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "1378.1",
+                                                            "set": "1377.9"
+                                                        },
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "1470.7",
+                                                            "set": "1471.0"
+                                                        },
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "1449.6",
+                                                            "set": "1451.0"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 20",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 34",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "1.2",
+                                                            "set": "2.2"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Ruimte 7",
+                            "systems": [
+                                {
+                                    "label": "Systeem 10",
+                                    "components": [
+                                        {
+                                            "label": "Component 21",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 35",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "1358.9",
+                                                            "set": "1357.7"
+                                                        },
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "84.2",
+                                                            "set": "85.4"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 22",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 36",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "89.4",
+                                                            "set": "91.2"
+                                                        },
+                                                        {
+                                                            "label": "Vochtigheid",
+                                                            "type": "humidity",
+                                                            "value": "61.4",
+                                                            "set": "62.9"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 23",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 37",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "2.2",
+                                                            "set": "2.5"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 38",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "2.6",
+                                                            "set": "1.8"
+                                                        },
+                                                        {
+                                                            "label": "Vochtigheid",
+                                                            "type": "humidity",
+                                                            "value": "42.3",
+                                                            "set": "43.8"
+                                                        },
+                                                        {
+                                                            "label": "Vochtigheid",
+                                                            "type": "humidity",
+                                                            "value": "33.2",
+                                                            "set": "33.1"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label": "Systeem 11",
+                                    "components": [
+                                        {
+                                            "label": "Component 24",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 39",
+                                                    "measures": [
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "1307.2",
+                                                            "set": "1305.8"
+                                                        },
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "1367.4",
+                                                            "set": "1368.8"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 40",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "45.8",
+                                                            "set": "46.1"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 25",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 41",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "630.1",
+                                                            "set": "629.9"
+                                                        },
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "-1.2",
+                                                            "set": "-0.4"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 26",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 42",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "1869.2",
+                                                            "set": "1870.3"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 43",
+                                                    "measures": [
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "1184.3",
+                                                            "set": "1184.7"
+                                                        },
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "1090.3",
+                                                            "set": "1090.3"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Gebouw 2",
+            "floors": [
+                {
+                    "label": "Verdieping 4",
+                    "rooms": [
+                        {
+                            "label": "Ruimte 8",
+                            "systems": [
+                                {
+                                    "label": "Systeem 12",
+                                    "components": [
+                                        {
+                                            "label": "Component 27",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 44",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "790.7",
+                                                            "set": "792.5"
+                                                        },
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "446.1",
+                                                            "set": "445.4"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 45",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "56.8",
+                                                            "set": "57.3"
+                                                        },
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "84.7",
+                                                            "set": "85.6"
+                                                        },
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "707.4",
+                                                            "set": "708.1"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 28",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 46",
+                                                    "measures": [
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "1017.7",
+                                                            "set": "1018.4"
+                                                        },
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "1240.7",
+                                                            "set": "1242.6"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 47",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "1.6",
+                                                            "set": "3.6"
+                                                        },
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "598.5",
+                                                            "set": "597.5"
+                                                        },
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "5.1",
+                                                            "set": "4.3"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Ruimte 9",
+                            "systems": [
+                                {
+                                    "label": "Systeem 13",
+                                    "components": [
+                                        {
+                                            "label": "Component 29",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 48",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "2.1",
+                                                            "set": "0.1"
+                                                        },
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "42.4",
+                                                            "set": "43.2"
+                                                        },
+                                                        {
+                                                            "label": "Vochtigheid",
+                                                            "type": "humidity",
+                                                            "value": "63.1",
+                                                            "set": "63.5"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 49",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "66.9",
+                                                            "set": "67.3"
+                                                        },
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "73.7",
+                                                            "set": "75.2"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 30",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 50",
+                                                    "measures": [
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "649.2",
+                                                            "set": "647.3"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 51",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "1.9",
+                                                            "set": "2.5"
+                                                        },
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "56.9",
+                                                            "set": "58.1"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 31",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 52",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Vochtigheid",
+                                                            "type": "humidity",
+                                                            "value": "20.6",
+                                                            "set": "19.0"
+                                                        },
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "4.5",
+                                                            "set": "3.9"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Gebouw 3",
+            "floors": [
+                {
+                    "label": "Verdieping 5",
+                    "rooms": [
+                        {
+                            "label": "Ruimte 10",
+                            "systems": [
+                                {
+                                    "label": "Systeem 14",
+                                    "components": [
+                                        {
+                                            "label": "Component 32",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 53",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "1568.7",
+                                                            "set": "1567.6"
+                                                        },
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "73.7",
+                                                            "set": "72.9"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 54",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "19.8",
+                                                            "set": "18.4"
+                                                        },
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "1803.0",
+                                                            "set": "1802.0"
+                                                        },
+                                                        {
+                                                            "label": "Vochtigheid",
+                                                            "type": "humidity",
+                                                            "value": "33.0",
+                                                            "set": "32.6"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 33",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 55",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "21.6",
+                                                            "set": "22.1"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 56",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "6.8",
+                                                            "set": "5.2"
+                                                        },
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "984.3",
+                                                            "set": "985.5"
+                                                        },
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "18.7",
+                                                            "set": "17.4"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label": "Systeem 15",
+                                    "components": [
+                                        {
+                                            "label": "Component 34",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 57",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "1.4",
+                                                            "set": "2.6"
+                                                        },
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "1192.4",
+                                                            "set": "1192.9"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 35",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 58",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "34.4",
+                                                            "set": "34.8"
+                                                        },
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "1.1",
+                                                            "set": "2.9"
+                                                        },
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "1318.2",
+                                                            "set": "1317.8"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 36",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 59",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "2.2",
+                                                            "set": "1.3"
+                                                        },
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "1.9",
+                                                            "set": "2.3"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 60",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Vochtigheid",
+                                                            "type": "humidity",
+                                                            "value": "76.2",
+                                                            "set": "77.4"
+                                                        },
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "85.1",
+                                                            "set": "85.7"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Ruimte 11",
+                            "systems": [
+                                {
+                                    "label": "Systeem 16",
+                                    "components": [
+                                        {
+                                            "label": "Component 37",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 61",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "4.7",
+                                                            "set": "3.3"
+                                                        },
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "1115.2",
+                                                            "set": "1115.9"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 38",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 62",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "2.5",
+                                                            "set": "0.6"
+                                                        },
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "4.4",
+                                                            "set": "3.8"
+                                                        },
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "43.4",
+                                                            "set": "42.7"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label": "Systeem 17",
+                                    "components": [
+                                        {
+                                            "label": "Component 39",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 63",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "77.7",
+                                                            "set": "78.4"
+                                                        },
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "1368.5",
+                                                            "set": "1367.6"
+                                                        },
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "861.1",
+                                                            "set": "861.0"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Verdieping 6",
+                    "rooms": [
+                        {
+                            "label": "Ruimte 12",
+                            "systems": [
+                                {
+                                    "label": "Systeem 18",
+                                    "components": [
+                                        {
+                                            "label": "Component 40",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 64",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "1039.2",
+                                                            "set": "1037.8"
+                                                        },
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "967.7",
+                                                            "set": "968.3"
+                                                        },
+                                                        {
+                                                            "label": "Watertemperatuur",
+                                                            "type": "temperature",
+                                                            "value": "80.1",
+                                                            "set": "81.2"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 41",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 65",
+                                                    "measures": [
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "893.3",
+                                                            "set": "894.3"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 66",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "1.6",
+                                                            "set": "1.0"
+                                                        },
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "2.3",
+                                                            "set": "3.5"
+                                                        },
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "1244.3",
+                                                            "set": "1242.9"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 42",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 67",
+                                                    "measures": [
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "1449.1",
+                                                            "set": "1450.8"
+                                                        },
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "33.1",
+                                                            "set": "31.8"
+                                                        },
+                                                        {
+                                                            "label": "Vochtigheid",
+                                                            "type": "humidity",
+                                                            "value": "24.7",
+                                                            "set": "23.7"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label": "Systeem 19",
+                                    "components": [
+                                        {
+                                            "label": "Component 43",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 68",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "886.6",
+                                                            "set": "884.9"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 69",
+                                                    "measures": [
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "888.0",
+                                                            "set": "886.5"
+                                                        },
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "2.1",
+                                                            "set": "0.6"
+                                                        },
+                                                        {
+                                                            "label": "Vochtigheid",
+                                                            "type": "humidity",
+                                                            "value": "30.3",
+                                                            "set": "29.9"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Component 44",
+                                            "sensors": [
+                                                {
+                                                    "label": "Sensor 70",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "927.8",
+                                                            "set": "928.9"
+                                                        },
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "907.2",
+                                                            "set": "909.2"
+                                                        },
+                                                        {
+                                                            "label": "CO₂",
+                                                            "type": "co2",
+                                                            "value": "760.8",
+                                                            "set": "760.1"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "Sensor 71",
+                                                    "measures": [
+                                                        {
+                                                            "label": "Olie druk",
+                                                            "type": "pressure",
+                                                            "value": "3.9",
+                                                            "set": "4.8"
+                                                        },
+                                                        {
+                                                            "label": "Luchtstroom",
+                                                            "type": "airflow",
+                                                            "value": "1919.3",
+                                                            "set": "1918.1"
+                                                        },
+                                                        {
+                                                            "label": "Temperatuur",
+                                                            "type": "temperature",
+                                                            "value": "8.6",
+                                                            "set": "8.6"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

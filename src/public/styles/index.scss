@@ -1,0 +1,14 @@
+@import "./utilities/variables.scss";
+@import "./utilities/default-styles.scss";
+@import "./utilities/font-families.scss";
+
+@import "./components/button.scss";
+@import "./components/text.scss";
+
+.app {
+    background-size: cover;
+    background-color: #fff;
+    background-repeat: no-repeat;
+
+    .root {}
+}
