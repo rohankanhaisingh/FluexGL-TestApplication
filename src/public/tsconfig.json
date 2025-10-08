@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2016",
+    "target": "es2022",
     "module": "commonjs",
     "baseUrl": ".",
     "paths": {
@@ -8,6 +8,9 @@
         "../../../FluexGL/lib/src/index.ts"
       ],
     },
+    "types": [
+      "@webgpu/types"
+    ],
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "outDir": "../_dist/public",

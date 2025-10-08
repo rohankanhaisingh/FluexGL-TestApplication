@@ -1,5 +1,4 @@
 import "../../../styles/index.scss";
 
-import { CalculateAverageArrayValue } from "../../../../../../FluexGL/lib/src/index";
-
-CalculateAverageArrayValue([]);
+// import "./test-scripts/threads";
+import "./test-scripts/ts-renderer-init";

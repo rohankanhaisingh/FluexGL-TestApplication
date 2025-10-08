@@ -6,8 +6,7 @@
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 __webpack_require__(1);
-const index_1 = __webpack_require__(2);
-(0, index_1.CalculateAverageArrayValue)([]);
+__webpack_require__(2);
 
 
 /***/ }),
@@ -24,7 +23,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Thread = exports.Scene = exports.Color = exports.Vector4 = exports.Vector3 = exports.Vector2 = exports.Debug = exports.DefaultAirDensity = exports.DefaultGravity = exports.MaxSafeInt = exports.MinSafeInt = exports.MaxInt32 = exports.MinInt32 = exports.QuarterPI = exports.HalfPI = exports.TwoPI = exports.PI = exports.InfinityValue = exports.Epsilon = exports.RadiansToDegrees = exports.DegreesToRadians = exports.PixelsPerMeter = exports.HSLToRGB = exports.RGBToHex = exports.HexToRGB = exports.RGBToHSL = exports.ConvertByteArrayToHex = exports.ConvertHexToByteArray = exports.RandomUnitVector3D = exports.RandomUnitVector2D = exports.RandomNormal = exports.RandomItem = exports.RandomIntegerInRange = exports.RandomFloatInRange = exports.RandomBoolean = exports.CalculateVectorDistance = exports.CalculateVectorAngle = exports.CalculateIntersection = exports.CalculateDirection = exports.CalculateAverageArrayValue = exports.FluexGL = void 0;
+const index_1 = __webpack_require__(3);
+index_1.FluexGL.options.debugger.breakOnError = true;
+(async function () {
+    const renderer = new index_1.WebGPURenderer();
+    renderer.AppendCanvasToElement(document.querySelector(".scene-wrapper"));
+    renderer.SetCanvasSizeRelativeToWindow(0, true);
+    await renderer.Initialize();
+    console.log(renderer);
+})();
+
+
+/***/ }),
+/* 3 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Thread = exports.Scene = exports.WebGPURenderer = exports.Color = exports.Vector4 = exports.Vector3 = exports.Vector2 = exports.Debug = exports.DefaultAirDensity = exports.DefaultGravity = exports.MaxSafeInt = exports.MinSafeInt = exports.MaxInt32 = exports.MinInt32 = exports.QuarterPI = exports.HalfPI = exports.TwoPI = exports.PI = exports.InfinityValue = exports.Epsilon = exports.RadiansToDegrees = exports.DegreesToRadians = exports.PixelsPerMeter = exports.HSLToRGB = exports.RGBToHex = exports.HexToRGB = exports.RGBToHSL = exports.ConvertByteArrayToHex = exports.ConvertHexToByteArray = exports.RandomUnitVector3D = exports.RandomUnitVector2D = exports.RandomNormal = exports.RandomItem = exports.RandomIntegerInRange = exports.RandomFloatInRange = exports.RandomBoolean = exports.CalculateVectorDistance = exports.CalculateVectorAngle = exports.CalculateIntersection = exports.CalculateDirection = exports.CalculateAverageArrayValue = exports.FluexGL = void 0;
 exports.FluexGL = {
     name: "FluexGL",
     author: "Rohan Kanhaisingh",
@@ -40,7 +56,7 @@ exports.FluexGL = {
         }
     }
 };
-var exports_1 = __webpack_require__(3);
+var exports_1 = __webpack_require__(4);
 Object.defineProperty(exports, "CalculateAverageArrayValue", ({ enumerable: true, get: function () { return exports_1.CalculateAverageArrayValue; } }));
 Object.defineProperty(exports, "CalculateDirection", ({ enumerable: true, get: function () { return exports_1.CalculateDirection; } }));
 Object.defineProperty(exports, "CalculateIntersection", ({ enumerable: true, get: function () { return exports_1.CalculateIntersection; } }));
@@ -79,25 +95,27 @@ Object.defineProperty(exports, "Vector2", ({ enumerable: true, get: function () 
 Object.defineProperty(exports, "Vector3", ({ enumerable: true, get: function () { return exports_1.Vector3; } }));
 Object.defineProperty(exports, "Vector4", ({ enumerable: true, get: function () { return exports_1.Vector4; } }));
 Object.defineProperty(exports, "Color", ({ enumerable: true, get: function () { return exports_1.Color; } }));
-var exports_2 = __webpack_require__(13);
-Object.defineProperty(exports, "Scene", ({ enumerable: true, get: function () { return exports_2.Scene; } }));
-Object.defineProperty(exports, "Thread", ({ enumerable: true, get: function () { return exports_2.Thread; } }));
+var exports_2 = __webpack_require__(15);
+Object.defineProperty(exports, "WebGPURenderer", ({ enumerable: true, get: function () { return exports_2.WebGPURenderer; } }));
+var exports_3 = __webpack_require__(17);
+Object.defineProperty(exports, "Scene", ({ enumerable: true, get: function () { return exports_3.Scene; } }));
+Object.defineProperty(exports, "Thread", ({ enumerable: true, get: function () { return exports_3.Thread; } }));
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Color = exports.Vector4 = exports.Vector3 = exports.Vector2 = exports.Debug = exports.DefaultAirDensity = exports.DefaultGravity = exports.MaxSafeInt = exports.MinSafeInt = exports.MaxInt32 = exports.MinInt32 = exports.QuarterPI = exports.HalfPI = exports.TwoPI = exports.PI = exports.InfinityValue = exports.Epsilon = exports.RadiansToDegrees = exports.DegreesToRadians = exports.PixelsPerMeter = exports.HSLToRGB = exports.RGBToHex = exports.HexToRGB = exports.RGBToHSL = exports.ConvertByteArrayToHex = exports.ConvertHexToByteArray = exports.RandomUnitVector3D = exports.RandomUnitVector2D = exports.RandomNormal = exports.RandomItem = exports.RandomIntegerInRange = exports.RandomFloatInRange = exports.RandomBoolean = exports.CalculateVectorDistance = exports.CalculateVectorAngle = exports.CalculateIntersection = exports.CalculateDirection = exports.CalculateAverageArrayValue = void 0;
-var calculators_1 = __webpack_require__(4);
+var calculators_1 = __webpack_require__(5);
 Object.defineProperty(exports, "CalculateAverageArrayValue", ({ enumerable: true, get: function () { return calculators_1.CalculateAverageArrayValue; } }));
 Object.defineProperty(exports, "CalculateDirection", ({ enumerable: true, get: function () { return calculators_1.CalculateDirection; } }));
 Object.defineProperty(exports, "CalculateIntersection", ({ enumerable: true, get: function () { return calculators_1.CalculateIntersection; } }));
 Object.defineProperty(exports, "CalculateVectorAngle", ({ enumerable: true, get: function () { return calculators_1.CalculateVectorAngle; } }));
 Object.defineProperty(exports, "CalculateVectorDistance", ({ enumerable: true, get: function () { return calculators_1.CalculateVectorDistance; } }));
-var randomizer_1 = __webpack_require__(5);
+var randomizer_1 = __webpack_require__(7);
 Object.defineProperty(exports, "RandomBoolean", ({ enumerable: true, get: function () { return randomizer_1.RandomBoolean; } }));
 Object.defineProperty(exports, "RandomFloatInRange", ({ enumerable: true, get: function () { return randomizer_1.RandomFloatInRange; } }));
 Object.defineProperty(exports, "RandomIntegerInRange", ({ enumerable: true, get: function () { return randomizer_1.RandomIntegerInRange; } }));
@@ -105,14 +123,14 @@ Object.defineProperty(exports, "RandomItem", ({ enumerable: true, get: function 
 Object.defineProperty(exports, "RandomNormal", ({ enumerable: true, get: function () { return randomizer_1.RandomNormal; } }));
 Object.defineProperty(exports, "RandomUnitVector2D", ({ enumerable: true, get: function () { return randomizer_1.RandomUnitVector2D; } }));
 Object.defineProperty(exports, "RandomUnitVector3D", ({ enumerable: true, get: function () { return randomizer_1.RandomUnitVector3D; } }));
-var converters_1 = __webpack_require__(6);
+var converters_1 = __webpack_require__(8);
 Object.defineProperty(exports, "ConvertHexToByteArray", ({ enumerable: true, get: function () { return converters_1.ConvertHexToByteArray; } }));
 Object.defineProperty(exports, "ConvertByteArrayToHex", ({ enumerable: true, get: function () { return converters_1.ConvertByteArrayToHex; } }));
 Object.defineProperty(exports, "RGBToHSL", ({ enumerable: true, get: function () { return converters_1.RGBToHSL; } }));
 Object.defineProperty(exports, "HexToRGB", ({ enumerable: true, get: function () { return converters_1.HexToRGB; } }));
 Object.defineProperty(exports, "RGBToHex", ({ enumerable: true, get: function () { return converters_1.RGBToHex; } }));
 Object.defineProperty(exports, "HSLToRGB", ({ enumerable: true, get: function () { return converters_1.HSLToRGB; } }));
-var constants_1 = __webpack_require__(7);
+var constants_1 = __webpack_require__(9);
 Object.defineProperty(exports, "PixelsPerMeter", ({ enumerable: true, get: function () { return constants_1.PixelsPerMeter; } }));
 Object.defineProperty(exports, "DegreesToRadians", ({ enumerable: true, get: function () { return constants_1.DegreesToRadians; } }));
 Object.defineProperty(exports, "RadiansToDegrees", ({ enumerable: true, get: function () { return constants_1.RadiansToDegrees; } }));
@@ -128,27 +146,27 @@ Object.defineProperty(exports, "MinSafeInt", ({ enumerable: true, get: function 
 Object.defineProperty(exports, "MaxSafeInt", ({ enumerable: true, get: function () { return constants_1.MaxSafeInt; } }));
 Object.defineProperty(exports, "DefaultGravity", ({ enumerable: true, get: function () { return constants_1.DefaultGravity; } }));
 Object.defineProperty(exports, "DefaultAirDensity", ({ enumerable: true, get: function () { return constants_1.DefaultAirDensity; } }));
-var console_1 = __webpack_require__(8);
+var console_1 = __webpack_require__(10);
 Object.defineProperty(exports, "Debug", ({ enumerable: true, get: function () { return console_1.Debug; } }));
-var Vector2_1 = __webpack_require__(9);
+var Vector2_1 = __webpack_require__(11);
 Object.defineProperty(exports, "Vector2", ({ enumerable: true, get: function () { return Vector2_1.Vector2; } }));
-var Vector3_1 = __webpack_require__(10);
+var Vector3_1 = __webpack_require__(12);
 Object.defineProperty(exports, "Vector3", ({ enumerable: true, get: function () { return Vector3_1.Vector3; } }));
-var Vector4_1 = __webpack_require__(11);
+var Vector4_1 = __webpack_require__(13);
 Object.defineProperty(exports, "Vector4", ({ enumerable: true, get: function () { return Vector4_1.Vector4; } }));
-var Color_1 = __webpack_require__(12);
+var Color_1 = __webpack_require__(14);
 Object.defineProperty(exports, "Color", ({ enumerable: true, get: function () { return Color_1.Color; } }));
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CalculateDirection = exports.CalculateIntersection = exports.CalculateVectorAngle = exports.CalculateVectorDistance = exports.CalculateAverageArrayValue = void 0;
-const codes_1 = __webpack_require__(37);
-const exports_1 = __webpack_require__(3);
+const codes_1 = __webpack_require__(6);
+const exports_1 = __webpack_require__(4);
 function CalculateAverageArrayValue(input) {
     if (!input) {
         exports_1.Debug.Error("CalculateAverageArrayValue: invalid input (null or undefined).", [
@@ -226,7 +244,34 @@ exports.CalculateDirection = CalculateDirection;
 
 
 /***/ }),
-/* 5 */
+/* 6 */
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ErrorCodes = exports.WarningCodes = void 0;
+var WarningCodes;
+(function (WarningCodes) {
+    WarningCodes["THREAD_ALREADY_ACTIVE"] = "#FLUENTGL_WARNING_0001";
+    WarningCodes["THREAD_ALREADY_INACTIVE"] = "#FLUENTGL_WARNING_0001";
+    WarningCodes["WGPUR_HIGH_DPR_VALUE"] = "#FLUENTGL_WARNING_0003";
+})(WarningCodes = exports.WarningCodes || (exports.WarningCodes = {}));
+var ErrorCodes;
+(function (ErrorCodes) {
+    ErrorCodes["THREAD_INVALID_SIMULATION_UPDATE_RATE"] = "#FLUENTGL_ERROR_0001";
+    ErrorCodes["THREAD_INVALID_DELTA_TIME"] = "#FLUENTGL_ERROR_0002";
+    ErrorCodes["NUMBER_NO_VALID_INPUT_PROVIDED"] = "#FLUENTGL_ERROR_0003";
+    ErrorCodes["WGPUR_CANVAS_NOT_CREATED"] = "#FLUENTGL_ERROR_0004";
+    ErrorCodes["WGPUR_API_NOT_SUPPORTED"] = "#FLUENTGL_ERROR_0005";
+    ErrorCodes["WGPUR_UNABLE_TO_GET_ADAPTER"] = "#FLUENTGL_ERROR_0006";
+    ErrorCodes["WGPUR_INVALID_DPR_VALUE"] = "#FLUENTGL_ERROR_0007";
+    ErrorCodes["WGPUR_DEVICE_UNCAPTURED_ERROR"] = "#FLUENTGL_ERROR_0008";
+    ErrorCodes["WGPUR_DEVICE_LOST_ERROR"] = "#FLUENTGL_ERROR_0009";
+})(ErrorCodes = exports.ErrorCodes || (exports.ErrorCodes = {}));
+
+
+/***/ }),
+/* 7 */
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -284,7 +329,7 @@ exports.RandomNormal = RandomNormal;
 
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -376,7 +421,7 @@ exports.HSLToRGB = HSLToRGB;
 
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -400,13 +445,13 @@ exports.DefaultAirDensity = 1.225;
 
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Debug = void 0;
-const index_1 = __webpack_require__(2);
+const index_1 = __webpack_require__(3);
 var Debug;
 (function (Debug) {
     function Log(message, additionalDetails) {
@@ -448,13 +493,16 @@ var Debug;
 
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ ((__unused_webpack_module, exports) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Vector2 = void 0;
 class Vector2 {
+    x;
+    y;
+    static PPM = 30;
     constructor(x = 0, y = 0) {
         this.x = typeof x === "number" ? x : 0;
         this.y = typeof y === "number" ? y : 0;
@@ -586,17 +634,19 @@ class Vector2 {
     }
 }
 exports.Vector2 = Vector2;
-Vector2.PPM = 30;
 
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ ((__unused_webpack_module, exports) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Vector3 = void 0;
 class Vector3 {
+    x;
+    y;
+    z;
     constructor(x = 0, y = 0, z = 0) {
         this.x = typeof x === "number" ? x : 0;
         this.y = typeof y === "number" ? y : 0;
@@ -741,6 +791,7 @@ class Vector3 {
             Math.abs(this.y - v.y) <= epsilon &&
             Math.abs(this.z - v.z) <= epsilon);
     }
+    static PPM = 30;
     ConvertPixelsToMeters() {
         const inv = 1 / Vector3.PPM;
         return new Vector3(this.x * inv, this.y * inv, this.z * inv);
@@ -765,17 +816,20 @@ class Vector3 {
     }
 }
 exports.Vector3 = Vector3;
-Vector3.PPM = 30;
 
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ ((__unused_webpack_module, exports) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Vector4 = void 0;
 class Vector4 {
+    x;
+    y;
+    z;
+    w;
     constructor(x = 0, y = 0, z = 0, w = 0) {
         this.x = typeof x === "number" ? x : 0;
         this.y = typeof y === "number" ? y : 0;
@@ -902,7 +956,7 @@ exports.Vector4 = Vector4;
 
 
 /***/ }),
-/* 12 */
+/* 14 */
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -912,6 +966,10 @@ function clamp(value) {
     return value < 0 ? 0 : value > 1 ? 1 : value;
 }
 class Color {
+    red;
+    green;
+    blue;
+    alpha;
     constructor(red = 0, green = 0, blue = 0, alpha = 1) {
         this.red = red;
         this.green = green;
@@ -961,20 +1019,187 @@ exports.Color = Color;
 
 
 /***/ }),
-/* 13 */
+/* 15 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.WebGPURenderer = void 0;
+var WebGPURenderer_1 = __webpack_require__(16);
+Object.defineProperty(exports, "WebGPURenderer", ({ enumerable: true, get: function () { return WebGPURenderer_1.WebGPURenderer; } }));
+
+
+/***/ }),
+/* 16 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.WebGPURenderer = void 0;
+const uuid_1 = __webpack_require__(20);
+const codes_1 = __webpack_require__(6);
+const exports_1 = __webpack_require__(4);
+class WebGPURenderer {
+    options;
+    width = 0;
+    height = 0;
+    devicePixelRatio = window.devicePixelRatio || 1;
+    id = (0, uuid_1.v4)();
+    constructor(options = {}) {
+        this.options = options;
+        this.canvas = document.createElement("canvas");
+        this.canvas.width = options.canvasWidth ?? 800;
+        this.canvas.height = options.canvasHeight ?? 600;
+        this.canvas.setAttribute("fluexgl-renderer-type", "WebGPURenderer");
+        this.canvas.setAttribute("fluexgl-renderer-id", this.id);
+    }
+    SetCanvasSizeRelativeToWindow(margin = 0, updateOnResize = false) {
+        if (!this.canvas)
+            return exports_1.Debug.Error("WebGPURenderer: Cannot set canvas size because canvas is not created.", [
+                "Make sure that the WebGPURenderer instance is created properly."
+            ], codes_1.ErrorCodes.WGPUR_CANVAS_NOT_CREATED);
+        const self = this;
+        this.SetSize(window.innerWidth - margin, window.innerHeight - margin);
+        updateOnResize && window.addEventListener("resize", function () {
+            self.SetSize(window.innerWidth - margin, window.innerHeight - margin);
+        });
+    }
+    AppendCanvasToElement(element) {
+        if (!this.canvas)
+            return exports_1.Debug.Error("WebGPURenderer: Cannot append canvas to element because canvas is not created.", [
+                "Make sure that the WebGPURenderer instance is created properly."
+            ], codes_1.ErrorCodes.WGPUR_CANVAS_NOT_CREATED);
+        element.appendChild(this.canvas);
+    }
+    SetDevicePixelRatio(ratio = 1) {
+        if (ratio >= 2)
+            exports_1.Debug.Warn("WebGPURenderer: Setting display pixel ratio to 2 or higher may cause performance issues on some devices.", [
+                "Make sure that the device running FluexGL can handle high pixel ratios.",
+                "Consider using a ratio between 1 and 2 for better performance."
+            ], codes_1.WarningCodes.WGPUR_HIGH_DPR_VALUE);
+        if (ratio >= 10)
+            exports_1.Debug.Warn("Bruh this gpu gonna die bro 🥀", [
+                "Setting display pixel ratio to 10 or higher is not recommended.",
+                "This may cause severe performance issues or even crash the application.",
+            ], codes_1.WarningCodes.WGPUR_HIGH_DPR_VALUE);
+        if (ratio <= 0) {
+            exports_1.Debug.Error("WebGPURenderer: Display pixel ratio must be greater than 0. Display pixel ratio will be set to 1.", [
+                "Provided value: " + ratio
+            ], codes_1.ErrorCodes.WGPUR_INVALID_DPR_VALUE);
+            this.devicePixelRatio = window.devicePixelRatio || 1;
+            return null;
+        }
+        this.devicePixelRatio = Math.max(1, Math.min(ratio || 1, 100));
+        this.applySizeChanges();
+        return this;
+    }
+    SetSize(width = 0, height = 0) {
+        this.canvas.width = Math.max(1, Math.floor(width * this.devicePixelRatio));
+        this.canvas.height = Math.max(1, Math.floor(height * this.devicePixelRatio));
+        this.width = this.canvas.width;
+        this.height = this.canvas.height;
+        this.createOrResizeTargets();
+        return this;
+    }
+    async Initialize() {
+        if (!navigator.gpu) {
+            exports_1.Debug.Error("WebGPURenderer: WebGPU is not supported in this browser.", [
+                "Make sure that you are using a compatible browser.",
+                "Check https://caniuse.com/webgpu for more information."
+            ], codes_1.ErrorCodes.WGPUR_API_NOT_SUPPORTED);
+            return null;
+        }
+        exports_1.Debug.Log("WebGPURenderer: Attempting to request GPU adapter.", [
+            "Options: " + JSON.stringify(this.options)
+        ]);
+        const gpuAdapter = await navigator.gpu.requestAdapter({
+            powerPreference: this.options.powerPreference ?? "high-performance"
+        });
+        if (!gpuAdapter) {
+            exports_1.Debug.Error("WebGPURenderer: Unable to get GPU Adapter.", [
+                "Make sure that your system has a compatible GPU and that WebGPU is enabled in your browser."
+            ], codes_1.ErrorCodes.WGPUR_UNABLE_TO_GET_ADAPTER);
+            return null;
+        }
+        exports_1.Debug.Log("WebGPURenderer: Successfully obtained GPU adapter.", [
+            "Architecture: " + (gpuAdapter.info.architecture ?? "Unknown"),
+            "Device: " + (gpuAdapter.info.device ?? "Unknown"),
+            "Vendor: " + (gpuAdapter.info.vendor ?? "Unknown"),
+            "Renderer ID: " + this.id
+        ]);
+        this.gpuAdapter = gpuAdapter;
+        const device = await this.gpuAdapter.requestDevice({
+            requiredFeatures: this.options.requiredFeatures ?? [],
+            requiredLimits: this.options.requiredLimits ?? {},
+            label: "FluexGL-WebGPURenderer-Device-" + this.id
+        });
+        device.addEventListener("uncapturederror", function (event) {
+            return exports_1.Debug.Error("WebGPURenderer: An uncaught GPU error occurred.", [
+                "Error: " + event.error.message
+            ], codes_1.ErrorCodes.WGPUR_DEVICE_UNCAPTURED_ERROR);
+        });
+        device.lost.then(function (info) {
+            return exports_1.Debug.Error("WebGPURenderer: The GPU device was lost.", [
+                "Reason: " + info.message
+            ], codes_1.ErrorCodes.WGPUR_DEVICE_LOST_ERROR);
+        });
+        this.gpuDevice = device;
+        this.context = this.canvas.getContext("webgpu");
+        this.format = this.options.format ?? navigator.gpu.getPreferredCanvasFormat();
+        this.SetDevicePixelRatio(this.options.devicePixelRatio ?? (window.devicePixelRatio || 1));
+        return this;
+    }
+    applySizeChanges() {
+        const width = this.options.canvasWidth ?? this.canvas.clientWidth ?? 800;
+        const height = this.options.canvasHeight ?? this.canvas.clientHeight ?? 600;
+        this.SetSize(width, height);
+    }
+    createOrResizeTargets() {
+        this.depthTexture && this.depthTexture.destroy();
+        this.msaaTexture && this.msaaTexture.destroy();
+        this.depthTexture = this.gpuDevice.createTexture({
+            size: {
+                width: this.width,
+                height: this.height,
+            },
+            format: this.options.depthFormat ?? "depth24plus",
+            usage: GPUTextureUsage.RENDER_ATTACHMENT,
+            label: "FluexGL-WebGPURenderer-DepthTexture-" + this.id
+        });
+        this.depthTextureView = this.depthTexture.createView();
+        const msaaSampleCount = this.options.msaaSampleCount ?? 4;
+        if (msaaSampleCount < 1)
+            return;
+        this.msaaTexture = this.gpuDevice.createTexture({
+            size: {
+                width: this.width,
+                height: this.height,
+            },
+            format: this.format,
+            usage: GPUTextureUsage.RENDER_ATTACHMENT,
+            sampleCount: msaaSampleCount,
+            label: "FluexGL-WebGPURenderer-MSAATexture-" + this.id
+        });
+    }
+}
+exports.WebGPURenderer = WebGPURenderer;
+
+
+/***/ }),
+/* 17 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Thread = exports.Scene = void 0;
-var Scene_1 = __webpack_require__(14);
+var Scene_1 = __webpack_require__(18);
 Object.defineProperty(exports, "Scene", ({ enumerable: true, get: function () { return Scene_1.Scene; } }));
-var Thread_1 = __webpack_require__(15);
+var Thread_1 = __webpack_require__(19);
 Object.defineProperty(exports, "Thread", ({ enumerable: true, get: function () { return Thread_1.Thread; } }));
 
 
 /***/ }),
-/* 14 */
+/* 18 */
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -986,61 +1211,60 @@ exports.Scene = Scene;
 
 
 /***/ }),
-/* 15 */
+/* 19 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Thread = void 0;
-const uuid_1 = __webpack_require__(16);
-const console_1 = __webpack_require__(8);
-const codes_1 = __webpack_require__(37);
+const uuid_1 = __webpack_require__(20);
+const console_1 = __webpack_require__(10);
+const codes_1 = __webpack_require__(6);
 class Thread {
-    constructor() {
-        this.id = (0, uuid_1.v4)();
-        this.simulationUpdateRate = 60;
-        this.frameRate = 0;
-        this.deltaTime = 0;
-        this.currentRegisteredTimestamp = Date.now();
-        this.lastRegisteredTimestamp = Date.now();
-        this.startTimestamp = Date.now();
-        this.events = {
-            idle: [],
-            start: [],
-            stop: [],
-            update: [],
+    id = (0, uuid_1.v4)();
+    simulationUpdateRate = 60;
+    frameRate = 0;
+    deltaTime = 0;
+    currentRegisteredTimestamp = Date.now();
+    lastRegisteredTimestamp = Date.now();
+    startTimestamp = Date.now();
+    events = {
+        idle: [],
+        start: [],
+        stop: [],
+        update: [],
+    };
+    isActive = false;
+    animationFrame = 0;
+    times = [];
+    maxDeltaMs = 250;
+    loop = (rafTime) => {
+        if (!this.isActive)
+            return;
+        this.animationFrame = window.requestAnimationFrame(this.loop);
+        const now = Date.now();
+        const rawDeltaMs = now - this.lastRegisteredTimestamp;
+        const deltaMs = Math.min(rawDeltaMs, this.maxDeltaMs);
+        const deltaSec = deltaMs / 1000;
+        const dt = deltaSec * this.simulationUpdateRate;
+        this.deltaTime = dt;
+        this.lastRegisteredTimestamp = now;
+        this.currentRegisteredTimestamp = now;
+        while (this.times.length > 0 && this.times[0] <= now - 1000) {
+            this.times.shift();
+        }
+        this.times.push(now);
+        this.frameRate = this.times.length;
+        const payload = {
+            now,
+            deltaTime: this.deltaTime,
+            frameRate: this.frameRate,
+            lastRegisteredTimestamp: this.lastRegisteredTimestamp,
+            simulationUpdateRate: this.simulationUpdateRate
         };
-        this.isActive = false;
-        this.animationFrame = 0;
-        this.times = [];
-        this.maxDeltaMs = 250;
-        this.loop = (rafTime) => {
-            if (!this.isActive)
-                return;
-            this.animationFrame = window.requestAnimationFrame(this.loop);
-            const now = Date.now();
-            const rawDeltaMs = now - this.lastRegisteredTimestamp;
-            const deltaMs = Math.min(rawDeltaMs, this.maxDeltaMs);
-            const deltaSec = deltaMs / 1000;
-            const dt = deltaSec * this.simulationUpdateRate;
-            this.deltaTime = dt;
-            this.lastRegisteredTimestamp = now;
-            this.currentRegisteredTimestamp = now;
-            while (this.times.length > 0 && this.times[0] <= now - 1000) {
-                this.times.shift();
-            }
-            this.times.push(now);
-            this.frameRate = this.times.length;
-            const payload = {
-                now,
-                deltaTime: this.deltaTime,
-                frameRate: this.frameRate,
-                lastRegisteredTimestamp: this.lastRegisteredTimestamp,
-                simulationUpdateRate: this.simulationUpdateRate
-            };
-            this.events.update.forEach((fn) => fn(payload));
-        };
-    }
+        this.events.update.forEach((fn) => fn(payload));
+    };
+    constructor() { }
     Start() {
         if (this.isActive) {
             console_1.Debug.Warn("Could not start thread loop because it is already active.", [
@@ -1131,47 +1355,6 @@ class Thread {
     }
 }
 exports.Thread = Thread;
-
-
-/***/ }),
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */,
-/* 32 */,
-/* 33 */,
-/* 34 */,
-/* 35 */,
-/* 36 */,
-/* 37 */
-/***/ ((__unused_webpack_module, exports) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.ErrorCodes = exports.WarningCodes = void 0;
-var WarningCodes;
-(function (WarningCodes) {
-    WarningCodes["THREAD_ALREADY_ACTIVE"] = "#THREAD_WARNING_0001";
-    WarningCodes["THREAD_ALREADY_INACTIVE"] = "#THREAD_WARNING_0002";
-})(WarningCodes = exports.WarningCodes || (exports.WarningCodes = {}));
-var ErrorCodes;
-(function (ErrorCodes) {
-    ErrorCodes["THREAD_INVALID_SIMULATION_UPDATE_RATE"] = "#THREAD_ERROR_0001";
-    ErrorCodes["THREAD_INVALID_DELTA_TIME"] = "#THREAD_ERROR_0002";
-    ErrorCodes["NUMBER_NO_VALID_INPUT_PROVIDED"] = "#ARRAY_NO_VALID_INPUT_PROVIDED_0001";
-})(ErrorCodes = exports.ErrorCodes || (exports.ErrorCodes = {}));
 
 
 /***/ })
