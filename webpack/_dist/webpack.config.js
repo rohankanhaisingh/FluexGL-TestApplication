@@ -44,6 +44,10 @@ const config = {
                 use: 'ts-loader',
             },
             {
+                test: /\.wgsl$/i,
+                type: 'asset/source',
+            },
+            {
                 test: /\.scss$/,
                 use: [
                     {

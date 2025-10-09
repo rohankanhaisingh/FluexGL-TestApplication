@@ -56,6 +56,10 @@ const config: webpack.Configuration = {
 				use: 'ts-loader',
 			},
 			{
+				test: /\.wgsl$/i,
+				type: 'asset/source',
+			},
+			{
 				test: /\.scss$/,
 				use: [
 					{
@@ -89,11 +93,10 @@ const config: webpack.Configuration = {
 	optimization: {
 		runtimeChunk: "single",
 		splitChunks: {
-			chunks: "all",        // split ook sync imports, niet alleen async
-			minSize: 10_000,      // verlaag drempel om sneller te splitsen
-			maxSize: 120_000,     // forceer opsplitsen van te grote chunks
+			chunks: "all",
+			minSize: 10_000,
+			maxSize: 120_000,
 			cacheGroups: {
-				
 				vendors: {
 					test: /[\\/]node_modules[\\/]/,
 					name: "vendors",

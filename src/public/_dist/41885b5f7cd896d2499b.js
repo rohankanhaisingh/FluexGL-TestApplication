@@ -26,11 +26,28 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const index_1 = __webpack_require__(3);
 index_1.FluexGL.options.debugger.breakOnError = true;
 (async function () {
-    const renderer = new index_1.WebGPURenderer();
+    const renderer = new index_1.WebGPURenderer({
+        msaaSampleCount: 4,
+    });
+    const scene = new index_1.WebGPURendererScene(renderer);
+    const camera = new index_1.PerspectiveCamera(innerWidth / innerHeight);
+    const thread = new index_1.Thread();
     renderer.AppendCanvasToElement(document.querySelector(".scene-wrapper"));
     renderer.SetCanvasSizeRelativeToWindow(0, true);
     await renderer.Initialize();
-    console.log(renderer);
+    const triangle = new index_1.SimpleTriangle();
+    scene.AddRenderable(triangle);
+    await scene.Prepare(camera);
+    thread.AddEventListener("update", function () {
+        try {
+            renderer.Render(scene, camera);
+        }
+        catch (err) {
+            thread.Stop();
+            console.log(err);
+        }
+    });
+    thread.Start();
 })();
 
 
@@ -40,7 +57,7 @@ index_1.FluexGL.options.debugger.breakOnError = true;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Thread = exports.Scene = exports.WebGPURenderer = exports.Color = exports.Vector4 = exports.Vector3 = exports.Vector2 = exports.Debug = exports.DefaultAirDensity = exports.DefaultGravity = exports.MaxSafeInt = exports.MinSafeInt = exports.MaxInt32 = exports.MinInt32 = exports.QuarterPI = exports.HalfPI = exports.TwoPI = exports.PI = exports.InfinityValue = exports.Epsilon = exports.RadiansToDegrees = exports.DegreesToRadians = exports.PixelsPerMeter = exports.HSLToRGB = exports.RGBToHex = exports.HexToRGB = exports.RGBToHSL = exports.ConvertByteArrayToHex = exports.ConvertHexToByteArray = exports.RandomUnitVector3D = exports.RandomUnitVector2D = exports.RandomNormal = exports.RandomItem = exports.RandomIntegerInRange = exports.RandomFloatInRange = exports.RandomBoolean = exports.CalculateVectorDistance = exports.CalculateVectorAngle = exports.CalculateIntersection = exports.CalculateDirection = exports.CalculateAverageArrayValue = exports.FluexGL = void 0;
+exports.Thread = exports.WebGPURendererScene = exports.PerspectiveCamera = exports.Camera = exports.Renderable = exports.WebGPURenderer = exports.SimpleTriangle = exports.Color = exports.Vector4 = exports.Vector3 = exports.Vector2 = exports.Debug = exports.DefaultAirDensity = exports.DefaultGravity = exports.MaxSafeInt = exports.MinSafeInt = exports.MaxInt32 = exports.MinInt32 = exports.QuarterPI = exports.HalfPI = exports.TwoPI = exports.PI = exports.InfinityValue = exports.Epsilon = exports.RadiansToDegrees = exports.DegreesToRadians = exports.PixelsPerMeter = exports.HSLToRGB = exports.RGBToHex = exports.HexToRGB = exports.RGBToHSL = exports.ConvertByteArrayToHex = exports.ConvertHexToByteArray = exports.RandomUnitVector3D = exports.RandomUnitVector2D = exports.RandomNormal = exports.RandomItem = exports.RandomIntegerInRange = exports.RandomFloatInRange = exports.RandomBoolean = exports.CalculateVectorDistance = exports.CalculateVectorAngle = exports.CalculateIntersection = exports.CalculateDirection = exports.CalculateAverageArrayValue = exports.FluexGL = void 0;
 exports.FluexGL = {
     name: "FluexGL",
     author: "Rohan Kanhaisingh",
@@ -96,10 +113,16 @@ Object.defineProperty(exports, "Vector3", ({ enumerable: true, get: function () 
 Object.defineProperty(exports, "Vector4", ({ enumerable: true, get: function () { return exports_1.Vector4; } }));
 Object.defineProperty(exports, "Color", ({ enumerable: true, get: function () { return exports_1.Color; } }));
 var exports_2 = __webpack_require__(15);
-Object.defineProperty(exports, "WebGPURenderer", ({ enumerable: true, get: function () { return exports_2.WebGPURenderer; } }));
+Object.defineProperty(exports, "SimpleTriangle", ({ enumerable: true, get: function () { return exports_2.SimpleTriangle; } }));
 var exports_3 = __webpack_require__(17);
-Object.defineProperty(exports, "Scene", ({ enumerable: true, get: function () { return exports_3.Scene; } }));
-Object.defineProperty(exports, "Thread", ({ enumerable: true, get: function () { return exports_3.Thread; } }));
+Object.defineProperty(exports, "WebGPURenderer", ({ enumerable: true, get: function () { return exports_3.WebGPURenderer; } }));
+Object.defineProperty(exports, "Renderable", ({ enumerable: true, get: function () { return exports_3.Renderable; } }));
+var exports_4 = __webpack_require__(45);
+Object.defineProperty(exports, "Camera", ({ enumerable: true, get: function () { return exports_4.Camera; } }));
+Object.defineProperty(exports, "PerspectiveCamera", ({ enumerable: true, get: function () { return exports_4.PerspectiveCamera; } }));
+var exports_5 = __webpack_require__(41);
+Object.defineProperty(exports, "WebGPURendererScene", ({ enumerable: true, get: function () { return exports_5.WebGPURendererScene; } }));
+Object.defineProperty(exports, "Thread", ({ enumerable: true, get: function () { return exports_5.Thread; } }));
 
 
 /***/ }),
@@ -267,6 +290,14 @@ var ErrorCodes;
     ErrorCodes["WGPUR_INVALID_DPR_VALUE"] = "#FLUENTGL_ERROR_0007";
     ErrorCodes["WGPUR_DEVICE_UNCAPTURED_ERROR"] = "#FLUENTGL_ERROR_0008";
     ErrorCodes["WGPUR_DEVICE_LOST_ERROR"] = "#FLUENTGL_ERROR_0009";
+    ErrorCodes["WGPUR_DEVICE_UNDEFINED"] = "#FLUENTGL_ERROR_0010";
+    ErrorCodes["WGPUR_CONTEXT_UNDEFINED"] = "#FLUENTGL_ERROR_0011";
+    ErrorCodes["RENDERABLE_VERTEX_BUFFER_UNDEFINED"] = "#FLUENTGL_ERROR_12";
+    ErrorCodes["WGPURSCENE_RENDERER_NOT_INITIALIZED"] = "#FLUENTGL_ERROR_13";
+    ErrorCodes["CAM_UNIFORM_BUFFER_UNDEFINED"] = "#FLUENTGL_ERROR_14";
+    ErrorCodes["WGPUR_SCENE_NOT_PREPARED"] = "#FLUENTGL_ERROR_15";
+    ErrorCodes["WGPUR_DEPTH_TEXTURE_VALIDATION_ERROR"] = "#FLUENTGL_ERROR_16";
+    ErrorCodes["WGPUR_MSAA_TEXTURE_VALIDATION_ERROR"] = "#FLUENTGL_ERROR_17";
 })(ErrorCodes = exports.ErrorCodes || (exports.ErrorCodes = {}));
 
 
@@ -1024,19 +1055,109 @@ exports.Color = Color;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.WebGPURenderer = void 0;
-var WebGPURenderer_1 = __webpack_require__(16);
-Object.defineProperty(exports, "WebGPURenderer", ({ enumerable: true, get: function () { return WebGPURenderer_1.WebGPURenderer; } }));
+exports.SimpleTriangle = void 0;
+var SimpleTriangle_1 = __webpack_require__(16);
+Object.defineProperty(exports, "SimpleTriangle", ({ enumerable: true, get: function () { return SimpleTriangle_1.SimpleTriangle; } }));
 
 
 /***/ }),
 /* 16 */
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.SimpleTriangle = void 0;
+const codes_1 = __webpack_require__(6);
+const exports_1 = __webpack_require__(17);
+const SimpleTriangle_wgsl_1 = __importDefault(__webpack_require__(44));
+const exports_2 = __webpack_require__(4);
+class SimpleTriangle extends exports_1.Renderable {
+    async Initialize(device, format, sampleCount) {
+        this.shader = SimpleTriangle_wgsl_1.default;
+        const msaa = Math.max(1, sampleCount | 0);
+        const module = device.createShaderModule({ code: SimpleTriangle_wgsl_1.default, label: "SimpleTriangle.wgsl" });
+        await device.pushErrorScope("validation");
+        this.pipeline = device.createRenderPipeline({
+            label: "SimpleTriangle-Pipeline",
+            layout: "auto",
+            vertex: {
+                module,
+                entryPoint: "vertexShaderMain",
+                buffers: [{
+                        arrayStride: 8,
+                        attributes: [{ shaderLocation: 0, offset: 0, format: "float32x2" }],
+                    }],
+            },
+            fragment: {
+                module,
+                entryPoint: "fragmentShaderMain",
+                targets: [{ format }],
+            },
+            primitive: { topology: "triangle-list", cullMode: "none", frontFace: "ccw" },
+            depthStencil: {
+                format: "depth24plus",
+                depthWriteEnabled: true,
+                depthCompare: "less",
+            },
+            multisample: { count: msaa },
+        });
+        const err = await device.popErrorScope();
+        if (err) {
+            console.error("[SimpleTriangle] Pipeline validation error:", err);
+            throw err;
+        }
+        const vertices = new Float32Array([
+            0.0, 0.7,
+            -0.7, -0.7,
+            0.7, -0.7,
+        ]);
+        this.vertexBuffer = device.createBuffer({
+            label: "SimpleTriangle-VertexBuffer",
+            size: vertices.byteLength,
+            usage: GPUBufferUsage.VERTEX | GPUBufferUsage.COPY_DST,
+        });
+        device.queue.writeBuffer(this.vertexBuffer, 0, vertices);
+    }
+    Render(pass) {
+        pass.setPipeline(this.pipeline);
+        pass.setVertexBuffer(0, this.vertexBuffer);
+        pass.draw(3, 1, 0, 0);
+    }
+    Dispose() {
+        if (!this.vertexBuffer)
+            return exports_2.Debug.Error("Could not destroy vertex buffer because it is undefined", [
+                `Renderable ID ${this.id}`
+            ], codes_1.ErrorCodes.RENDERABLE_VERTEX_BUFFER_UNDEFINED);
+        this.vertexBuffer.destroy();
+    }
+}
+exports.SimpleTriangle = SimpleTriangle;
+
+
+/***/ }),
+/* 17 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Renderable = exports.WebGPURenderer = void 0;
+var WebGPURenderer_1 = __webpack_require__(18);
+Object.defineProperty(exports, "WebGPURenderer", ({ enumerable: true, get: function () { return WebGPURenderer_1.WebGPURenderer; } }));
+var Renderable_1 = __webpack_require__(40);
+Object.defineProperty(exports, "Renderable", ({ enumerable: true, get: function () { return Renderable_1.Renderable; } }));
+
+
+/***/ }),
+/* 18 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.WebGPURenderer = void 0;
-const uuid_1 = __webpack_require__(20);
+const uuid_1 = __webpack_require__(19);
 const codes_1 = __webpack_require__(6);
 const exports_1 = __webpack_require__(4);
 class WebGPURenderer {
@@ -1045,6 +1166,7 @@ class WebGPURenderer {
     height = 0;
     devicePixelRatio = window.devicePixelRatio || 1;
     id = (0, uuid_1.v4)();
+    hasInitialized = false;
     constructor(options = {}) {
         this.options = options;
         this.canvas = document.createElement("canvas");
@@ -1146,78 +1268,266 @@ class WebGPURenderer {
         this.gpuDevice = device;
         this.context = this.canvas.getContext("webgpu");
         this.format = this.options.format ?? navigator.gpu.getPreferredCanvasFormat();
+        this.configureContext();
         this.SetDevicePixelRatio(this.options.devicePixelRatio ?? (window.devicePixelRatio || 1));
+        this.applySizeChanges();
+        this.hasInitialized = true;
         return this;
+    }
+    BeginFrame() {
+        const clear = this.options.clearColor ?? { r: 0, g: 0, b: 0, a: 1 };
+        const currentTextureView = this.context.getCurrentTexture().createView();
+        const encoder = this.gpuDevice.createCommandEncoder({
+            label: "FluexGL-WebGPURenderer-CommandEncoder-" + this.id
+        });
+        const msaa = this.getMsaa();
+        let colorAttachment;
+        if (msaa > 1) {
+            colorAttachment = {
+                view: this.msaaTextureView,
+                resolveTarget: currentTextureView,
+                clearValue: clear,
+                loadOp: "clear",
+                storeOp: "store",
+            };
+        }
+        else {
+            colorAttachment = {
+                view: currentTextureView,
+                clearValue: clear,
+                loadOp: "clear",
+                storeOp: "store",
+            };
+        }
+        const pass = encoder.beginRenderPass({
+            label: "FluexGL-WebGPURenderer-RenderPass-" + this.id,
+            colorAttachments: [colorAttachment],
+            depthStencilAttachment: {
+                view: this.depthTextureView,
+                depthClearValue: 1.0,
+                depthLoadOp: "clear",
+                depthStoreOp: "store",
+            },
+        });
+        return { encoder, pass, colorView: currentTextureView };
+    }
+    EndFrame(frameInfo) {
+        frameInfo.pass.end();
+        this.gpuDevice.queue.submit([frameInfo.encoder.finish()]);
+    }
+    Dispose() {
+        this.depthTexture && this.depthTexture.destroy();
+        this.msaaTexture && this.msaaTexture.destroy();
+    }
+    Render(scene, camera) {
+        if (!scene.hasPrepared)
+            return exports_1.Debug.Error("Could not render because the renderable objects in the scene has not been prepared.", [
+                "Make sure to call 'await <WebGPURendererScene>.Prepare()' before calling this method."
+            ], codes_1.ErrorCodes.WGPUR_SCENE_NOT_PREPARED);
+        if (!this.gpuDevice.queue)
+            return;
+        camera.WriteUniformsToQueue(this.gpuDevice.queue);
+        const frame = this.BeginFrame();
+        frame.pass.setBindGroup(0, camera.bindGroup);
+        for (let i = 0; i < scene.rendererables.length; i++) {
+            const renderable = scene.rendererables[i];
+            const cameraViewProjectionCast = camera.viewProjection;
+            renderable.Render(frame.pass, cameraViewProjectionCast);
+        }
+        this.EndFrame(frame);
     }
     applySizeChanges() {
         const width = this.options.canvasWidth ?? this.canvas.clientWidth ?? 800;
         const height = this.options.canvasHeight ?? this.canvas.clientHeight ?? 600;
         this.SetSize(width, height);
     }
-    createOrResizeTargets() {
-        this.depthTexture && this.depthTexture.destroy();
-        this.msaaTexture && this.msaaTexture.destroy();
+    async createOrResizeTargets() {
+        this.depthTexture?.destroy();
+        this.msaaTexture?.destroy();
+        if (!this.gpuDevice)
+            return;
+        const width = Math.max(1, this.width | 0), height = Math.max(1, this.height | 0);
+        const msaa = this.getMsaa();
+        await this.gpuDevice.pushErrorScope("validation");
         this.depthTexture = this.gpuDevice.createTexture({
-            size: {
-                width: this.width,
-                height: this.height,
-            },
-            format: this.options.depthFormat ?? "depth24plus",
+            size: { width, height },
+            format: "depth24plus",
+            sampleCount: msaa,
             usage: GPUTextureUsage.RENDER_ATTACHMENT,
-            label: "FluexGL-WebGPURenderer-DepthTexture-" + this.id
+            label: `FluexGL-WebGPURenderer-DepthTexture-${this.id}`,
         });
         this.depthTextureView = this.depthTexture.createView();
-        const msaaSampleCount = this.options.msaaSampleCount ?? 4;
-        if (msaaSampleCount < 1)
-            return;
-        this.msaaTexture = this.gpuDevice.createTexture({
-            size: {
-                width: this.width,
-                height: this.height,
-            },
+        let err = await this.gpuDevice.popErrorScope();
+        if (err)
+            return exports_1.Debug.Error("Depth texture validation error", [
+                err.message
+            ], codes_1.ErrorCodes.WGPUR_DEPTH_TEXTURE_VALIDATION_ERROR);
+        if (msaa > 1) {
+            await this.gpuDevice.pushErrorScope("validation");
+            this.msaaTexture = this.gpuDevice.createTexture({
+                size: { width, height },
+                format: this.format,
+                sampleCount: msaa,
+                usage: GPUTextureUsage.RENDER_ATTACHMENT,
+                label: `FluexGL-WebGPURenderer-MSAATexture-${this.id}`,
+            });
+            this.msaaTextureView = this.msaaTexture.createView();
+            err = await this.gpuDevice.popErrorScope();
+            if (err) {
+                this.options.msaaSampleCount = 1;
+                this.msaaTexture = undefined;
+                this.msaaTextureView = undefined;
+                exports_1.Debug.Error("MSAA texture validation error.", [
+                    err.message
+                ], codes_1.ErrorCodes.WGPUR_MSAA_TEXTURE_VALIDATION_ERROR);
+            }
+        }
+        else {
+            this.msaaTexture = undefined;
+            this.msaaTextureView = undefined;
+        }
+    }
+    configureContext() {
+        if (!this.gpuDevice)
+            return exports_1.Debug.Error("WebGPURenderer: Cannot configure context because GPU device is undefined.", [
+                "At configuring context."
+            ], codes_1.ErrorCodes.WGPUR_DEVICE_UNDEFINED);
+        const configuration = {
+            device: this.gpuDevice,
             format: this.format,
-            usage: GPUTextureUsage.RENDER_ATTACHMENT,
-            sampleCount: msaaSampleCount,
-            label: "FluexGL-WebGPURenderer-MSAATexture-" + this.id
-        });
+            alphaMode: this.options.alphaMode ?? "premultiplied",
+            colorSpace: this.options.colorSpace ?? "srgb",
+        };
+        if (!this.context)
+            return exports_1.Debug.Error("WebGPURenderer: Cannot configure context because GPU canvas context is undefined.", [
+                "At configuring context."
+            ], codes_1.ErrorCodes.WGPUR_CONTEXT_UNDEFINED);
+        this.context.configure(configuration);
+        return exports_1.Debug.Log("WebGPURenderer: Successfully configured GPU canvas context.", [
+            "Configuration: " + JSON.stringify(configuration)
+        ]);
+    }
+    getMsaa() {
+        const n = this.options.msaaSampleCount ?? 1;
+        return (n === 1 || n === 2 || n === 4 || n === 8) ? n : 1;
     }
 }
 exports.WebGPURenderer = WebGPURenderer;
 
 
 /***/ }),
-/* 17 */
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */,
+/* 31 */,
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Thread = exports.Scene = void 0;
-var Scene_1 = __webpack_require__(18);
-Object.defineProperty(exports, "Scene", ({ enumerable: true, get: function () { return Scene_1.Scene; } }));
-var Thread_1 = __webpack_require__(19);
+exports.Renderable = void 0;
+const uuid_1 = __webpack_require__(19);
+class Renderable {
+    isRenderable = true;
+    id = (0, uuid_1.v4)();
+    shader = "";
+}
+exports.Renderable = Renderable;
+
+
+/***/ }),
+/* 41 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Thread = exports.WebGPURendererScene = void 0;
+var WebGPURendererScene_1 = __webpack_require__(42);
+Object.defineProperty(exports, "WebGPURendererScene", ({ enumerable: true, get: function () { return WebGPURendererScene_1.WebGPURendererScene; } }));
+var Thread_1 = __webpack_require__(43);
 Object.defineProperty(exports, "Thread", ({ enumerable: true, get: function () { return Thread_1.Thread; } }));
 
 
 /***/ }),
-/* 18 */
-/***/ ((__unused_webpack_module, exports) => {
+/* 42 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Scene = void 0;
-class Scene {
+exports.WebGPURendererScene = void 0;
+const uuid_1 = __webpack_require__(19);
+const exports_1 = __webpack_require__(4);
+const codes_1 = __webpack_require__(6);
+class WebGPURendererScene {
+    renderer;
+    rendererables = [];
+    id = (0, uuid_1.v4)();
+    hasPrepared = false;
+    constructor(renderer) {
+        this.renderer = renderer;
+    }
+    AddRenderable(renderable) {
+        if (renderable.isRenderable) {
+            this.rendererables.push(renderable);
+        }
+    }
+    RemoveRenderable(renderable) {
+        const index = this.rendererables.indexOf(renderable);
+        if (index > -1) {
+            this.rendererables.splice(index, 1);
+        }
+    }
+    ClearRenderables() {
+        this.rendererables = [];
+    }
+    async Prepare(camera) {
+        if (!this.renderer.hasInitialized)
+            return exports_1.Debug.Error("Could not prepare the scene because the renderer has not been initialized.", [
+                "Make sure to call 'await [name of renderer].Initialize()' before preparing the scene."
+            ], codes_1.ErrorCodes.WGPURSCENE_RENDERER_NOT_INITIALIZED);
+        const startTimestamp = Date.now();
+        const renderer = this.renderer, rendererables = this.rendererables, amountOfRenderables = rendererables.length;
+        for (let i = 0; i < amountOfRenderables; i++) {
+            const renderable = rendererables[i];
+            await renderable.Initialize(renderer.gpuDevice, renderer.format, renderer.options.msaaSampleCount ?? 1);
+        }
+        camera.EnsureBinding(this.renderer.gpuDevice);
+        const stopTimestamp = Date.now(), timeDifferenceInMs = stopTimestamp - startTimestamp;
+        this.hasPrepared = true;
+        return exports_1.Debug.Log("Succesfully prepared renderables.", [
+            `Amount of renderables: ${amountOfRenderables}`,
+            `Prepared in ${timeDifferenceInMs} milliseconds.`
+        ]);
+    }
 }
-exports.Scene = Scene;
+exports.WebGPURendererScene = WebGPURendererScene;
 
 
 /***/ }),
-/* 19 */
+/* 43 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Thread = void 0;
-const uuid_1 = __webpack_require__(20);
+const uuid_1 = __webpack_require__(19);
 const console_1 = __webpack_require__(10);
 const codes_1 = __webpack_require__(6);
 class Thread {
@@ -1357,11 +1667,182 @@ class Thread {
 exports.Thread = Thread;
 
 
+/***/ }),
+/* 44 */
+/***/ ((module) => {
+
+module.exports = "struct VertexShaderOutput {\r\n    @builtin(position) position: vec4f\r\n}\r\n\r\n@vertex fn vertexShaderMain(@location(0) position: vec2f) -> VertexShaderOutput {\r\n    \r\n    var output: VertexShaderOutput;\r\n\r\n    output.position = vec4f(position, 0, 1);\r\n    return output;\r\n}\r\n\r\n@fragment fn fragmentShaderMain() -> @location(0) vec4f {\r\n    return vec4f(0.9, 0.3, 0.2, 1);\r\n}";
+
+/***/ }),
+/* 45 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PerspectiveCamera = exports.Camera = void 0;
+var Camera_1 = __webpack_require__(57);
+Object.defineProperty(exports, "Camera", ({ enumerable: true, get: function () { return Camera_1.Camera; } }));
+var PerspectiveCamera_1 = __webpack_require__(58);
+Object.defineProperty(exports, "PerspectiveCamera", ({ enumerable: true, get: function () { return PerspectiveCamera_1.PerspectiveCamera; } }));
+
+
+/***/ }),
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Camera = void 0;
+const gl_matrix_1 = __webpack_require__(46);
+const uuid_1 = __webpack_require__(19);
+const exports_1 = __webpack_require__(4);
+const codes_1 = __webpack_require__(6);
+class Camera {
+    id = (0, uuid_1.v4)();
+    position = new exports_1.Vector3(0, 0, 0);
+    target = new exports_1.Vector3(0, 0, 0);
+    up = new exports_1.Vector3(0, 1, 0);
+    aspect = 1;
+    view = gl_matrix_1.mat4.create();
+    projection = gl_matrix_1.mat4.create();
+    viewProjection = gl_matrix_1.mat4.create();
+    SetAspect(aspect) {
+        this.aspect = Math.max(1e-6, aspect);
+        this.updateMatrices();
+    }
+    SetPosition(x, y, z) {
+        (x instanceof exports_1.Vector3)
+            ? this.position = x
+            : this.position.Set(x, y ?? this.position.x, z ?? this.position.y);
+        return this.updateMatrices();
+    }
+    LookAt(x, y, z) {
+        (x instanceof exports_1.Vector3)
+            ? this.target = x
+            : this.target.Set(x, y ?? this.target.x, z ?? this.target.y);
+        return this.updateMatrices();
+    }
+    CreateUniformBuffer(device) {
+        if (this.uniformBuffer)
+            return this.uniformBuffer;
+        this.uniformBuffer = device.createBuffer({
+            size: 80,
+            usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
+            label: "CameraUniformBuffer-" + this.id
+        });
+        return this.uniformBuffer;
+    }
+    WriteUniformsToQueue(queue) {
+        if (!this.uniformBuffer)
+            return exports_1.Debug.Error("Could not write uniform buffer to queue, because the buffer is undefined.", [], codes_1.ErrorCodes.CAM_UNIFORM_BUFFER_UNDEFINED);
+        const viewProjectionCast = this.viewProjection;
+        const positionArrayBuffer = gl_matrix_1.vec3.fromValues(this.position.x, this.position.y, this.position.z), positionArrayBufferCast = positionArrayBuffer;
+        queue.writeBuffer(this.uniformBuffer, 0, viewProjectionCast);
+        queue.writeBuffer(this.uniformBuffer, 64, positionArrayBufferCast);
+        return this;
+    }
+    EnsureBinding(device) {
+        if (!this.bindGroupLayout)
+            this.bindGroupLayout = device.createBindGroupLayout({
+                label: "CameraBindGroupLayout",
+                entries: [
+                    {
+                        binding: 0,
+                        visibility: GPUShaderStage.VERTEX | GPUShaderStage.FRAGMENT,
+                        buffer: {
+                            type: "uniform"
+                        }
+                    }
+                ]
+            });
+        if (!this.bindGroup) {
+            const uniformBuffer = this.CreateUniformBuffer(device);
+            this.bindGroup = device.createBindGroup({
+                label: "CameraBindGroup",
+                layout: this.bindGroupLayout,
+                entries: [
+                    {
+                        binding: 0,
+                        resource: {
+                            buffer: uniformBuffer
+                        }
+                    }
+                ]
+            });
+        }
+        this.updateMatrices();
+        return this.bindGroupLayout;
+    }
+    updateMatrices() {
+        const position = gl_matrix_1.vec3.fromValues(this.position.x, this.position.y, this.position.z), target = gl_matrix_1.vec3.fromValues(this.target.x, this.target.y, this.target.z), up = gl_matrix_1.vec3.fromValues(this.up.x, this.up.y, this.up.z);
+        gl_matrix_1.mat4.lookAt(this.view, position, target, up);
+        this.updateProjection();
+        gl_matrix_1.mat4.multiply(this.viewProjection, this.projection, this.view);
+        return this;
+    }
+}
+exports.Camera = Camera;
+
+
+/***/ }),
+/* 58 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PerspectiveCamera = void 0;
+const gl_matrix_1 = __webpack_require__(46);
+const Camera_1 = __webpack_require__(57);
+class PerspectiveCamera extends Camera_1.Camera {
+    fieldOfViewDegrees;
+    aspect;
+    near;
+    far;
+    constructor(fieldOfViewDegrees = 60, aspect = 1, near = 0.1, far = 1000) {
+        super();
+        this.fieldOfViewDegrees = fieldOfViewDegrees;
+        this.aspect = aspect;
+        this.near = near;
+        this.far = far;
+        this.updateMatrices();
+    }
+    SetFieldOfViewInDegrees(degrees) {
+        this.fieldOfViewDegrees = Math.max(1, Math.min(179, degrees));
+        return this.updateMatrices();
+    }
+    SetNear(near) {
+        this.near = Math.max(1e-4, near);
+        return this.updateMatrices();
+    }
+    SetFar(far) {
+        this.far = Math.max(this.near + 1e-3, far);
+        return this.updateMatrices();
+    }
+    updateProjection() {
+        const verticalFieldOfView = gl_matrix_1.glMatrix.toRadian(this.fieldOfViewDegrees);
+        gl_matrix_1.mat4.perspective(this.projection, verticalFieldOfView, this.aspect, this.near, this.far);
+        return this;
+    }
+}
+exports.PerspectiveCamera = PerspectiveCamera;
+
+
 /***/ })
 ],
 /******/ __webpack_require__ => { // webpackRuntimeModules
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ __webpack_require__.O(0, [2], () => (__webpack_exec__(0)));
+/******/ __webpack_require__.O(0, [4,5,2], () => (__webpack_exec__(0)));
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
