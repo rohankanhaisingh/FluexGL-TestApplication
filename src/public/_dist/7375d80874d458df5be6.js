@@ -26,26 +26,50 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const index_1 = __webpack_require__(3);
 index_1.FluexGL.options.debugger.breakOnError = true;
 (async function () {
-    const renderer = new index_1.WebGPURenderer({
-        msaaSampleCount: 4,
-    });
+    const renderer = new index_1.WebGPURenderer({ msaaSampleCount: 4 });
     const scene = new index_1.WebGPURendererScene(renderer);
-    const camera = new index_1.PerspectiveCamera(innerWidth / innerHeight);
     const thread = new index_1.Thread();
+    const camera = new index_1.PerspectiveCamera(innerWidth / innerHeight);
+    camera.SetPosition(0, 0, 3);
+    camera.LookAt(0, 1, 0);
     renderer.AppendCanvasToElement(document.querySelector(".scene-wrapper"));
     renderer.SetCanvasSizeRelativeToWindow(0, true);
     await renderer.Initialize();
-    const triangle = new index_1.SimpleTriangle();
-    scene.AddRenderable(triangle);
+    const cube = new index_1.CubeGeometry();
+    scene.AddRenderable(cube);
     await scene.Prepare(camera);
+    let t = 0;
     thread.AddEventListener("update", function () {
         try {
+            t += 0.016;
+            const c = Math.cos(t), s = Math.sin(t);
+            const model = new Float32Array([
+                c, 0, s, 0,
+                0, 1, 0, 0,
+                -s, 0, c, 0,
+                0, 0, 0, 1,
+            ]);
+            const vp = camera.viewProjection;
+            const mvp = new Float32Array(16);
+            for (let r = 0; r < 4; r++) {
+                for (let k = 0; k < 4; k++) {
+                    let sum = 0;
+                    for (let i = 0; i < 4; i++)
+                        sum += vp[i * 4 + r] * model[k * 4 + i];
+                    mvp[k * 4 + r] = sum;
+                }
+            }
+            cube.UpdateUniforms(renderer.gpuDevice, mvp);
             renderer.Render(scene, camera);
         }
         catch (err) {
             thread.Stop();
-            console.log(err);
+            console.error(err);
         }
+    });
+    addEventListener("resize", () => {
+        renderer.SetCanvasSizeRelativeToWindow(0, true);
+        camera.SetAspect?.(innerWidth / innerHeight);
     });
     thread.Start();
 })();
@@ -57,7 +81,7 @@ index_1.FluexGL.options.debugger.breakOnError = true;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Thread = exports.WebGPURendererScene = exports.PerspectiveCamera = exports.Camera = exports.Renderable = exports.WebGPURenderer = exports.SimpleTriangle = exports.Color = exports.Vector4 = exports.Vector3 = exports.Vector2 = exports.Debug = exports.DefaultAirDensity = exports.DefaultGravity = exports.MaxSafeInt = exports.MinSafeInt = exports.MaxInt32 = exports.MinInt32 = exports.QuarterPI = exports.HalfPI = exports.TwoPI = exports.PI = exports.InfinityValue = exports.Epsilon = exports.RadiansToDegrees = exports.DegreesToRadians = exports.PixelsPerMeter = exports.HSLToRGB = exports.RGBToHex = exports.HexToRGB = exports.RGBToHSL = exports.ConvertByteArrayToHex = exports.ConvertHexToByteArray = exports.RandomUnitVector3D = exports.RandomUnitVector2D = exports.RandomNormal = exports.RandomItem = exports.RandomIntegerInRange = exports.RandomFloatInRange = exports.RandomBoolean = exports.CalculateVectorDistance = exports.CalculateVectorAngle = exports.CalculateIntersection = exports.CalculateDirection = exports.CalculateAverageArrayValue = exports.FluexGL = void 0;
+exports.Thread = exports.WebGPURendererScene = exports.PerspectiveCamera = exports.Camera = exports.Renderable = exports.WebGPURenderer = exports.CubeGeometry = exports.SimpleTriangle = exports.Color = exports.Vector4 = exports.Vector3 = exports.Vector2 = exports.Debug = exports.DefaultAirDensity = exports.DefaultGravity = exports.MaxSafeInt = exports.MinSafeInt = exports.MaxInt32 = exports.MinInt32 = exports.QuarterPI = exports.HalfPI = exports.TwoPI = exports.PI = exports.InfinityValue = exports.Epsilon = exports.RadiansToDegrees = exports.DegreesToRadians = exports.PixelsPerMeter = exports.HSLToRGB = exports.RGBToHex = exports.HexToRGB = exports.RGBToHSL = exports.ConvertByteArrayToHex = exports.ConvertHexToByteArray = exports.RandomUnitVector3D = exports.RandomUnitVector2D = exports.RandomNormal = exports.RandomItem = exports.RandomIntegerInRange = exports.RandomFloatInRange = exports.RandomBoolean = exports.CalculateVectorDistance = exports.CalculateVectorAngle = exports.CalculateIntersection = exports.CalculateDirection = exports.CalculateAverageArrayValue = exports.FluexGL = void 0;
 exports.FluexGL = {
     name: "FluexGL",
     author: "Rohan Kanhaisingh",
@@ -114,13 +138,14 @@ Object.defineProperty(exports, "Vector4", ({ enumerable: true, get: function () 
 Object.defineProperty(exports, "Color", ({ enumerable: true, get: function () { return exports_1.Color; } }));
 var exports_2 = __webpack_require__(15);
 Object.defineProperty(exports, "SimpleTriangle", ({ enumerable: true, get: function () { return exports_2.SimpleTriangle; } }));
+Object.defineProperty(exports, "CubeGeometry", ({ enumerable: true, get: function () { return exports_2.CubeGeometry; } }));
 var exports_3 = __webpack_require__(17);
 Object.defineProperty(exports, "WebGPURenderer", ({ enumerable: true, get: function () { return exports_3.WebGPURenderer; } }));
 Object.defineProperty(exports, "Renderable", ({ enumerable: true, get: function () { return exports_3.Renderable; } }));
-var exports_4 = __webpack_require__(45);
+var exports_4 = __webpack_require__(46);
 Object.defineProperty(exports, "Camera", ({ enumerable: true, get: function () { return exports_4.Camera; } }));
 Object.defineProperty(exports, "PerspectiveCamera", ({ enumerable: true, get: function () { return exports_4.PerspectiveCamera; } }));
-var exports_5 = __webpack_require__(41);
+var exports_5 = __webpack_require__(60);
 Object.defineProperty(exports, "WebGPURendererScene", ({ enumerable: true, get: function () { return exports_5.WebGPURendererScene; } }));
 Object.defineProperty(exports, "Thread", ({ enumerable: true, get: function () { return exports_5.Thread; } }));
 
@@ -1055,9 +1080,11 @@ exports.Color = Color;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.SimpleTriangle = void 0;
+exports.CubeGeometry = exports.SimpleTriangle = void 0;
 var SimpleTriangle_1 = __webpack_require__(16);
 Object.defineProperty(exports, "SimpleTriangle", ({ enumerable: true, get: function () { return SimpleTriangle_1.SimpleTriangle; } }));
+var CubeGeometry_1 = __webpack_require__(42);
+Object.defineProperty(exports, "CubeGeometry", ({ enumerable: true, get: function () { return CubeGeometry_1.CubeGeometry; } }));
 
 
 /***/ }),
@@ -1072,7 +1099,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SimpleTriangle = void 0;
 const codes_1 = __webpack_require__(6);
 const exports_1 = __webpack_require__(17);
-const SimpleTriangle_wgsl_1 = __importDefault(__webpack_require__(44));
+const SimpleTriangle_wgsl_1 = __importDefault(__webpack_require__(41));
 const exports_2 = __webpack_require__(4);
 class SimpleTriangle extends exports_1.Renderable {
     async Initialize(device, format, sampleCount) {
@@ -1278,25 +1305,31 @@ class WebGPURenderer {
         const clear = this.options.clearColor ?? { r: 0, g: 0, b: 0, a: 1 };
         const currentTextureView = this.context.getCurrentTexture().createView();
         const encoder = this.gpuDevice.createCommandEncoder({
-            label: "FluexGL-WebGPURenderer-CommandEncoder-" + this.id
+            label: "FluexGL-WebGPURenderer-CommandEncoder-" + this.id,
         });
-        const msaa = this.getMsaa();
+        const msaa = Math.max(1, this.options.msaaSampleCount ?? 1);
         let colorAttachment;
+        if (!this.depthTextureView) {
+            this.createOrResizeTargets();
+        }
         if (msaa > 1) {
+            if (!this.msaaTextureView) {
+                this.createOrResizeTargets();
+            }
             colorAttachment = {
                 view: this.msaaTextureView,
                 resolveTarget: currentTextureView,
-                clearValue: clear,
                 loadOp: "clear",
                 storeOp: "store",
+                clearValue: clear,
             };
         }
         else {
             colorAttachment = {
                 view: currentTextureView,
-                clearValue: clear,
                 loadOp: "clear",
                 storeOp: "store",
+                clearValue: clear,
             };
         }
         const pass = encoder.beginRenderPass({
@@ -1304,9 +1337,9 @@ class WebGPURenderer {
             colorAttachments: [colorAttachment],
             depthStencilAttachment: {
                 view: this.depthTextureView,
-                depthClearValue: 1.0,
                 depthLoadOp: "clear",
                 depthStoreOp: "store",
+                depthClearValue: 1.0,
             },
         });
         return { encoder, pass, colorView: currentTextureView };
@@ -1341,14 +1374,14 @@ class WebGPURenderer {
         const height = this.options.canvasHeight ?? this.canvas.clientHeight ?? 600;
         this.SetSize(width, height);
     }
-    async createOrResizeTargets() {
+    createOrResizeTargets() {
         this.depthTexture?.destroy();
         this.msaaTexture?.destroy();
         if (!this.gpuDevice)
             return;
-        const width = Math.max(1, this.width | 0), height = Math.max(1, this.height | 0);
+        const width = Math.max(1, this.width | 0);
+        const height = Math.max(1, this.height | 0);
         const msaa = this.getMsaa();
-        await this.gpuDevice.pushErrorScope("validation");
         this.depthTexture = this.gpuDevice.createTexture({
             size: { width, height },
             format: "depth24plus",
@@ -1357,13 +1390,7 @@ class WebGPURenderer {
             label: `FluexGL-WebGPURenderer-DepthTexture-${this.id}`,
         });
         this.depthTextureView = this.depthTexture.createView();
-        let err = await this.gpuDevice.popErrorScope();
-        if (err)
-            return exports_1.Debug.Error("Depth texture validation error", [
-                err.message
-            ], codes_1.ErrorCodes.WGPUR_DEPTH_TEXTURE_VALIDATION_ERROR);
         if (msaa > 1) {
-            await this.gpuDevice.pushErrorScope("validation");
             this.msaaTexture = this.gpuDevice.createTexture({
                 size: { width, height },
                 format: this.format,
@@ -1372,15 +1399,6 @@ class WebGPURenderer {
                 label: `FluexGL-WebGPURenderer-MSAATexture-${this.id}`,
             });
             this.msaaTextureView = this.msaaTexture.createView();
-            err = await this.gpuDevice.popErrorScope();
-            if (err) {
-                this.options.msaaSampleCount = 1;
-                this.msaaTexture = undefined;
-                this.msaaTextureView = undefined;
-                exports_1.Debug.Error("MSAA texture validation error.", [
-                    err.message
-                ], codes_1.ErrorCodes.WGPUR_MSAA_TEXTURE_VALIDATION_ERROR);
-            }
         }
         else {
             this.msaaTexture = undefined;
@@ -1454,19 +1472,347 @@ exports.Renderable = Renderable;
 
 /***/ }),
 /* 41 */
+/***/ ((module) => {
+
+module.exports = "struct VertexShaderOutput {\r\n    @builtin(position) position: vec4f\r\n}\r\n\r\n@vertex fn vertexShaderMain(@location(0) position: vec2f) -> VertexShaderOutput {\r\n    \r\n    var output: VertexShaderOutput;\r\n\r\n    output.position = vec4f(position, 0, 1);\r\n    return output;\r\n}\r\n\r\n@fragment fn fragmentShaderMain() -> @location(0) vec4f {\r\n    return vec4f(0.9, 0.3, 0.2, 1);\r\n}";
+
+/***/ }),
+/* 42 */
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CubeGeometry = void 0;
+const exports_1 = __webpack_require__(17);
+const CubeGeometryShader_wgsl_1 = __importDefault(__webpack_require__(43));
+const CubeGeometryIndices_1 = __importDefault(__webpack_require__(44));
+const CubeGeometryVertices_1 = __importDefault(__webpack_require__(45));
+const align4 = (n) => (n + 3) & ~3;
+class CubeGeometry extends exports_1.Renderable {
+    positionStride = 3;
+    colorStride = 3;
+    vertices = new Float32Array((0, CubeGeometryVertices_1.default)());
+    indices = new Uint16Array((0, CubeGeometryIndices_1.default)());
+    indexCount = this.indices.length;
+    uniformBufferMatrixSize = (4 * 4) * 4;
+    Initialize(device, format, sampleCount) {
+        this.shader = CubeGeometryShader_wgsl_1.default;
+        const module = device.createShaderModule({ code: CubeGeometryShader_wgsl_1.default });
+        this.pipeline = device.createRenderPipeline({
+            layout: "auto",
+            vertex: {
+                module,
+                entryPoint: "vertexShaderMain",
+                buffers: [
+                    {
+                        arrayStride: (this.positionStride + this.colorStride) * 4,
+                        attributes: [
+                            {
+                                shaderLocation: 0,
+                                offset: 0,
+                                format: "float32x3"
+                            },
+                            {
+                                shaderLocation: 1,
+                                offset: 12,
+                                format: "float32x3"
+                            }
+                        ]
+                    }
+                ]
+            },
+            fragment: {
+                module,
+                entryPoint: "fragmentShaderMain",
+                targets: [{ format }]
+            },
+            primitive: {
+                topology: "triangle-list",
+                cullMode: "back",
+            },
+            depthStencil: {
+                format: "depth24plus",
+                depthWriteEnabled: true,
+                depthCompare: "less"
+            },
+            multisample: {
+                count: sampleCount
+            }
+        });
+        this.vertexBuffer = device.createBuffer({
+            size: this.vertices.byteLength,
+            usage: GPUBufferUsage.VERTEX | GPUBufferUsage.COPY_DST
+        });
+        this.indexBuffer = device.createBuffer({
+            size: align4(this.indices.byteLength),
+            usage: GPUBufferUsage.INDEX | GPUBufferUsage.COPY_DST
+        });
+        device.queue.writeBuffer(this.vertexBuffer, 0, this.vertices);
+        device.queue.writeBuffer(this.indexBuffer, 0, this.indices);
+        this.uniformBuffer = device.createBuffer({
+            size: this.uniformBufferMatrixSize,
+            usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST
+        });
+        this.bindGroup = device.createBindGroup({
+            layout: this.pipeline.getBindGroupLayout(0),
+            entries: [
+                {
+                    binding: 0,
+                    resource: {
+                        buffer: this.uniformBuffer
+                    }
+                }
+            ]
+        });
+    }
+    UpdateUniforms(device, mvp) {
+        device.queue.writeBuffer(this.uniformBuffer, 0, mvp);
+    }
+    Render(pass, viewProjectionMatrix) {
+        pass.setPipeline(this.pipeline);
+        pass.setBindGroup(0, this.bindGroup);
+        pass.setVertexBuffer(0, this.vertexBuffer);
+        pass.setIndexBuffer(this.indexBuffer, "uint16");
+        pass.drawIndexed(this.indexCount, 1, 0, 0, 0);
+    }
+    Dispose() {
+        this.vertexBuffer.destroy();
+        this.indexBuffer.destroy();
+        this.uniformBuffer.destroy();
+    }
+}
+exports.CubeGeometry = CubeGeometry;
+
+
+/***/ }),
+/* 43 */
+/***/ ((module) => {
+
+module.exports = "struct Uniforms {\r\n    modelViewProjectionMatrix: mat4x4<f32>\r\n}\r\n\r\n@group(0) @binding(0)\r\nvar<uniform> uniforms: Uniforms;\r\n\r\nstruct VertexShaderInputData {\r\n    @location(0) position: vec3<f32>,\r\n    @location(1) color: vec3<f32>\r\n}\r\n\r\nstruct VertexShaderOutputData {\r\n    @builtin(position) position: vec4<f32>,\r\n    @location(0) color: vec3<f32>\r\n}\r\n\r\n@vertex\r\nfn vertexShaderMain(inputData: VertexShaderInputData) -> VertexShaderOutputData {\r\n\r\n    var outputData: VertexShaderOutputData;\r\n\r\n    outputData.position = uniforms.modelViewProjectionMatrix * vec4<f32>(inputData.position, 1.0);\r\n    outputData.color = inputData.color;\r\n\r\n    return outputData;\r\n}\r\n\r\n@fragment\r\nfn fragmentShaderMain(inputData: VertexShaderOutputData) -> @location(0) vec4<f32> {\r\n\r\n    return vec4<f32>(inputData.color, 1.0);\r\n}";
+
+/***/ }),
+/* 44 */
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+function CubeGeometryIndices() {
+    return [
+        0, 1, 2, 2, 3, 0,
+        1, 5, 6, 6, 2, 1,
+        5, 4, 7, 7, 6, 5,
+        4, 0, 3, 3, 7, 4,
+        3, 2, 6, 6, 7, 3,
+        4, 5, 1, 1, 0, 4,
+    ];
+}
+exports["default"] = CubeGeometryIndices;
+
+
+/***/ }),
+/* 45 */
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+function CubeGeometryVertices() {
+    return [
+        -1, -1, 1, 1, 0, 0,
+        1, -1, 1, 0, 1, 0,
+        1, 1, 1, 0, 0, 1,
+        -1, 1, 1, 1, 1, 1,
+        -1, -1, -1, 1, 0, 0,
+        1, -1, -1, 0, 1, 0,
+        1, 1, -1, 0, 0, 1,
+        -1, 1, -1, 1, 1, 1,
+    ];
+}
+exports["default"] = CubeGeometryVertices;
+
+
+/***/ }),
+/* 46 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PerspectiveCamera = exports.Camera = void 0;
+var Camera_1 = __webpack_require__(47);
+Object.defineProperty(exports, "Camera", ({ enumerable: true, get: function () { return Camera_1.Camera; } }));
+var PerspectiveCamera_1 = __webpack_require__(59);
+Object.defineProperty(exports, "PerspectiveCamera", ({ enumerable: true, get: function () { return PerspectiveCamera_1.PerspectiveCamera; } }));
+
+
+/***/ }),
+/* 47 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Camera = void 0;
+const gl_matrix_1 = __webpack_require__(48);
+const uuid_1 = __webpack_require__(19);
+const exports_1 = __webpack_require__(4);
+const codes_1 = __webpack_require__(6);
+class Camera {
+    id = (0, uuid_1.v4)();
+    position = new exports_1.Vector3(0, 0, 0);
+    target = new exports_1.Vector3(0, 0, 0);
+    up = new exports_1.Vector3(0, 1, 0);
+    aspect = 1;
+    view = gl_matrix_1.mat4.create();
+    projection = gl_matrix_1.mat4.create();
+    viewProjection = gl_matrix_1.mat4.create();
+    SetAspect(aspect) {
+        this.aspect = Math.max(1e-6, aspect);
+        this.updateMatrices();
+    }
+    SetPosition(x, y, z) {
+        (x instanceof exports_1.Vector3)
+            ? this.position = x
+            : this.position.Set(x, y ?? this.position.x, z ?? this.position.y);
+        return this.updateMatrices();
+    }
+    LookAt(x, y, z) {
+        (x instanceof exports_1.Vector3)
+            ? this.target = x
+            : this.target.Set(x, y ?? this.target.x, z ?? this.target.y);
+        return this.updateMatrices();
+    }
+    CreateUniformBuffer(device) {
+        if (this.uniformBuffer)
+            return this.uniformBuffer;
+        this.uniformBuffer = device.createBuffer({
+            size: 80,
+            usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
+            label: "CameraUniformBuffer-" + this.id
+        });
+        return this.uniformBuffer;
+    }
+    WriteUniformsToQueue(queue) {
+        if (!this.uniformBuffer)
+            return exports_1.Debug.Error("Could not write uniform buffer to queue, because the buffer is undefined.", [], codes_1.ErrorCodes.CAM_UNIFORM_BUFFER_UNDEFINED);
+        const viewProjectionCast = this.viewProjection;
+        const positionArrayBuffer = gl_matrix_1.vec3.fromValues(this.position.x, this.position.y, this.position.z), positionArrayBufferCast = positionArrayBuffer;
+        queue.writeBuffer(this.uniformBuffer, 0, viewProjectionCast);
+        queue.writeBuffer(this.uniformBuffer, 64, positionArrayBufferCast);
+        return this;
+    }
+    EnsureBinding(device) {
+        if (!this.bindGroupLayout)
+            this.bindGroupLayout = device.createBindGroupLayout({
+                label: "CameraBindGroupLayout",
+                entries: [
+                    {
+                        binding: 0,
+                        visibility: GPUShaderStage.VERTEX | GPUShaderStage.FRAGMENT,
+                        buffer: {
+                            type: "uniform"
+                        }
+                    }
+                ]
+            });
+        if (!this.bindGroup) {
+            const uniformBuffer = this.CreateUniformBuffer(device);
+            this.bindGroup = device.createBindGroup({
+                label: "CameraBindGroup",
+                layout: this.bindGroupLayout,
+                entries: [
+                    {
+                        binding: 0,
+                        resource: {
+                            buffer: uniformBuffer
+                        }
+                    }
+                ]
+            });
+        }
+        this.updateMatrices();
+        return this.bindGroupLayout;
+    }
+    updateMatrices() {
+        const position = gl_matrix_1.vec3.fromValues(this.position.x, this.position.y, this.position.z), target = gl_matrix_1.vec3.fromValues(this.target.x, this.target.y, this.target.z), up = gl_matrix_1.vec3.fromValues(this.up.x, this.up.y, this.up.z);
+        gl_matrix_1.mat4.lookAt(this.view, position, target, up);
+        this.updateProjection();
+        gl_matrix_1.mat4.multiply(this.viewProjection, this.projection, this.view);
+        return this;
+    }
+}
+exports.Camera = Camera;
+
+
+/***/ }),
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PerspectiveCamera = void 0;
+const gl_matrix_1 = __webpack_require__(48);
+const Camera_1 = __webpack_require__(47);
+class PerspectiveCamera extends Camera_1.Camera {
+    fieldOfViewDegrees;
+    aspect;
+    near;
+    far;
+    constructor(fieldOfViewDegrees = 60, aspect = 1, near = 0.1, far = 1000) {
+        super();
+        this.fieldOfViewDegrees = fieldOfViewDegrees;
+        this.aspect = aspect;
+        this.near = near;
+        this.far = far;
+        this.updateMatrices();
+    }
+    SetFieldOfViewInDegrees(degrees) {
+        this.fieldOfViewDegrees = Math.max(1, Math.min(179, degrees));
+        return this.updateMatrices();
+    }
+    SetNear(near) {
+        this.near = Math.max(1e-4, near);
+        return this.updateMatrices();
+    }
+    SetFar(far) {
+        this.far = Math.max(this.near + 1e-3, far);
+        return this.updateMatrices();
+    }
+    updateProjection() {
+        const verticalFieldOfView = gl_matrix_1.glMatrix.toRadian(this.fieldOfViewDegrees);
+        gl_matrix_1.mat4.perspective(this.projection, verticalFieldOfView, this.aspect, this.near, this.far);
+        return this;
+    }
+}
+exports.PerspectiveCamera = PerspectiveCamera;
+
+
+/***/ }),
+/* 60 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Thread = exports.WebGPURendererScene = void 0;
-var WebGPURendererScene_1 = __webpack_require__(42);
+var WebGPURendererScene_1 = __webpack_require__(61);
 Object.defineProperty(exports, "WebGPURendererScene", ({ enumerable: true, get: function () { return WebGPURendererScene_1.WebGPURendererScene; } }));
-var Thread_1 = __webpack_require__(43);
+var Thread_1 = __webpack_require__(62);
 Object.defineProperty(exports, "Thread", ({ enumerable: true, get: function () { return Thread_1.Thread; } }));
 
 
 /***/ }),
-/* 42 */
+/* 61 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -1521,7 +1867,7 @@ exports.WebGPURendererScene = WebGPURendererScene;
 
 
 /***/ }),
-/* 43 */
+/* 62 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -1667,182 +2013,11 @@ class Thread {
 exports.Thread = Thread;
 
 
-/***/ }),
-/* 44 */
-/***/ ((module) => {
-
-module.exports = "struct VertexShaderOutput {\r\n    @builtin(position) position: vec4f\r\n}\r\n\r\n@vertex fn vertexShaderMain(@location(0) position: vec2f) -> VertexShaderOutput {\r\n    \r\n    var output: VertexShaderOutput;\r\n\r\n    output.position = vec4f(position, 0, 1);\r\n    return output;\r\n}\r\n\r\n@fragment fn fragmentShaderMain() -> @location(0) vec4f {\r\n    return vec4f(0.9, 0.3, 0.2, 1);\r\n}";
-
-/***/ }),
-/* 45 */
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.PerspectiveCamera = exports.Camera = void 0;
-var Camera_1 = __webpack_require__(57);
-Object.defineProperty(exports, "Camera", ({ enumerable: true, get: function () { return Camera_1.Camera; } }));
-var PerspectiveCamera_1 = __webpack_require__(58);
-Object.defineProperty(exports, "PerspectiveCamera", ({ enumerable: true, get: function () { return PerspectiveCamera_1.PerspectiveCamera; } }));
-
-
-/***/ }),
-/* 46 */,
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Camera = void 0;
-const gl_matrix_1 = __webpack_require__(46);
-const uuid_1 = __webpack_require__(19);
-const exports_1 = __webpack_require__(4);
-const codes_1 = __webpack_require__(6);
-class Camera {
-    id = (0, uuid_1.v4)();
-    position = new exports_1.Vector3(0, 0, 0);
-    target = new exports_1.Vector3(0, 0, 0);
-    up = new exports_1.Vector3(0, 1, 0);
-    aspect = 1;
-    view = gl_matrix_1.mat4.create();
-    projection = gl_matrix_1.mat4.create();
-    viewProjection = gl_matrix_1.mat4.create();
-    SetAspect(aspect) {
-        this.aspect = Math.max(1e-6, aspect);
-        this.updateMatrices();
-    }
-    SetPosition(x, y, z) {
-        (x instanceof exports_1.Vector3)
-            ? this.position = x
-            : this.position.Set(x, y ?? this.position.x, z ?? this.position.y);
-        return this.updateMatrices();
-    }
-    LookAt(x, y, z) {
-        (x instanceof exports_1.Vector3)
-            ? this.target = x
-            : this.target.Set(x, y ?? this.target.x, z ?? this.target.y);
-        return this.updateMatrices();
-    }
-    CreateUniformBuffer(device) {
-        if (this.uniformBuffer)
-            return this.uniformBuffer;
-        this.uniformBuffer = device.createBuffer({
-            size: 80,
-            usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
-            label: "CameraUniformBuffer-" + this.id
-        });
-        return this.uniformBuffer;
-    }
-    WriteUniformsToQueue(queue) {
-        if (!this.uniformBuffer)
-            return exports_1.Debug.Error("Could not write uniform buffer to queue, because the buffer is undefined.", [], codes_1.ErrorCodes.CAM_UNIFORM_BUFFER_UNDEFINED);
-        const viewProjectionCast = this.viewProjection;
-        const positionArrayBuffer = gl_matrix_1.vec3.fromValues(this.position.x, this.position.y, this.position.z), positionArrayBufferCast = positionArrayBuffer;
-        queue.writeBuffer(this.uniformBuffer, 0, viewProjectionCast);
-        queue.writeBuffer(this.uniformBuffer, 64, positionArrayBufferCast);
-        return this;
-    }
-    EnsureBinding(device) {
-        if (!this.bindGroupLayout)
-            this.bindGroupLayout = device.createBindGroupLayout({
-                label: "CameraBindGroupLayout",
-                entries: [
-                    {
-                        binding: 0,
-                        visibility: GPUShaderStage.VERTEX | GPUShaderStage.FRAGMENT,
-                        buffer: {
-                            type: "uniform"
-                        }
-                    }
-                ]
-            });
-        if (!this.bindGroup) {
-            const uniformBuffer = this.CreateUniformBuffer(device);
-            this.bindGroup = device.createBindGroup({
-                label: "CameraBindGroup",
-                layout: this.bindGroupLayout,
-                entries: [
-                    {
-                        binding: 0,
-                        resource: {
-                            buffer: uniformBuffer
-                        }
-                    }
-                ]
-            });
-        }
-        this.updateMatrices();
-        return this.bindGroupLayout;
-    }
-    updateMatrices() {
-        const position = gl_matrix_1.vec3.fromValues(this.position.x, this.position.y, this.position.z), target = gl_matrix_1.vec3.fromValues(this.target.x, this.target.y, this.target.z), up = gl_matrix_1.vec3.fromValues(this.up.x, this.up.y, this.up.z);
-        gl_matrix_1.mat4.lookAt(this.view, position, target, up);
-        this.updateProjection();
-        gl_matrix_1.mat4.multiply(this.viewProjection, this.projection, this.view);
-        return this;
-    }
-}
-exports.Camera = Camera;
-
-
-/***/ }),
-/* 58 */
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.PerspectiveCamera = void 0;
-const gl_matrix_1 = __webpack_require__(46);
-const Camera_1 = __webpack_require__(57);
-class PerspectiveCamera extends Camera_1.Camera {
-    fieldOfViewDegrees;
-    aspect;
-    near;
-    far;
-    constructor(fieldOfViewDegrees = 60, aspect = 1, near = 0.1, far = 1000) {
-        super();
-        this.fieldOfViewDegrees = fieldOfViewDegrees;
-        this.aspect = aspect;
-        this.near = near;
-        this.far = far;
-        this.updateMatrices();
-    }
-    SetFieldOfViewInDegrees(degrees) {
-        this.fieldOfViewDegrees = Math.max(1, Math.min(179, degrees));
-        return this.updateMatrices();
-    }
-    SetNear(near) {
-        this.near = Math.max(1e-4, near);
-        return this.updateMatrices();
-    }
-    SetFar(far) {
-        this.far = Math.max(this.near + 1e-3, far);
-        return this.updateMatrices();
-    }
-    updateProjection() {
-        const verticalFieldOfView = gl_matrix_1.glMatrix.toRadian(this.fieldOfViewDegrees);
-        gl_matrix_1.mat4.perspective(this.projection, verticalFieldOfView, this.aspect, this.near, this.far);
-        return this;
-    }
-}
-exports.PerspectiveCamera = PerspectiveCamera;
-
-
 /***/ })
 ],
 /******/ __webpack_require__ => { // webpackRuntimeModules
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ __webpack_require__.O(0, [4,5,2], () => (__webpack_exec__(0)));
+/******/ __webpack_require__.O(0, [2,3,4], () => (__webpack_exec__(0)));
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
