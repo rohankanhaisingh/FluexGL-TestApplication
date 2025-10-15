@@ -8,6 +8,10 @@ import {
     CubeGeometry 
 } from "@fluexgl";
 
+import {
+    FluexGLAudioOptions
+} from "@fluexgl/audio";
+
 FluexGL.options.debugger.breakOnError = true;
 
 (async function () {

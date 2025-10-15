@@ -7,8 +7,8 @@
       "@fluexgl": [
         "../../../FluexGL/lib/src/index.ts"
       ],
-      "@fluexgl/*": [
-        "../../../FluexGL/lib/src/*"
+      "@fluexgl/audio": [
+        "../../../FluexGL@Audio/lib/src/index.ts"
       ],
       "@server/typings": [
         "../server/typings.ts"
@@ -33,7 +33,8 @@
     "scripts/**/*",
     "**/*.ts",
     "**/*.tsx",
-    "../../../FluexGL/lib/src/**/*"
+    "../../../FluexGL/lib/src/**/*",
+    "../../../FluexGL@Audio/lib/src/**/*",
   ],
   "exclude": [
     "_dist",
