@@ -1,4 +1,12 @@
-import { FluexGL, WebGPURenderer, SimpleTriangle, WebGPURendererScene, Thread, PerspectiveCamera, CubeGeometry } from "../../../../../../../FluexGL/lib/src/index";
+import { 
+    FluexGL, 
+    WebGPURenderer, 
+    SimpleTriangle, 
+    WebGPURendererScene, 
+    Thread, 
+    PerspectiveCamera, 
+    CubeGeometry 
+} from "@fluexgl";
 
 FluexGL.options.debugger.breakOnError = true;
 

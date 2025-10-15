@@ -23,19 +23,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const index_1 = __webpack_require__(3);
-index_1.FluexGL.options.debugger.breakOnError = true;
+const _fluexgl_1 = __webpack_require__(3);
+_fluexgl_1.FluexGL.options.debugger.breakOnError = true;
 (async function () {
-    const renderer = new index_1.WebGPURenderer({ msaaSampleCount: 4 });
-    const scene = new index_1.WebGPURendererScene(renderer);
-    const thread = new index_1.Thread();
-    const camera = new index_1.PerspectiveCamera(innerWidth / innerHeight);
+    const renderer = new _fluexgl_1.WebGPURenderer({ msaaSampleCount: 4 });
+    const scene = new _fluexgl_1.WebGPURendererScene(renderer);
+    const thread = new _fluexgl_1.Thread();
+    const camera = new _fluexgl_1.PerspectiveCamera(innerWidth / innerHeight);
     camera.SetPosition(0, 0, 3);
     camera.LookAt(0, 1, 0);
     renderer.AppendCanvasToElement(document.querySelector(".scene-wrapper"));
     renderer.SetCanvasSizeRelativeToWindow(0, true);
     await renderer.Initialize();
-    const cube = new index_1.CubeGeometry();
+    const cube = new _fluexgl_1.CubeGeometry();
     scene.AddRenderable(cube);
     await scene.Prepare(camera);
     let t = 0;

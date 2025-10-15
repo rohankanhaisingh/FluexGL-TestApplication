@@ -45,7 +45,7 @@ const config: webpack.Configuration = {
 		extensions: [".ts", ".tsx", ".js", ".scss", ".css"],
 		alias: {
 			"@server/typings": path.join(constants.ROOT_PATH, "src", "server", "typings.ts"),
-			"@fluex-gl": path.join(constants.ROOT_PATH, "../", "FluexGL", "lib", "src")
+			"@fluexgl": path.join(constants.ROOT_PATH, "../", "FluexGL", "lib", "src")
 		}
 	},
 	module: {

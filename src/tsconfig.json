@@ -6,9 +6,6 @@
     },
     {
       "path": "./public"
-    },
-    {
-      "path": "../../../FluexGL/lib/src/*"
     }
   ]
 }

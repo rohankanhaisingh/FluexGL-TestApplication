@@ -4,14 +4,20 @@
     "module": "commonjs",
     "baseUrl": ".",
     "paths": {
-      "@fluex-gl": [
+      "@fluexgl": [
         "../../../FluexGL/lib/src/index.ts"
       ],
+      "@fluexgl/*": [
+        "../../../FluexGL/lib/src/*"
+      ],
+      "@server/typings": [
+        "../server/typings.ts"
+      ]
     },
     "types": [
       "@webgpu/types"
     ],
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "outDir": "../_dist/public",
     "removeComments": true,
@@ -24,11 +30,13 @@
     "skipLibCheck": true
   },
   "include": [
-    "src/**/*",
+    "scripts/**/*",
+    "**/*.ts",
+    "**/*.tsx",
     "../../../FluexGL/lib/src/**/*"
   ],
   "exclude": [
-    "./_dist",
+    "_dist",
     "node_modules"
   ]
 }
