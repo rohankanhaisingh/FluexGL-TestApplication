@@ -1,4 +1,12 @@
-import { AudioDevice, EnsureAudioPermission, LoadAudioSource, ResolveDefaultAudioOutputDevice, Channel } from "@fluexgl/audio";
+import { 
+    AudioDevice, 
+    EnsureAudioPermission, 
+    LoadAudioSource, 
+    ResolveDefaultAudioOutputDevice, 
+    Channel, 
+    AudioSourceData, 
+    AudioClip 
+} from "@fluexgl/audio";
 
 (async function() {
 
@@ -24,7 +32,21 @@ import { AudioDevice, EnsureAudioPermission, LoadAudioSource, ResolveDefaultAudi
     // Attach the 'BackgroundMusic' channel, to the device's master channel.
     masterChannel.AttachChannel(channel);
 
-    const audioSource = await LoadAudioSource("/assets/data/bruh.mp3");
+    // Load the data from the audio source.
+    const audioSourceData: AudioSourceData | null = await LoadAudioSource("/assets/data/bruh.mp3");
 
-    console.log(audioSource);
+    if(!audioSourceData) return;
+
+    // Create a audio node based on the data.
+    const audioClip = new AudioClip(audioSourceData);
+
+    // Attach the audio node to the channel.
+    channel.AttachAudioClip(audioClip);
+
+    // Click event listener on window.
+    window.addEventListener("click", function() {
+
+        // Play the audio clip
+        audioClip.Play();
+    });
 })();
