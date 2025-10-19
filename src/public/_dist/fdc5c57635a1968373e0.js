@@ -79,7 +79,7 @@ Object.defineProperty(exports, "Vector2", ({ enumerable: true, get: function () 
 Object.defineProperty(exports, "Vector3", ({ enumerable: true, get: function () { return exports_1.Vector3; } }));
 Object.defineProperty(exports, "Vector4", ({ enumerable: true, get: function () { return exports_1.Vector4; } }));
 Object.defineProperty(exports, "Color", ({ enumerable: true, get: function () { return exports_1.Color; } }));
-var exports_2 = __webpack_require__(13);
+var exports_2 = __webpack_require__(14);
 Object.defineProperty(exports, "Scene", ({ enumerable: true, get: function () { return exports_2.Scene; } }));
 Object.defineProperty(exports, "Thread", ({ enumerable: true, get: function () { return exports_2.Thread; } }));
 
@@ -97,7 +97,7 @@ Object.defineProperty(exports, "CalculateDirection", ({ enumerable: true, get: f
 Object.defineProperty(exports, "CalculateIntersection", ({ enumerable: true, get: function () { return calculators_1.CalculateIntersection; } }));
 Object.defineProperty(exports, "CalculateVectorAngle", ({ enumerable: true, get: function () { return calculators_1.CalculateVectorAngle; } }));
 Object.defineProperty(exports, "CalculateVectorDistance", ({ enumerable: true, get: function () { return calculators_1.CalculateVectorDistance; } }));
-var randomizer_1 = __webpack_require__(5);
+var randomizer_1 = __webpack_require__(6);
 Object.defineProperty(exports, "RandomBoolean", ({ enumerable: true, get: function () { return randomizer_1.RandomBoolean; } }));
 Object.defineProperty(exports, "RandomFloatInRange", ({ enumerable: true, get: function () { return randomizer_1.RandomFloatInRange; } }));
 Object.defineProperty(exports, "RandomIntegerInRange", ({ enumerable: true, get: function () { return randomizer_1.RandomIntegerInRange; } }));
@@ -105,14 +105,14 @@ Object.defineProperty(exports, "RandomItem", ({ enumerable: true, get: function 
 Object.defineProperty(exports, "RandomNormal", ({ enumerable: true, get: function () { return randomizer_1.RandomNormal; } }));
 Object.defineProperty(exports, "RandomUnitVector2D", ({ enumerable: true, get: function () { return randomizer_1.RandomUnitVector2D; } }));
 Object.defineProperty(exports, "RandomUnitVector3D", ({ enumerable: true, get: function () { return randomizer_1.RandomUnitVector3D; } }));
-var converters_1 = __webpack_require__(6);
+var converters_1 = __webpack_require__(7);
 Object.defineProperty(exports, "ConvertHexToByteArray", ({ enumerable: true, get: function () { return converters_1.ConvertHexToByteArray; } }));
 Object.defineProperty(exports, "ConvertByteArrayToHex", ({ enumerable: true, get: function () { return converters_1.ConvertByteArrayToHex; } }));
 Object.defineProperty(exports, "RGBToHSL", ({ enumerable: true, get: function () { return converters_1.RGBToHSL; } }));
 Object.defineProperty(exports, "HexToRGB", ({ enumerable: true, get: function () { return converters_1.HexToRGB; } }));
 Object.defineProperty(exports, "RGBToHex", ({ enumerable: true, get: function () { return converters_1.RGBToHex; } }));
 Object.defineProperty(exports, "HSLToRGB", ({ enumerable: true, get: function () { return converters_1.HSLToRGB; } }));
-var constants_1 = __webpack_require__(7);
+var constants_1 = __webpack_require__(8);
 Object.defineProperty(exports, "PixelsPerMeter", ({ enumerable: true, get: function () { return constants_1.PixelsPerMeter; } }));
 Object.defineProperty(exports, "DegreesToRadians", ({ enumerable: true, get: function () { return constants_1.DegreesToRadians; } }));
 Object.defineProperty(exports, "RadiansToDegrees", ({ enumerable: true, get: function () { return constants_1.RadiansToDegrees; } }));
@@ -128,15 +128,15 @@ Object.defineProperty(exports, "MinSafeInt", ({ enumerable: true, get: function 
 Object.defineProperty(exports, "MaxSafeInt", ({ enumerable: true, get: function () { return constants_1.MaxSafeInt; } }));
 Object.defineProperty(exports, "DefaultGravity", ({ enumerable: true, get: function () { return constants_1.DefaultGravity; } }));
 Object.defineProperty(exports, "DefaultAirDensity", ({ enumerable: true, get: function () { return constants_1.DefaultAirDensity; } }));
-var console_1 = __webpack_require__(8);
+var console_1 = __webpack_require__(9);
 Object.defineProperty(exports, "Debug", ({ enumerable: true, get: function () { return console_1.Debug; } }));
-var Vector2_1 = __webpack_require__(9);
+var Vector2_1 = __webpack_require__(10);
 Object.defineProperty(exports, "Vector2", ({ enumerable: true, get: function () { return Vector2_1.Vector2; } }));
-var Vector3_1 = __webpack_require__(10);
+var Vector3_1 = __webpack_require__(11);
 Object.defineProperty(exports, "Vector3", ({ enumerable: true, get: function () { return Vector3_1.Vector3; } }));
-var Vector4_1 = __webpack_require__(11);
+var Vector4_1 = __webpack_require__(12);
 Object.defineProperty(exports, "Vector4", ({ enumerable: true, get: function () { return Vector4_1.Vector4; } }));
-var Color_1 = __webpack_require__(12);
+var Color_1 = __webpack_require__(13);
 Object.defineProperty(exports, "Color", ({ enumerable: true, get: function () { return Color_1.Color; } }));
 
 
@@ -147,7 +147,7 @@ Object.defineProperty(exports, "Color", ({ enumerable: true, get: function () { 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CalculateDirection = exports.CalculateIntersection = exports.CalculateVectorAngle = exports.CalculateVectorDistance = exports.CalculateAverageArrayValue = void 0;
-const codes_1 = __webpack_require__(37);
+const codes_1 = __webpack_require__(5);
 const exports_1 = __webpack_require__(3);
 function CalculateAverageArrayValue(input) {
     if (!input) {
@@ -231,6 +231,26 @@ exports.CalculateDirection = CalculateDirection;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ErrorCodes = exports.WarningCodes = void 0;
+var WarningCodes;
+(function (WarningCodes) {
+    WarningCodes["THREAD_ALREADY_ACTIVE"] = "#THREAD_WARNING_0001";
+    WarningCodes["THREAD_ALREADY_INACTIVE"] = "#THREAD_WARNING_0002";
+})(WarningCodes = exports.WarningCodes || (exports.WarningCodes = {}));
+var ErrorCodes;
+(function (ErrorCodes) {
+    ErrorCodes["THREAD_INVALID_SIMULATION_UPDATE_RATE"] = "#THREAD_ERROR_0001";
+    ErrorCodes["THREAD_INVALID_DELTA_TIME"] = "#THREAD_ERROR_0002";
+    ErrorCodes["NUMBER_NO_VALID_INPUT_PROVIDED"] = "#ARRAY_NO_VALID_INPUT_PROVIDED_0001";
+})(ErrorCodes = exports.ErrorCodes || (exports.ErrorCodes = {}));
+
+
+/***/ }),
+/* 6 */
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.RandomNormal = exports.RandomUnitVector3D = exports.RandomUnitVector2D = exports.ShuffleArray = exports.RandomItem = exports.RandomBoolean = exports.RandomFloatInRange = exports.RandomIntegerInRange = void 0;
 function RandomIntegerInRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -284,7 +304,7 @@ exports.RandomNormal = RandomNormal;
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -376,7 +396,7 @@ exports.HSLToRGB = HSLToRGB;
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -400,7 +420,7 @@ exports.DefaultAirDensity = 1.225;
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -448,7 +468,7 @@ var Debug;
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -590,7 +610,7 @@ Vector2.PPM = 30;
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -769,7 +789,7 @@ Vector3.PPM = 30;
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -902,7 +922,7 @@ exports.Vector4 = Vector4;
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -961,20 +981,20 @@ exports.Color = Color;
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Thread = exports.Scene = void 0;
-var Scene_1 = __webpack_require__(14);
+var Scene_1 = __webpack_require__(15);
 Object.defineProperty(exports, "Scene", ({ enumerable: true, get: function () { return Scene_1.Scene; } }));
-var Thread_1 = __webpack_require__(15);
+var Thread_1 = __webpack_require__(16);
 Object.defineProperty(exports, "Thread", ({ enumerable: true, get: function () { return Thread_1.Thread; } }));
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -986,15 +1006,15 @@ exports.Scene = Scene;
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Thread = void 0;
-const uuid_1 = __webpack_require__(16);
-const console_1 = __webpack_require__(8);
-const codes_1 = __webpack_require__(37);
+const uuid_1 = __webpack_require__(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'uuid'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+const console_1 = __webpack_require__(9);
+const codes_1 = __webpack_require__(5);
 class Thread {
     constructor() {
         this.id = (0, uuid_1.v4)();
@@ -1133,52 +1153,10 @@ class Thread {
 exports.Thread = Thread;
 
 
-/***/ }),
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */,
-/* 32 */,
-/* 33 */,
-/* 34 */,
-/* 35 */,
-/* 36 */,
-/* 37 */
-/***/ ((__unused_webpack_module, exports) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.ErrorCodes = exports.WarningCodes = void 0;
-var WarningCodes;
-(function (WarningCodes) {
-    WarningCodes["THREAD_ALREADY_ACTIVE"] = "#THREAD_WARNING_0001";
-    WarningCodes["THREAD_ALREADY_INACTIVE"] = "#THREAD_WARNING_0002";
-})(WarningCodes = exports.WarningCodes || (exports.WarningCodes = {}));
-var ErrorCodes;
-(function (ErrorCodes) {
-    ErrorCodes["THREAD_INVALID_SIMULATION_UPDATE_RATE"] = "#THREAD_ERROR_0001";
-    ErrorCodes["THREAD_INVALID_DELTA_TIME"] = "#THREAD_ERROR_0002";
-    ErrorCodes["NUMBER_NO_VALID_INPUT_PROVIDED"] = "#ARRAY_NO_VALID_INPUT_PROVIDED_0001";
-})(ErrorCodes = exports.ErrorCodes || (exports.ErrorCodes = {}));
-
-
 /***/ })
 ],
 /******/ __webpack_require__ => { // webpackRuntimeModules
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ __webpack_require__.O(0, [2], () => (__webpack_exec__(0)));
-/******/ var __webpack_exports__ = __webpack_require__.O();
+/******/ var __webpack_exports__ = (__webpack_exec__(0));
 /******/ }
 ]);
