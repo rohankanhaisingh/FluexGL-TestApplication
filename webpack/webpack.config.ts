@@ -45,7 +45,8 @@ const config: webpack.Configuration = {
 		extensions: [".ts", ".tsx", ".js", ".scss", ".css"],
 		alias: {
 			"@server/typings": path.join(constants.ROOT_PATH, "src", "server", "typings.ts"),
-			"@fluex-gl": path.join(constants.ROOT_PATH, "../", "FluexGL", "lib", "src")
+			"@fluexgl$": path.join(constants.ROOT_PATH, "../", "FluexGL", "lib", "src"),
+			"@fluexgl/audio": path.join(constants.ROOT_PATH, "../", "FluexGL@Audio", "lib", "src"),
 		}
 	},
 	module: {
@@ -54,6 +55,10 @@ const config: webpack.Configuration = {
 				test: /\.tsx?$/,
 				exclude: /node_modules/,
 				use: 'ts-loader',
+			},
+			{
+				test: /\.wgsl$/i,
+				type: 'asset/source',
 			},
 			{
 				test: /\.scss$/,
@@ -89,11 +94,10 @@ const config: webpack.Configuration = {
 	optimization: {
 		runtimeChunk: "single",
 		splitChunks: {
-			chunks: "all",        // split ook sync imports, niet alleen async
-			minSize: 10_000,      // verlaag drempel om sneller te splitsen
-			maxSize: 120_000,     // forceer opsplitsen van te grote chunks
+			chunks: "all",
+			minSize: 10_000,
+			maxSize: 120_000,
 			cacheGroups: {
-				
 				vendors: {
 					test: /[\\/]node_modules[\\/]/,
 					name: "vendors",

@@ -1,14 +1,23 @@
 {
   "compilerOptions": {
-    "target": "ES2016",
+    "target": "es2022",
     "module": "commonjs",
     "baseUrl": ".",
     "paths": {
-      "@fluex-gl": [
+      "@fluexgl": [
         "../../../FluexGL/lib/src/index.ts"
       ],
+      "@fluexgl/audio": [
+        "../../../FluexGL@Audio/lib/src/index.ts"
+      ],
+      "@server/typings": [
+        "../server/typings.ts"
+      ]
     },
-    "moduleResolution": "Node",
+    "types": [
+      "@webgpu/types"
+    ],
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "outDir": "../_dist/public",
     "removeComments": true,
@@ -21,11 +30,14 @@
     "skipLibCheck": true
   },
   "include": [
-    "src/**/*",
-    "../../../FluexGL/lib/src/**/*"
+    "scripts/**/*",
+    "**/*.ts",
+    "**/*.tsx",
+    "../../../FluexGL/lib/src/**/*",
+    "../../../FluexGL@Audio/lib/src/**/*",
   ],
   "exclude": [
-    "./_dist",
+    "_dist",
     "node_modules"
   ]
 }

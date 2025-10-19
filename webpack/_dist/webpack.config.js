@@ -33,7 +33,8 @@ const config = {
         extensions: [".ts", ".tsx", ".js", ".scss", ".css"],
         alias: {
             "@server/typings": path_1.default.join(constants_1.default.ROOT_PATH, "src", "server", "typings.ts"),
-            "@fluex-gl": path_1.default.join(constants_1.default.ROOT_PATH, "../", "FluexGL", "lib", "src")
+            "@fluexgl$": path_1.default.join(constants_1.default.ROOT_PATH, "../", "FluexGL", "lib", "src"),
+            "@fluexgl/audio": path_1.default.join(constants_1.default.ROOT_PATH, "../", "FluexGL@Audio", "lib", "src"),
         }
     },
     module: {
@@ -42,6 +43,10 @@ const config = {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
                 use: 'ts-loader',
+            },
+            {
+                test: /\.wgsl$/i,
+                type: 'asset/source',
             },
             {
                 test: /\.scss$/,
