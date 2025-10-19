@@ -6,7 +6,7 @@ import {
     Channel, 
     AudioSourceData, 
     AudioClip 
-} from "@fluexgl/audio";
+} from "@fluexgl/dsp";
 
 (async function() {
 

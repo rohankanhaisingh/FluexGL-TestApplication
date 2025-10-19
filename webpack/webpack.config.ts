@@ -46,7 +46,7 @@ const config: webpack.Configuration = {
 		alias: {
 			"@server/typings": path.join(constants.ROOT_PATH, "src", "server", "typings.ts"),
 			"@fluexgl$": path.join(constants.ROOT_PATH, "../", "FluexGL", "lib", "src"),
-			"@fluexgl/audio": path.join(constants.ROOT_PATH, "../", "FluexGL@Audio", "lib", "src"),
+			"@fluexgl/dsp": path.join(constants.ROOT_PATH, "../", "FluexGL-DSP", "lib", "src"),
 		}
 	},
 	module: {

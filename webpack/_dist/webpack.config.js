@@ -34,7 +34,7 @@ const config = {
         alias: {
             "@server/typings": path_1.default.join(constants_1.default.ROOT_PATH, "src", "server", "typings.ts"),
             "@fluexgl$": path_1.default.join(constants_1.default.ROOT_PATH, "../", "FluexGL", "lib", "src"),
-            "@fluexgl/audio": path_1.default.join(constants_1.default.ROOT_PATH, "../", "FluexGL@Audio", "lib", "src"),
+            "@fluexgl/dsp": path_1.default.join(constants_1.default.ROOT_PATH, "../", "FluexGL-DSP", "lib", "src"),
         }
     },
     module: {
