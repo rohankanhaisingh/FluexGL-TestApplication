@@ -7,8 +7,8 @@
       "@fluexgl": [
         "../../../FluexGL/lib/src/index.ts"
       ],
-      "@fluexgl/audio": [
-        "../../../FluexGL@Audio/lib/src/index.ts"
+      "@fluexgl/dsp": [
+        "../../../FluexGL-DSP/lib/src/index.ts"
       ],
       "@server/typings": [
         "../server/typings.ts"

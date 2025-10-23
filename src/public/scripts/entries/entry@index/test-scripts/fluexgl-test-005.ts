@@ -7,7 +7,7 @@ import {
     AudioSourceData, 
     AudioClip, 
     AudioClipOnProgressEvent
-} from "@fluexgl/audio";
+} from "@fluexgl/dsp";
 
 const btnPlay = document.querySelector("#btn-play") as HTMLButtonElement,
     btnStop = document.querySelector("#btn-stop") as HTMLButtonElement,
