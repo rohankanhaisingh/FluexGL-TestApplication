@@ -37,8 +37,6 @@ async function init() {
 
     const audioClip = new AudioClip(audioSourceData);
 
-    console.log(audioClip.GetChannelData(0));
-    
     audioClip.AddEventListener("progress", function(event: AudioClipOnProgressEvent) {
         
         playbackCurrentTime.innerText = `${event.formatted}`;
@@ -50,6 +48,9 @@ async function init() {
     });
     
     channel.AttachAudioClip(audioClip);
+
+    audioClip.EnablePreAnalyser();
+    audioClip.GetWaveformFloatData("pre");
     
     btnPlay.addEventListener("click", () => audioClip.Play());
     btnStop.addEventListener("click", () => audioClip.Stop());

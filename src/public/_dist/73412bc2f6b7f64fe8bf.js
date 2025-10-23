@@ -1,12 +1,12 @@
 "use strict";
 (self["webpackChunkfluex_gl_test_application"] = self["webpackChunkfluex_gl_test_application"] || []).push([[9],{
 
-/***/ 66:
+/***/ 60:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isSaturday = isSaturday;
-var _index = __webpack_require__(63);
+var _index = __webpack_require__(57);
 
 /**
  * The {@link isSaturday} function options.
@@ -37,12 +37,12 @@ function isSaturday(date, options) {
 
 /***/ }),
 
-/***/ 67:
+/***/ 61:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isSunday = isSunday;
-var _index = __webpack_require__(63);
+var _index = __webpack_require__(57);
 
 /**
  * The {@link isSunday} function options.
@@ -73,12 +73,12 @@ function isSunday(date, options) {
 
 /***/ }),
 
-/***/ 68:
+/***/ 62:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isWeekend = isWeekend;
-var _index = __webpack_require__(63);
+var _index = __webpack_require__(57);
 
 /**
  * The {@link isWeekend} function options.
@@ -110,13 +110,13 @@ function isWeekend(date, options) {
 
 /***/ }),
 
-/***/ 98:
+/***/ 92:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isSameDay = isSameDay;
-var _index = __webpack_require__(79);
-var _index2 = __webpack_require__(80);
+var _index = __webpack_require__(73);
+var _index2 = __webpack_require__(74);
 
 /**
  * The {@link isSameDay} function options.
@@ -165,13 +165,13 @@ function isSameDay(laterDate, earlierDate, options) {
 
 /***/ }),
 
-/***/ 99:
+/***/ 93:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isValid = isValid;
-var _index = __webpack_require__(100);
-var _index2 = __webpack_require__(63);
+var _index = __webpack_require__(94);
+var _index2 = __webpack_require__(57);
 
 /**
  * @name isValid
@@ -214,12 +214,12 @@ function isValid(date) {
 
 /***/ }),
 
-/***/ 262:
+/***/ 256:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isPast = isPast;
-var _index = __webpack_require__(63);
+var _index = __webpack_require__(57);
 
 /**
  * @name isPast
@@ -246,13 +246,13 @@ function isPast(date) {
 
 /***/ }),
 
-/***/ 263:
+/***/ 257:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isSameHour = isSameHour;
-var _index = __webpack_require__(79);
-var _index2 = __webpack_require__(264);
+var _index = __webpack_require__(73);
+var _index2 = __webpack_require__(258);
 
 /**
  * The {@link isSameHour} function options.
@@ -297,12 +297,12 @@ function isSameHour(dateLeft, dateRight, options) {
 
 /***/ }),
 
-/***/ 265:
+/***/ 259:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isSameISOWeek = isSameISOWeek;
-var _index = __webpack_require__(266);
+var _index = __webpack_require__(260);
 
 /**
  * The {@link isSameISOWeek} function options.
@@ -344,13 +344,13 @@ function isSameISOWeek(laterDate, earlierDate, options) {
 
 /***/ }),
 
-/***/ 266:
+/***/ 260:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isSameWeek = isSameWeek;
-var _index = __webpack_require__(79);
-var _index2 = __webpack_require__(74);
+var _index = __webpack_require__(73);
+var _index2 = __webpack_require__(68);
 
 /**
  * The {@link isSameWeek} function options.
@@ -403,14 +403,14 @@ function isSameWeek(laterDate, earlierDate, options) {
 
 /***/ }),
 
-/***/ 267:
+/***/ 261:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isSameISOWeekYear = isSameISOWeekYear;
-var _index = __webpack_require__(81);
+var _index = __webpack_require__(75);
 
-var _index2 = __webpack_require__(79);
+var _index2 = __webpack_require__(73);
 
 /**
  * The {@link isSameISOWeekYear} function options.
@@ -452,12 +452,12 @@ function isSameISOWeekYear(laterDate, earlierDate, options) {
 
 /***/ }),
 
-/***/ 268:
+/***/ 262:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isSameMinute = isSameMinute;
-var _index = __webpack_require__(269);
+var _index = __webpack_require__(263);
 
 /**
  * @name isSameMinute
@@ -498,12 +498,12 @@ function isSameMinute(laterDate, earlierDate) {
 
 /***/ }),
 
-/***/ 270:
+/***/ 264:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isSameMonth = isSameMonth;
-var _index = __webpack_require__(79);
+var _index = __webpack_require__(73);
 
 /**
  * The {@link isSameMonth} function options.
@@ -548,13 +548,13 @@ function isSameMonth(laterDate, earlierDate, options) {
 
 /***/ }),
 
-/***/ 271:
+/***/ 265:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isSameQuarter = isSameQuarter;
-var _index = __webpack_require__(79);
-var _index2 = __webpack_require__(129);
+var _index = __webpack_require__(73);
+var _index2 = __webpack_require__(123);
 
 /**
  * The {@link isSameQuarter} function options.
@@ -599,12 +599,12 @@ function isSameQuarter(laterDate, earlierDate, options) {
 
 /***/ }),
 
-/***/ 272:
+/***/ 266:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isSameSecond = isSameSecond;
-var _index = __webpack_require__(273);
+var _index = __webpack_require__(267);
 
 /**
  * @name isSameSecond
@@ -653,12 +653,12 @@ function isSameSecond(laterDate, earlierDate) {
 
 /***/ }),
 
-/***/ 274:
+/***/ 268:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isSameYear = isSameYear;
-var _index = __webpack_require__(79);
+var _index = __webpack_require__(73);
 
 /**
  * The {@link isSameYear} function options.
@@ -695,14 +695,14 @@ function isSameYear(laterDate, earlierDate, options) {
 
 /***/ }),
 
-/***/ 275:
+/***/ 269:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isThisHour = isThisHour;
-var _index = __webpack_require__(95);
-var _index2 = __webpack_require__(263);
-var _index3 = __webpack_require__(63);
+var _index = __webpack_require__(89);
+var _index2 = __webpack_require__(257);
+var _index3 = __webpack_require__(57);
 
 /**
  * The {@link isThisHour} function options.
@@ -738,14 +738,14 @@ function isThisHour(date, options) {
 
 /***/ }),
 
-/***/ 276:
+/***/ 270:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isThisISOWeek = isThisISOWeek;
-var _index = __webpack_require__(61);
-var _index2 = __webpack_require__(95);
-var _index3 = __webpack_require__(265);
+var _index = __webpack_require__(55);
+var _index2 = __webpack_require__(89);
+var _index3 = __webpack_require__(259);
 
 /**
  * The {@link isThisISOWeek} function options.
@@ -782,13 +782,13 @@ function isThisISOWeek(date, options) {
 
 /***/ }),
 
-/***/ 277:
+/***/ 271:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isThisMinute = isThisMinute;
-var _index = __webpack_require__(95);
-var _index2 = __webpack_require__(268);
+var _index = __webpack_require__(89);
+var _index2 = __webpack_require__(262);
 
 /**
  * @name isThisMinute
@@ -817,14 +817,14 @@ function isThisMinute(date) {
 
 /***/ }),
 
-/***/ 278:
+/***/ 272:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isThisMonth = isThisMonth;
-var _index = __webpack_require__(61);
-var _index2 = __webpack_require__(95);
-var _index3 = __webpack_require__(270);
+var _index = __webpack_require__(55);
+var _index2 = __webpack_require__(89);
+var _index3 = __webpack_require__(264);
 
 /**
  * The {@link isThisMonth} function options.
@@ -859,14 +859,14 @@ function isThisMonth(date, options) {
 
 /***/ }),
 
-/***/ 279:
+/***/ 273:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isThisQuarter = isThisQuarter;
-var _index = __webpack_require__(61);
-var _index2 = __webpack_require__(95);
-var _index3 = __webpack_require__(271);
+var _index = __webpack_require__(55);
+var _index2 = __webpack_require__(89);
+var _index3 = __webpack_require__(265);
 
 /**
  * The {@link isThisQuarter} function options.
@@ -901,13 +901,13 @@ function isThisQuarter(date, options) {
 
 /***/ }),
 
-/***/ 280:
+/***/ 274:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isThisSecond = isThisSecond;
-var _index = __webpack_require__(95);
-var _index2 = __webpack_require__(272);
+var _index = __webpack_require__(89);
+var _index2 = __webpack_require__(266);
 
 /**
  * @name isThisSecond
@@ -935,14 +935,14 @@ function isThisSecond(date) {
 
 /***/ }),
 
-/***/ 281:
+/***/ 275:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isThisWeek = isThisWeek;
-var _index = __webpack_require__(61);
-var _index2 = __webpack_require__(95);
-var _index3 = __webpack_require__(266);
+var _index = __webpack_require__(55);
+var _index2 = __webpack_require__(89);
+var _index3 = __webpack_require__(260);
 
 /**
  * The {@link isThisWeek} function options.
@@ -984,14 +984,14 @@ function isThisWeek(date, options) {
 
 /***/ }),
 
-/***/ 282:
+/***/ 276:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isThisYear = isThisYear;
-var _index = __webpack_require__(61);
-var _index2 = __webpack_require__(95);
-var _index3 = __webpack_require__(274);
+var _index = __webpack_require__(55);
+var _index2 = __webpack_require__(89);
+var _index3 = __webpack_require__(268);
 
 /**
  * The {@link isThisYear} function options.
@@ -1026,12 +1026,12 @@ function isThisYear(date, options) {
 
 /***/ }),
 
-/***/ 283:
+/***/ 277:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isThursday = isThursday;
-var _index = __webpack_require__(63);
+var _index = __webpack_require__(57);
 
 /**
  * The {@link isThursday} function options.
@@ -1062,14 +1062,14 @@ function isThursday(date, options) {
 
 /***/ }),
 
-/***/ 284:
+/***/ 278:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isToday = isToday;
-var _index = __webpack_require__(61);
-var _index2 = __webpack_require__(95);
-var _index3 = __webpack_require__(98);
+var _index = __webpack_require__(55);
+var _index2 = __webpack_require__(89);
+var _index3 = __webpack_require__(92);
 
 /**
  * The {@link isToday} function options.
@@ -1104,14 +1104,14 @@ function isToday(date, options) {
 
 /***/ }),
 
-/***/ 285:
+/***/ 279:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isTomorrow = isTomorrow;
-var _index = __webpack_require__(60);
-var _index2 = __webpack_require__(95);
-var _index3 = __webpack_require__(98);
+var _index = __webpack_require__(54);
+var _index2 = __webpack_require__(89);
+var _index3 = __webpack_require__(92);
 
 /**
  * The {@link isTomorrow} function options.
@@ -1147,12 +1147,12 @@ function isTomorrow(date, options) {
 
 /***/ }),
 
-/***/ 286:
+/***/ 280:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isTuesday = isTuesday;
-var _index = __webpack_require__(63);
+var _index = __webpack_require__(57);
 
 /**
  * The {@link isTuesday} function options.
@@ -1183,12 +1183,12 @@ function isTuesday(date, options) {
 
 /***/ }),
 
-/***/ 287:
+/***/ 281:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isWednesday = isWednesday;
-var _index = __webpack_require__(63);
+var _index = __webpack_require__(57);
 
 /**
  * The {@link isWednesday} function options.
@@ -1219,12 +1219,12 @@ function isWednesday(date, options) {
 
 /***/ }),
 
-/***/ 288:
+/***/ 282:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isWithinInterval = isWithinInterval;
-var _index = __webpack_require__(63);
+var _index = __webpack_require__(57);
 
 /**
  * The {@link isWithinInterval} function options.
@@ -1283,15 +1283,15 @@ function isWithinInterval(date, interval, options) {
 
 /***/ }),
 
-/***/ 289:
+/***/ 283:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isYesterday = isYesterday;
-var _index = __webpack_require__(61);
-var _index2 = __webpack_require__(95);
-var _index3 = __webpack_require__(98);
-var _index4 = __webpack_require__(290);
+var _index = __webpack_require__(55);
+var _index2 = __webpack_require__(89);
+var _index3 = __webpack_require__(92);
+var _index4 = __webpack_require__(284);
 
 /**
  * The {@link isYesterday} function options.

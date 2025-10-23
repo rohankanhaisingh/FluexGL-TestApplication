@@ -1,16 +1,18 @@
 "use strict";
-(self["webpackChunkfluex_gl_test_application"] = self["webpackChunkfluex_gl_test_application"] || []).push([[0],[
-/* 0 */
+(self["webpackChunkfluex_gl_test_application"] = self["webpackChunkfluex_gl_test_application"] || []).push([[0],{
+
+/***/ 0:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 __webpack_require__(1);
-__webpack_require__(2);
+__webpack_require__(362);
 
 
 /***/ }),
-/* 1 */
+
+/***/ 1:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -18,40 +20,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 2 */
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-const audio_1 = __webpack_require__(3);
-const btnPlay = document.querySelector("#btn-play"), btnStop = document.querySelector("#btn-stop"), playbackCurrentTime = document.querySelector("#playback-current-time"), playbackDuration = document.querySelector("#playback-duration"), playbackTracker = document.querySelector("#playback-tracker");
-async function init() {
-    const canAccessAudioDevices = await (0, audio_1.EnsureAudioPermission)();
-    if (!canAccessAudioDevices)
-        return null;
-    const audioDevice = await (0, audio_1.ResolveDefaultAudioOutputDevice)();
-    if (!audioDevice)
-        return;
-    const masterChannel = audioDevice.GetMasterChannel();
-    const channel = new audio_1.Channel();
-    channel.SetLabel("BackgroundMusic");
-    masterChannel.AttachChannel(channel);
-    const audioSourceData = await (0, audio_1.LoadAudioSource)("/assets/data/Chill Instrumental [Non Copyrighted Music] Embrace by @Sappheiros.mp3");
-    if (!audioSourceData)
-        return;
-    const audioClip = new audio_1.AudioClip(audioSourceData);
-    audioClip.AddEventListener("progress", function (event) {
-        playbackCurrentTime.innerText = `${event.formatted}`;
-        playbackDuration.innerText = `${audioClip.formattedDuration}`;
-    });
-    channel.AttachAudioClip(audioClip);
-    btnPlay.addEventListener("click", () => audioClip.Play());
-}
-window.addEventListener("load", init);
-
-
-/***/ }),
-/* 3 */
+/***/ 3:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -101,19 +71,20 @@ Object.defineProperty(exports, "Channel", ({ enumerable: true, get: function () 
 Object.defineProperty(exports, "Effector", ({ enumerable: true, get: function () { return exports_2.Effector; } }));
 Object.defineProperty(exports, "Master", ({ enumerable: true, get: function () { return exports_2.Master; } }));
 Object.defineProperty(exports, "AudioClip", ({ enumerable: true, get: function () { return exports_2.AudioClip; } }));
-var helpers_1 = __webpack_require__(51);
+var helpers_1 = __webpack_require__(356);
 Object.defineProperty(exports, "EnsureAudioPermission", ({ enumerable: true, get: function () { return helpers_1.EnsureAudioPermission; } }));
 Object.defineProperty(exports, "ResolveAudioOutputDevices", ({ enumerable: true, get: function () { return helpers_1.ResolveAudioOutputDevices; } }));
 Object.defineProperty(exports, "ResolveAudioInputDevices", ({ enumerable: true, get: function () { return helpers_1.ResolveAudioInputDevices; } }));
 Object.defineProperty(exports, "ResolveDefaultAudioInputDevice", ({ enumerable: true, get: function () { return helpers_1.ResolveDefaultAudioInputDevice; } }));
 Object.defineProperty(exports, "ResolveDefaultAudioOutputDevice", ({ enumerable: true, get: function () { return helpers_1.ResolveDefaultAudioOutputDevice; } }));
 Object.defineProperty(exports, "LoadAudioSource", ({ enumerable: true, get: function () { return helpers_1.LoadAudioSource; } }));
-var constants_1 = __webpack_require__(56);
+var constants_1 = __webpack_require__(361);
 Object.defineProperty(exports, "SUPPORTED_FILE_TYPES", ({ enumerable: true, get: function () { return constants_1.SUPPORTED_FILE_TYPES; } }));
 
 
 /***/ }),
-/* 4 */
+
+/***/ 4:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -158,7 +129,8 @@ Object.defineProperty(exports, "RoomReverb", ({ enumerable: true, get: function 
 
 
 /***/ }),
-/* 5 */
+
+/***/ 5:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -170,7 +142,8 @@ exports.Chorus = Chorus;
 
 
 /***/ }),
-/* 6 */
+
+/***/ 6:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -182,7 +155,8 @@ exports.Distortion = Distortion;
 
 
 /***/ }),
-/* 7 */
+
+/***/ 7:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -194,7 +168,8 @@ exports.Equalizer = Equalizer;
 
 
 /***/ }),
-/* 8 */
+
+/***/ 8:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -206,7 +181,8 @@ exports.Filter = Filter;
 
 
 /***/ }),
-/* 9 */
+
+/***/ 9:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -218,7 +194,8 @@ exports.Limiter = Limiter;
 
 
 /***/ }),
-/* 10 */
+
+/***/ 10:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -230,7 +207,8 @@ exports.Saturation = Saturation;
 
 
 /***/ }),
-/* 11 */
+
+/***/ 11:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -242,7 +220,8 @@ exports.StereoPanner = StereoPanner;
 
 
 /***/ }),
-/* 12 */
+
+/***/ 12:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -254,7 +233,8 @@ exports.Compressor = Compressor;
 
 
 /***/ }),
-/* 13 */
+
+/***/ 13:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -266,7 +246,8 @@ exports.MultibandCompressor = MultibandCompressor;
 
 
 /***/ }),
-/* 14 */
+
+/***/ 14:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -278,7 +259,8 @@ exports.AdvancedDelay = AdvancedDelay;
 
 
 /***/ }),
-/* 15 */
+
+/***/ 15:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -290,7 +272,8 @@ exports.MonoDelay = MonoDelay;
 
 
 /***/ }),
-/* 16 */
+
+/***/ 16:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -302,7 +285,8 @@ exports.PingPongDelay = PingPongDelay;
 
 
 /***/ }),
-/* 17 */
+
+/***/ 17:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -314,7 +298,8 @@ exports.StereoDelay = StereoDelay;
 
 
 /***/ }),
-/* 18 */
+
+/***/ 18:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -326,7 +311,8 @@ exports.ChamberReverb = ChamberReverb;
 
 
 /***/ }),
-/* 19 */
+
+/***/ 19:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -338,7 +324,8 @@ exports.ConvolverReverb = ConvolverReverb;
 
 
 /***/ }),
-/* 20 */
+
+/***/ 20:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -350,7 +337,8 @@ exports.GenericReverb = GenericReverb;
 
 
 /***/ }),
-/* 21 */
+
+/***/ 21:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -362,7 +350,8 @@ exports.HallReverb = HallReverb;
 
 
 /***/ }),
-/* 22 */
+
+/***/ 22:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -374,7 +363,8 @@ exports.RoomReverb = RoomReverb;
 
 
 /***/ }),
-/* 23 */
+
+/***/ 23:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -388,12 +378,13 @@ var Effector_1 = __webpack_require__(50);
 Object.defineProperty(exports, "Effector", ({ enumerable: true, get: function () { return Effector_1.Effector; } }));
 var Master_1 = __webpack_require__(46);
 Object.defineProperty(exports, "Master", ({ enumerable: true, get: function () { return Master_1.Master; } }));
-var AudioClip_1 = __webpack_require__(57);
+var AudioClip_1 = __webpack_require__(51);
 Object.defineProperty(exports, "AudioClip", ({ enumerable: true, get: function () { return AudioClip_1.AudioClip; } }));
 
 
 /***/ }),
-/* 24 */
+
+/***/ 24:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -427,28 +418,8 @@ exports.AudioDevice = AudioDevice;
 
 
 /***/ }),
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */,
-/* 32 */,
-/* 33 */,
-/* 34 */,
-/* 35 */,
-/* 36 */,
-/* 37 */,
-/* 38 */,
-/* 39 */,
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */
+
+/***/ 46:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -484,7 +455,8 @@ exports.Master = Master;
 
 
 /***/ }),
-/* 47 */
+
+/***/ 47:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -532,7 +504,8 @@ var Debug;
 
 
 /***/ }),
-/* 48 */
+
+/***/ 48:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -555,7 +528,8 @@ var SuccessCodes;
 
 
 /***/ }),
-/* 49 */
+
+/***/ 49:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -615,7 +589,8 @@ exports.Channel = Channel;
 
 
 /***/ }),
-/* 50 */
+
+/***/ 50:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -629,7 +604,383 @@ exports.Effector = Effector;
 
 
 /***/ }),
-/* 51 */
+
+/***/ 51:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.AudioClip = void 0;
+const uuid_1 = __webpack_require__(25);
+const date_fns_1 = __webpack_require__(52);
+const debugger_1 = __webpack_require__(47);
+class AudioClip {
+    data;
+    id = (0, uuid_1.v4)();
+    hasAttachedToChannel = false;
+    loop = false;
+    isPlaying = false;
+    startTime = 0;
+    offsetAtStart = 0;
+    gainNode = null;
+    stereoPannerNode = null;
+    parentialAudioContext = null;
+    parentialChannel = null;
+    preAnalyser = null;
+    postAnalyser = null;
+    preAnalyserEnabled = false;
+    postAnalyserEnabled = false;
+    preAnalyserOptions = {};
+    postAnalyserOptions = {};
+    preAnalyserFloatArrayBuffer = new Float32Array();
+    postAnalyserFloatArrayBuffer = new Float32Array();
+    preAnalyserByteArrayBuffer = new Uint8Array();
+    postAnalyserByteArrayBuffer = new Uint8Array();
+    audioBufferSourceNodes = [];
+    maxAudioBufferSourceNodes = 1;
+    progressInterval = 0;
+    events = {
+        "progress": []
+    };
+    constructor(data) {
+        this.data = data;
+    }
+    createBufferSource() {
+        if (!this.parentialAudioContext)
+            return null;
+        const context = this.parentialAudioContext;
+        const bufferSource = context.createBufferSource();
+        bufferSource.buffer = this.data.audioBuffer;
+        bufferSource.loop = this.loop;
+        return bufferSource;
+    }
+    connectSourcesTo(target) {
+        for (const src of this.audioBufferSourceNodes) {
+            src.disconnect();
+            src.connect(target);
+        }
+    }
+    safeDisconnect(node) {
+        node?.disconnect();
+    }
+    rebuildNodeChain() {
+        if (!this.parentialAudioContext || !this.gainNode || !this.stereoPannerNode) {
+            debugger_1.Debug.Error("rebuildNodeChain: missing context or core nodes (gain/panner).");
+            return false;
+        }
+        const ctx = this.parentialAudioContext;
+        const dest = ctx.destination;
+        this.safeDisconnect(this.gainNode);
+        this.safeDisconnect(this.stereoPannerNode);
+        this.safeDisconnect(this.preAnalyser);
+        this.safeDisconnect(this.postAnalyser);
+        let entry = this.gainNode;
+        if (this.preAnalyserEnabled && this.preAnalyser) {
+            entry = this.preAnalyser;
+            this.preAnalyser.connect(this.gainNode);
+        }
+        this.gainNode.connect(this.stereoPannerNode);
+        if (this.postAnalyserEnabled && this.postAnalyser) {
+            this.stereoPannerNode.connect(this.postAnalyser);
+            this.postAnalyser.connect(dest);
+        }
+        else {
+            this.stereoPannerNode.connect(dest);
+        }
+        this.connectSourcesTo(entry);
+        return true;
+    }
+    InitializeAudioClipOnAttaching(channel) {
+        this.gainNode = new GainNode(channel.context);
+        this.stereoPannerNode = new StereoPannerNode(channel.context);
+        this.gainNode.connect(channel.context.destination);
+        this.stereoPannerNode.connect(this.gainNode);
+        this.parentialAudioContext = channel.context;
+        this.parentialChannel = channel;
+        this.hasAttachedToChannel = true;
+        return this;
+    }
+    Play(timestamp, offset = 0) {
+        if (!this.hasAttachedToChannel || !this.parentialAudioContext || !this.parentialChannel) {
+            debugger_1.Debug.Error("Could not play the audio node because it is not attached to a channel", [
+                "Call 'AttachAudioClip([clip AudioClip])' on a channel, before playing this audio node."
+            ]);
+            return this;
+        }
+        const context = this.parentialAudioContext;
+        const self = this;
+        if (this.audioBufferSourceNodes.length > this.maxAudioBufferSourceNodes - 1)
+            return null;
+        const bufferSource = this.createBufferSource();
+        if (!bufferSource) {
+            debugger_1.Debug.Error("Something went wrong.");
+            return null;
+        }
+        this.startTime = context.currentTime;
+        this.offsetAtStart = offset;
+        this.isPlaying = true;
+        if (this.progressInterval)
+            clearInterval(this.progressInterval);
+        if (this.isPlaying)
+            this.progressInterval = setInterval(function () {
+                if (!self.isPlaying)
+                    return;
+                const current = self.offsetAtStart + (context.currentTime - self.startTime);
+                const date = new Date(current * 1000);
+                const formattedTime = (0, date_fns_1.format)(date, "mm:ss");
+                const progressPayload = {
+                    current: parseFloat(current.toFixed(2)),
+                    startTime: self.startTime,
+                    offset: self.offsetAtStart,
+                    contextTimestamp: context.currentTime,
+                    formatted: formattedTime
+                };
+                self.events.progress.forEach(function (cb) {
+                    cb(progressPayload);
+                });
+            }, 20);
+        bufferSource.addEventListener("ended", function () {
+            const i = self.audioBufferSourceNodes.indexOf(bufferSource);
+            bufferSource.disconnect();
+            if (i === 0)
+                self.isPlaying = false;
+            if (i >= 0)
+                return self.audioBufferSourceNodes.splice(i, 1);
+        });
+        this.audioBufferSourceNodes.push(bufferSource);
+        this.rebuildNodeChain();
+        bufferSource.start(timestamp ?? this.startTime, offset);
+        return this;
+    }
+    Stop() {
+        if (!this.hasAttachedToChannel || !this.parentialAudioContext) {
+            debugger_1.Debug.Error("Could not stop the audio node because it is not attached to a channel", [
+                "Call 'AttachAudioClip([node AudioNode])' on a channel, before stopping this audio node."
+            ]);
+            return null;
+        }
+        this.audioBufferSourceNodes.forEach(function (node) {
+            node.stop();
+            node.disconnect();
+        });
+        this.audioBufferSourceNodes.length = 0;
+        this.isPlaying = false;
+        if (this.progressInterval) {
+            clearInterval(this.progressInterval);
+            this.progressInterval = null;
+        }
+        return this;
+    }
+    SetVolume(volume) {
+        if (!this.gainNode || !this.parentialAudioContext)
+            return debugger_1.Debug.Error("Something went wrong while setting the volume.", [
+                `Gain node on audio clip '${this.id}' is undefined.`
+            ]);
+        this.gainNode.gain.setValueAtTime(volume, this.parentialAudioContext.currentTime);
+        return this;
+    }
+    SetPanLevel(panLevel) {
+        if (!this.stereoPannerNode || !this.parentialAudioContext)
+            return debugger_1.Debug.Error("Something went wrong while setting the pan level", [
+                `Stereo panner node on audio clip '${this.id}' is undefined`
+            ]);
+        if (panLevel < -1 || panLevel > 1)
+            return debugger_1.Debug.Error("Could not set the pan level because it is not between -1 and 1.", [
+                "Provide this method with a value between -1 and 1"
+            ]);
+        this.stereoPannerNode.pan.setValueAtTime(panLevel, this.parentialAudioContext.currentTime);
+        return this;
+    }
+    Loop(loop) {
+        this.audioBufferSourceNodes.forEach(function (node) {
+            node.loop = loop ?? true;
+        });
+        this.loop = loop ?? true;
+        return this;
+    }
+    SetMaxAudioBufferSourceNodes(value) {
+        debugger_1.Debug.Warn("Changing the amount of buffer source nodes may cause some properties of this class instance to work inproperly.", [
+            "The default value is 1."
+        ]);
+        this.maxAudioBufferSourceNodes = value;
+        return this;
+    }
+    DisconnectAllAudioBufferSourceNodes() {
+        if (!this.parentialAudioContext) {
+            debugger_1.Debug.Error("Could not disconnect audio buffer source nodes, because the parential audio contex has not been found", [
+                `Clip ID: ${this.id}`,
+                `Parential channel id: ${this.parentialChannel ? this.parentialChannel.id : "none"}`
+            ]);
+            return false;
+        }
+        const contextCurrentTime = this.parentialAudioContext?.currentTime;
+        this.audioBufferSourceNodes.forEach(function (node) {
+            node.stop(contextCurrentTime);
+            node.disconnect();
+        });
+        return true;
+    }
+    AddEventListener(event, cb) {
+        this.events[event].push(cb);
+        return () => this.RemoveEventListener(event, cb);
+    }
+    Once(event, cb) {
+        const wrapper = ((...args) => {
+            cb(...args);
+            this.RemoveEventListener(event, wrapper);
+        });
+        return this.AddEventListener(event, wrapper);
+    }
+    RemoveEventListener(event, cb) {
+        const arr = this.events[event];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === cb) {
+                arr.splice(i, 1);
+                break;
+            }
+        }
+        return this;
+    }
+    ClearEventListeners(event) {
+        if (event) {
+            this.events[event].length = 0;
+        }
+        else {
+            Object.keys(this.events).forEach((k) => (this.events[k].length = 0));
+        }
+        return this;
+    }
+    GetChannelData(channel = 0) {
+        return this.data.audioBuffer.getChannelData(channel);
+    }
+    EnablePreAnalyser() {
+        if (!this.parentialAudioContext || !this.parentialChannel || !this.hasAttachedToChannel) {
+            debugger_1.Debug.Error("EnablePreAnalyser: clip niet aan channel gekoppeld.");
+            return false;
+        }
+        if (!this.preAnalyser)
+            this.preAnalyser = new AnalyserNode(this.parentialAudioContext, this.preAnalyserOptions);
+        this.preAnalyserEnabled = true;
+        return this.rebuildNodeChain();
+    }
+    DisablePreAnalyser() {
+        this.preAnalyserEnabled = false;
+        return this.rebuildNodeChain();
+    }
+    EnablePostAnalyser() {
+        if (!this.parentialAudioContext || !this.parentialChannel || !this.hasAttachedToChannel) {
+            debugger_1.Debug.Error("EnablePostAnalyser: clip niet aan channel gekoppeld.");
+            return false;
+        }
+        if (!this.postAnalyser)
+            this.postAnalyser = new AnalyserNode(this.parentialAudioContext, this.postAnalyserOptions);
+        this.postAnalyserEnabled = true;
+        return this.rebuildNodeChain();
+    }
+    DisablePostAnalyser() {
+        this.postAnalyserEnabled = false;
+        return this.rebuildNodeChain();
+    }
+    SetPreAnalyserOptions(options) {
+        this.preAnalyserOptions = { ...options };
+        if (!this.preAnalyser)
+            return;
+        this.preAnalyser.fftSize = options.fftSize ?? this.preAnalyser.fftSize;
+        this.preAnalyser.minDecibels = options.minDecibels ?? this.preAnalyser.minDecibels;
+        this.preAnalyser.maxDecibels = options.maxDecibels ?? this.preAnalyser.maxDecibels;
+        this.preAnalyser.smoothingTimeConstant = options.smoothingTimeConstant ?? this.preAnalyser.smoothingTimeConstant;
+    }
+    SetPostAnalyserOptions(options) {
+        this.postAnalyserOptions = { ...options };
+        if (!this.postAnalyser)
+            return;
+        this.postAnalyser.fftSize = options.fftSize ?? this.postAnalyser.fftSize;
+        this.postAnalyser.minDecibels = options.minDecibels ?? this.postAnalyser.minDecibels;
+        this.postAnalyser.maxDecibels = options.maxDecibels ?? this.postAnalyser.maxDecibels;
+        this.postAnalyser.smoothingTimeConstant = options.smoothingTimeConstant ?? this.postAnalyser.smoothingTimeConstant;
+    }
+    SetAnalyserOption(analyserType, property, value) {
+        const node = analyserType === "pre" ? this.preAnalyser : this.postAnalyser;
+        if (node)
+            switch (property) {
+                case "fftSize":
+                    node.fftSize = value;
+                    break;
+                case "minDecibels":
+                    node.minDecibels = value;
+                    break;
+                case "maxDecibels":
+                    node.maxDecibels = value;
+                    break;
+                case "smoothingTimeConstant":
+                    node.smoothingTimeConstant = value;
+                    break;
+                default: return false;
+            }
+        const opts = analyserType === "pre" ? this.preAnalyserOptions : this.postAnalyserOptions;
+        switch (property) {
+            case "fftSize":
+                opts.fftSize = value;
+                break;
+            case "minDecibels":
+                opts.minDecibels = value;
+                break;
+            case "maxDecibels":
+                opts.maxDecibels = value;
+                break;
+            case "smoothingTimeConstant":
+                opts.smoothingTimeConstant = value;
+                break;
+            default: return false;
+        }
+        return true;
+    }
+    GetWaveformFloatData(analyserType) {
+        if (!this.preAnalyser || !this.postAnalyser) {
+            debugger_1.Debug.Error("Could not get floating waveform data because the pre analyser or post analyser has not been enabled.", [
+                "Call .EnablePreAnalyser() or .EnablePostAnalyser() before getting waveform data."
+            ]);
+            return null;
+        }
+        switch (analyserType) {
+            case "pre":
+                this.preAnalyser.getFloatTimeDomainData(this.preAnalyserFloatArrayBuffer);
+                return this.preAnalyserFloatArrayBuffer;
+            case "post":
+                this.postAnalyser.getFloatFrequencyData(this.postAnalyserFloatArrayBuffer);
+                return this.postAnalyserFloatArrayBuffer;
+            default:
+                return null;
+        }
+    }
+    get currentPlaybackTime() {
+        return (!this.isPlaying || !this.parentialAudioContext)
+            ? 0
+            : this.offsetAtStart + (this.parentialAudioContext.currentTime - this.startTime);
+    }
+    get duration() {
+        return this.data.audioBuffer.duration;
+    }
+    get formattedDuration() {
+        const date = new Date(this.duration * 1000);
+        return (0, date_fns_1.format)(date, "mm:ss");
+    }
+    get sampleRate() {
+        return this.data.audioBuffer.sampleRate;
+    }
+    get numberOfChannels() {
+        return this.data.audioBuffer.numberOfChannels;
+    }
+    get byteLength() {
+        return this.data.arrayBuffer.byteLength;
+    }
+}
+exports.AudioClip = AudioClip;
+
+
+/***/ }),
+
+/***/ 356:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -638,11 +989,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.LoadAudioSource = exports.ResolveDefaultAudioInputDevice = exports.ResolveDefaultAudioOutputDevice = exports.ResolveAudioInputDevices = exports.ResolveAudioOutputDevices = exports.EnsureAudioPermission = void 0;
-const mime_1 = __importDefault(__webpack_require__(52));
+const mime_1 = __importDefault(__webpack_require__(357));
 const AudioDevice_1 = __webpack_require__(24);
 const debugger_1 = __webpack_require__(47);
 const console_codes_1 = __webpack_require__(48);
-const constants_1 = __webpack_require__(56);
+const constants_1 = __webpack_require__(361);
 const uuid_1 = __webpack_require__(25);
 async function EnsureAudioPermission() {
     let canEnumerateDevices = true;
@@ -727,11 +1078,8 @@ exports.LoadAudioSource = LoadAudioSource;
 
 
 /***/ }),
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */
+
+/***/ 361:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -749,196 +1097,47 @@ exports.SUPPORTED_FILE_TYPES = [
 
 
 /***/ }),
-/* 57 */
+
+/***/ 362:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.AudioClip = void 0;
-const uuid_1 = __webpack_require__(25);
-const date_fns_1 = __webpack_require__(58);
-const debugger_1 = __webpack_require__(47);
-class AudioClip {
-    data;
-    id = (0, uuid_1.v4)();
-    hasAttachedToChannel = false;
-    loop = false;
-    isPlaying = false;
-    startTime = 0;
-    offsetAtStart = 0;
-    gainNode = null;
-    stereoPannerNode = null;
-    parentialAudioContext = null;
-    parentialChannel = null;
-    audioBufferSourceNodes = [];
-    maxAudioBufferSourceNodes = 1;
-    progressInterval = 0;
-    events = {
-        "progress": []
-    };
-    constructor(data) {
-        this.data = data;
-    }
-    createBufferSource() {
-        if (!this.parentialAudioContext || !this.gainNode || !this.stereoPannerNode)
-            return null;
-        const context = this.parentialAudioContext;
-        const bufferSource = context.createBufferSource();
-        bufferSource.buffer = this.data.audioBuffer;
-        bufferSource.connect(this.stereoPannerNode);
-        bufferSource.loop = this.loop;
-        return bufferSource;
-    }
-    InitializeAudioClipOnAttaching(channel) {
-        this.gainNode = new GainNode(channel.context);
-        this.stereoPannerNode = new StereoPannerNode(channel.context);
-        this.gainNode.connect(channel.context.destination);
-        this.stereoPannerNode.connect(this.gainNode);
-        this.parentialAudioContext = channel.context;
-        this.parentialChannel = channel;
-        this.hasAttachedToChannel = true;
-        return this;
-    }
-    Play(timestamp, offset = 0) {
-        if (!this.hasAttachedToChannel || !this.parentialAudioContext || !this.parentialChannel)
-            return debugger_1.Debug.Error("Could not play the audio node because it is not attached to a channel", [
-                "Call 'AttachAudioClip([node AudioNode])' on a channel, before playing this audio node."
-            ]);
-        const context = this.parentialAudioContext;
-        const self = this;
-        if (this.audioBufferSourceNodes.length > this.maxAudioBufferSourceNodes - 1)
-            return;
-        const bufferSource = this.createBufferSource();
-        if (!bufferSource)
-            return debugger_1.Debug.Error("Something went wrong while creating a buffer source.");
-        this.startTime = context.currentTime;
-        this.offsetAtStart = offset;
-        this.isPlaying = true;
-        if (this.progressInterval)
-            clearInterval(this.progressInterval);
-        if (this.isPlaying)
-            this.progressInterval = setInterval(function () {
-                if (!self.isPlaying)
-                    return;
-                const current = self.offsetAtStart + (context.currentTime - self.startTime);
-                const date = new Date(current * 1000);
-                const formattedTime = (0, date_fns_1.format)(date, "mm:ss");
-                const progressPayload = {
-                    current: parseFloat(current.toFixed(2)),
-                    startTime: self.startTime,
-                    offset: self.offsetAtStart,
-                    contextTimestamp: context.currentTime,
-                    formatted: formattedTime
-                };
-                self.events.progress.forEach(function (cb) {
-                    cb(progressPayload);
-                });
-            }, 20);
-        bufferSource.start(timestamp ?? this.startTime, offset);
-        bufferSource.addEventListener("ended", function () {
-            const i = self.audioBufferSourceNodes.indexOf(bufferSource);
-            bufferSource.disconnect();
-            if (i === 0)
-                self.isPlaying = false;
-            if (i >= 0)
-                return self.audioBufferSourceNodes.splice(i, 1);
-        });
-        this.audioBufferSourceNodes.push(bufferSource);
-    }
-    SetVolume(volume) {
-        if (!this.gainNode || !this.parentialAudioContext)
-            return debugger_1.Debug.Error("Something went wrong while setting the volume.", [
-                `Gain node on audio clip '${this.id}' is undefined.`
-            ]);
-        this.gainNode.gain.setValueAtTime(volume, this.parentialAudioContext.currentTime);
-        return this;
-    }
-    SetPanLevel(panLevel) {
-        if (!this.stereoPannerNode || !this.parentialAudioContext)
-            return debugger_1.Debug.Error("Something went wrong while setting the pan level", [
-                `Stereo panner node on audio clip '${this.id}' is undefined`
-            ]);
-        if (panLevel < -1 || panLevel > 1)
-            return debugger_1.Debug.Error("Could not set the pan level because it is not between -1 and 1.", [
-                "Provide this method with a value between -1 and 1"
-            ]);
-        this.stereoPannerNode.pan.setValueAtTime(panLevel, this.parentialAudioContext.currentTime);
-        return this;
-    }
-    Loop(loop) {
-        this.audioBufferSourceNodes.forEach(function (node) {
-            node.loop = loop ?? true;
-        });
-        return this.loop = loop ?? true;
-    }
-    SetMaxAudioBufferSourceNodes(value) {
-        debugger_1.Debug.Warn("Changing the amount of buffer source nodes may cause some properties of this class instance to work inproperly.", [
-            "The default value is 1."
-        ]);
-        return this.maxAudioBufferSourceNodes = value;
-    }
-    DisconnectAllAudioBufferSourceNodes() {
-        return this.audioBufferSourceNodes.forEach(function (node) {
-            node.disconnect();
-        });
-    }
-    AddEventListener(event, cb) {
-        this.events[event].push(cb);
-        return () => this.RemoveEventListener(event, cb);
-    }
-    Once(event, cb) {
-        const wrapper = ((...args) => {
-            cb(...args);
-            this.RemoveEventListener(event, wrapper);
-        });
-        return this.AddEventListener(event, wrapper);
-    }
-    RemoveEventListener(event, cb) {
-        const arr = this.events[event];
-        for (let i = 0; i < arr.length; i++) {
-            if (arr[i] === cb) {
-                arr.splice(i, 1);
-                break;
-            }
-        }
-        return this;
-    }
-    ClearEventListeners(event) {
-        if (event) {
-            this.events[event].length = 0;
-        }
-        else {
-            Object.keys(this.events).forEach((k) => (this.events[k].length = 0));
-        }
-        return this;
-    }
-    get currentPlaybackTime() {
-        return (!this.isPlaying || !this.parentialAudioContext)
-            ? 0
-            : this.offsetAtStart + (this.parentialAudioContext.currentTime - this.startTime);
-    }
-    get duration() {
-        return this.data.audioBuffer.duration;
-    }
-    get formattedDuration() {
-        const date = new Date(this.duration * 1000);
-        return (0, date_fns_1.format)(date, "mm:ss");
-    }
-    get sampleRate() {
-        return this.data.audioBuffer.sampleRate;
-    }
-    get numberOfChannels() {
-        return this.data.audioBuffer.numberOfChannels;
-    }
-    get byteLength() {
-        return this.data.arrayBuffer.byteLength;
-    }
+const audio_1 = __webpack_require__(3);
+const btnPlay = document.querySelector("#btn-play"), btnStop = document.querySelector("#btn-stop"), playbackCurrentTime = document.querySelector("#playback-current-time"), playbackDuration = document.querySelector("#playback-duration"), playbackTracker = document.querySelector("#playback-tracker");
+async function init() {
+    const canAccessAudioDevices = await (0, audio_1.EnsureAudioPermission)();
+    if (!canAccessAudioDevices)
+        return null;
+    const audioDevice = await (0, audio_1.ResolveDefaultAudioOutputDevice)();
+    if (!audioDevice)
+        return;
+    const masterChannel = audioDevice.GetMasterChannel();
+    const channel = new audio_1.Channel();
+    channel.SetLabel("BackgroundMusic");
+    masterChannel.AttachChannel(channel);
+    const audioSourceData = await (0, audio_1.LoadAudioSource)("/assets/data/Chill Instrumental [Non Copyrighted Music] Embrace by @Sappheiros.mp3");
+    if (!audioSourceData)
+        return;
+    const audioClip = new audio_1.AudioClip(audioSourceData);
+    audioClip.AddEventListener("progress", function (event) {
+        playbackCurrentTime.innerText = `${event.formatted}`;
+        playbackDuration.innerText = `${audioClip.formattedDuration}`;
+        let trackerValue = 100 / audioClip.duration * event.current;
+        playbackTracker.value = trackerValue.toString();
+    });
+    channel.AttachAudioClip(audioClip);
+    audioClip.EnablePreAnalyser();
+    audioClip.GetWaveformFloatData("pre");
+    btnPlay.addEventListener("click", () => audioClip.Play());
+    btnStop.addEventListener("click", () => audioClip.Stop());
 }
-exports.AudioClip = AudioClip;
+window.addEventListener("load", init);
 
 
 /***/ })
-],
+
+},
 /******/ __webpack_require__ => { // webpackRuntimeModules
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
 /******/ __webpack_require__.O(0, [2,3,4,6,5,7,8,9,10,11,12,14,13,15], () => (__webpack_exec__(0)));

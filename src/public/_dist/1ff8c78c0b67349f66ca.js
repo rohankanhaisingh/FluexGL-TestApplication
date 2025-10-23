@@ -1,13 +1,13 @@
 "use strict";
 (self["webpackChunkfluex_gl_test_application"] = self["webpackChunkfluex_gl_test_application"] || []).push([[11],{
 
-/***/ 90:
+/***/ 84:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.min = min;
-var _index = __webpack_require__(61);
-var _index2 = __webpack_require__(63);
+var _index = __webpack_require__(55);
+var _index2 = __webpack_require__(57);
 
 /**
  * The {@link min} function options.
@@ -57,12 +57,12 @@ function min(dates, options) {
 
 /***/ }),
 
-/***/ 298:
+/***/ 292:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.milliseconds = milliseconds;
-var _index = __webpack_require__(62);
+var _index = __webpack_require__(56);
 
 /**
  * @name milliseconds
@@ -113,12 +113,12 @@ function milliseconds({ years, months, weeks, days, hours, minutes, seconds }) {
 
 /***/ }),
 
-/***/ 299:
+/***/ 293:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.millisecondsToHours = millisecondsToHours;
-var _index = __webpack_require__(62);
+var _index = __webpack_require__(56);
 
 /**
  * @name millisecondsToHours
@@ -150,12 +150,12 @@ function millisecondsToHours(milliseconds) {
 
 /***/ }),
 
-/***/ 300:
+/***/ 294:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.millisecondsToMinutes = millisecondsToMinutes;
-var _index = __webpack_require__(62);
+var _index = __webpack_require__(56);
 
 /**
  * @name millisecondsToMinutes
@@ -187,12 +187,12 @@ function millisecondsToMinutes(milliseconds) {
 
 /***/ }),
 
-/***/ 301:
+/***/ 295:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.millisecondsToSeconds = millisecondsToSeconds;
-var _index = __webpack_require__(62);
+var _index = __webpack_require__(56);
 
 /**
  * @name millisecondsToSeconds
@@ -224,12 +224,12 @@ function millisecondsToSeconds(milliseconds) {
 
 /***/ }),
 
-/***/ 302:
+/***/ 296:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.minutesToHours = minutesToHours;
-var _index = __webpack_require__(62);
+var _index = __webpack_require__(56);
 
 /**
  * @name minutesToHours
@@ -261,12 +261,12 @@ function minutesToHours(minutes) {
 
 /***/ }),
 
-/***/ 303:
+/***/ 297:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.minutesToMilliseconds = minutesToMilliseconds;
-var _index = __webpack_require__(62);
+var _index = __webpack_require__(56);
 
 /**
  * @name minutesToMilliseconds
@@ -292,12 +292,12 @@ function minutesToMilliseconds(minutes) {
 
 /***/ }),
 
-/***/ 304:
+/***/ 298:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.minutesToSeconds = minutesToSeconds;
-var _index = __webpack_require__(62);
+var _index = __webpack_require__(56);
 
 /**
  * @name minutesToSeconds
@@ -323,12 +323,12 @@ function minutesToSeconds(minutes) {
 
 /***/ }),
 
-/***/ 305:
+/***/ 299:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.monthsToQuarters = monthsToQuarters;
-var _index = __webpack_require__(62);
+var _index = __webpack_require__(56);
 
 /**
  * @name monthsToQuarters
@@ -360,12 +360,12 @@ function monthsToQuarters(months) {
 
 /***/ }),
 
-/***/ 306:
+/***/ 300:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.monthsToYears = monthsToYears;
-var _index = __webpack_require__(62);
+var _index = __webpack_require__(56);
 
 /**
  * @name monthsToYears
@@ -396,13 +396,13 @@ function monthsToYears(months) {
 
 /***/ }),
 
-/***/ 307:
+/***/ 301:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.nextDay = nextDay;
-var _index = __webpack_require__(60);
-var _index2 = __webpack_require__(184);
+var _index = __webpack_require__(54);
+var _index2 = __webpack_require__(178);
 
 /**
  * The {@link nextDay} function options.
@@ -442,12 +442,12 @@ function nextDay(date, day, options) {
 
 /***/ }),
 
-/***/ 308:
+/***/ 302:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.nextFriday = nextFriday;
-var _index = __webpack_require__(307);
+var _index = __webpack_require__(301);
 
 /**
  * The {@link nextFriday} function options.
@@ -481,12 +481,12 @@ function nextFriday(date, options) {
 
 /***/ }),
 
-/***/ 309:
+/***/ 303:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.nextMonday = nextMonday;
-var _index = __webpack_require__(307);
+var _index = __webpack_require__(301);
 
 /**
  * The {@link nextMonday} function options.
@@ -520,12 +520,12 @@ function nextMonday(date, options) {
 
 /***/ }),
 
-/***/ 310:
+/***/ 304:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.nextSaturday = nextSaturday;
-var _index = __webpack_require__(307);
+var _index = __webpack_require__(301);
 
 /**
  * The {@link nextSaturday} function options.
@@ -559,12 +559,12 @@ function nextSaturday(date, options) {
 
 /***/ }),
 
-/***/ 311:
+/***/ 305:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.nextSunday = nextSunday;
-var _index = __webpack_require__(307);
+var _index = __webpack_require__(301);
 
 /**
  * The {@link nextSunday} function options.
@@ -598,12 +598,12 @@ function nextSunday(date, options) {
 
 /***/ }),
 
-/***/ 312:
+/***/ 306:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.nextThursday = nextThursday;
-var _index = __webpack_require__(307);
+var _index = __webpack_require__(301);
 
 /**
  * The {@link nextThursday} function options.
@@ -637,12 +637,12 @@ function nextThursday(date, options) {
 
 /***/ }),
 
-/***/ 313:
+/***/ 307:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.nextTuesday = nextTuesday;
-var _index = __webpack_require__(307);
+var _index = __webpack_require__(301);
 
 /**
  * The {@link nextTuesday} function options.
@@ -676,12 +676,12 @@ function nextTuesday(date, options) {
 
 /***/ }),
 
-/***/ 314:
+/***/ 308:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.nextWednesday = nextWednesday;
-var _index = __webpack_require__(307);
+var _index = __webpack_require__(301);
 
 /**
  * The {@link nextWednesday} function options.

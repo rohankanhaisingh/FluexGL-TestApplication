@@ -1,14 +1,14 @@
 "use strict";
 (self["webpackChunkfluex_gl_test_application"] = self["webpackChunkfluex_gl_test_application"] || []).push([[8],{
 
-/***/ 116:
+/***/ 110:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isLastDayOfMonth = isLastDayOfMonth;
-var _index = __webpack_require__(117);
-var _index2 = __webpack_require__(118);
-var _index3 = __webpack_require__(63);
+var _index = __webpack_require__(111);
+var _index2 = __webpack_require__(112);
+var _index3 = __webpack_require__(57);
 
 /**
  * @name isLastDayOfMonth
@@ -39,12 +39,12 @@ function isLastDayOfMonth(date, options) {
 
 /***/ }),
 
-/***/ 187:
+/***/ 181:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isLeapYear = isLeapYear;
-var _index = __webpack_require__(63);
+var _index = __webpack_require__(57);
 
 /**
  * @name isLeapYear
@@ -73,12 +73,12 @@ function isLeapYear(date, options) {
 
 /***/ }),
 
-/***/ 216:
+/***/ 210:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isFriday = isFriday;
-var _index = __webpack_require__(63);
+var _index = __webpack_require__(57);
 
 /**
  * The {@link isFriday} function options.
@@ -109,12 +109,12 @@ function isFriday(date, options) {
 
 /***/ }),
 
-/***/ 217:
+/***/ 211:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isFuture = isFuture;
-var _index = __webpack_require__(63);
+var _index = __webpack_require__(57);
 
 /**
  * @name isFuture
@@ -141,13 +141,13 @@ function isFuture(date) {
 
 /***/ }),
 
-/***/ 218:
+/***/ 212:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isMatch = isMatch;
-var _index = __webpack_require__(99);
-var _index2 = __webpack_require__(219);
+var _index = __webpack_require__(93);
+var _index2 = __webpack_require__(213);
 
 /**
  * The {@link isMatch} function options.
@@ -446,12 +446,12 @@ function isMatch(dateStr, formatStr, options) {
 
 /***/ }),
 
-/***/ 261:
+/***/ 255:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.isMonday = isMonday;
-var _index = __webpack_require__(63);
+var _index = __webpack_require__(57);
 
 /**
  * The {@link isMonday} function options.

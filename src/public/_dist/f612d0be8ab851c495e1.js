@@ -1,12 +1,12 @@
 "use strict";
 (self["webpackChunkfluex_gl_test_application"] = self["webpackChunkfluex_gl_test_application"] || []).push([[3],{
 
-/***/ 61:
+/***/ 55:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.constructFrom = constructFrom;
-var _index = __webpack_require__(62);
+var _index = __webpack_require__(56);
 
 /**
  * @name constructFrom
@@ -57,7 +57,7 @@ function constructFrom(date, value) {
 
 /***/ }),
 
-/***/ 62:
+/***/ 56:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -306,12 +306,12 @@ const constructFromSymbol = (exports.constructFromSymbol =
 
 /***/ }),
 
-/***/ 87:
+/***/ 81:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.areIntervalsOverlapping = areIntervalsOverlapping;
-var _index = __webpack_require__(63);
+var _index = __webpack_require__(57);
 
 /**
  * The {@link areIntervalsOverlapping} function options.
@@ -383,14 +383,14 @@ function areIntervalsOverlapping(intervalLeft, intervalRight, options) {
 
 /***/ }),
 
-/***/ 88:
+/***/ 82:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.clamp = clamp;
-var _index = __webpack_require__(79);
-var _index2 = __webpack_require__(89);
-var _index3 = __webpack_require__(90);
+var _index = __webpack_require__(73);
+var _index2 = __webpack_require__(83);
+var _index3 = __webpack_require__(84);
 
 /**
  * The {@link clamp} function options.
@@ -451,12 +451,12 @@ function clamp(date, interval, options) {
 
 /***/ }),
 
-/***/ 91:
+/***/ 85:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.closestIndexTo = closestIndexTo;
-var _index = __webpack_require__(63);
+var _index = __webpack_require__(57);
 
 /**
  * @name closestIndexTo
@@ -514,14 +514,14 @@ function closestIndexTo(dateToCompare, dates) {
 
 /***/ }),
 
-/***/ 92:
+/***/ 86:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.closestTo = closestTo;
-var _index = __webpack_require__(79);
-var _index2 = __webpack_require__(91);
-var _index3 = __webpack_require__(61);
+var _index = __webpack_require__(73);
+var _index2 = __webpack_require__(85);
+var _index3 = __webpack_require__(55);
 
 /**
  * The {@link closestTo} function options.
@@ -578,12 +578,12 @@ function closestTo(dateToCompare, dates, options) {
 
 /***/ }),
 
-/***/ 93:
+/***/ 87:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.compareAsc = compareAsc;
-var _index = __webpack_require__(63);
+var _index = __webpack_require__(57);
 
 /**
  * @name compareAsc
@@ -630,12 +630,12 @@ function compareAsc(dateLeft, dateRight) {
 
 /***/ }),
 
-/***/ 94:
+/***/ 88:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.compareDesc = compareDesc;
-var _index = __webpack_require__(63);
+var _index = __webpack_require__(57);
 
 /**
  * @name compareDesc
@@ -682,12 +682,12 @@ function compareDesc(dateLeft, dateRight) {
 
 /***/ }),
 
-/***/ 95:
+/***/ 89:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.constructNow = constructNow;
-var _index = __webpack_require__(61);
+var _index = __webpack_require__(55);
 
 /**
  * @name constructNow
@@ -724,12 +724,12 @@ function constructNow(date) {
 
 /***/ }),
 
-/***/ 96:
+/***/ 90:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 exports.daysToWeeks = daysToWeeks;
-var _index = __webpack_require__(62);
+var _index = __webpack_require__(56);
 
 /**
  * @name daysToWeeks
