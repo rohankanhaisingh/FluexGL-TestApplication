@@ -38,6 +38,7 @@ async function init() {
     const audioClip = new AudioClip(audioSourceData);
 
     channel.AttachAudioClip(audioClip);
+
     audioClip.EnablePreAnalyser();
 
     audioClip.AddEventListener("progress", function(event: AudioClipOnProgressEvent) {

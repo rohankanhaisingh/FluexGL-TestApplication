@@ -1,9 +1,7 @@
-// @ts-nocheck
-
 import { 
     FluexGL, 
     WebGPURenderer, 
-    SimpleTriangle, 
+    EnsureWebGPU, 
     WebGPURendererScene, 
     Thread, 
     PerspectiveCamera, 
@@ -13,6 +11,10 @@ import {
 FluexGL.options.debugger.breakOnError = true;
 
 (async function () {
+
+    const state = await EnsureWebGPU();
+
+    if(!state.ok) return alert(state.error);
 
     const renderer = new WebGPURenderer({ msaaSampleCount: 4 });
     const scene = new WebGPURendererScene(renderer);
@@ -33,33 +35,10 @@ FluexGL.options.debugger.breakOnError = true;
     
     await scene.Prepare(camera);
 
-    let t = 0;
-    
     thread.AddEventListener("update", function () {
         try {
-            t += 0.016; 
 
-            const c = Math.cos(t), s = Math.sin(t);
-            const model = new Float32Array([
-                c, 0, s, 0,
-                0, 1, 0, 0,
-                -s, 0, c, 0,
-                0, 0, 0, 1,
-            ]);
-
-
-            const vp = camera.viewProjection as Float32Array;
-            const mvp = new Float32Array(16);
-
-            for (let r = 0; r < 4; r++) {
-                for (let k = 0; k < 4; k++) {
-                    let sum = 0;
-                    for (let i = 0; i < 4; i++) sum += vp[i * 4 + r] * model[k * 4 + i];
-                    mvp[k * 4 + r] = sum;
-                }
-            }
-
-            cube.UpdateUniforms(renderer.gpuDevice, mvp);
+            // cube.UpdateUniforms(renderer.gpuDevice);
             renderer.Render(scene, camera);
         } catch (err) {
             thread.Stop();
