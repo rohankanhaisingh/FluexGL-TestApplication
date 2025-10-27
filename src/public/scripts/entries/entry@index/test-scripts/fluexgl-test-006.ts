@@ -49,9 +49,6 @@ async function init() {
         let trackerValue: number = 100 / audioClip.duration * event.current;
 
         playbackTracker.value = trackerValue.toString();
-
-        const data: Float32Array | null = audioClip.GetWaveformFloatData("pre");
-
     });
     
     btnPlay.addEventListener("click", () => audioClip.Play());
