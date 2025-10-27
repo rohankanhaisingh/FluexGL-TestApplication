@@ -37,6 +37,9 @@ async function init() {
 
     const audioClip = new AudioClip(audioSourceData);
 
+    channel.AttachAudioClip(audioClip);
+    audioClip.EnablePreAnalyser();
+
     audioClip.AddEventListener("progress", function(event: AudioClipOnProgressEvent) {
         
         playbackCurrentTime.innerText = `${event.formatted}`;
@@ -45,12 +48,10 @@ async function init() {
         let trackerValue: number = 100 / audioClip.duration * event.current;
 
         playbackTracker.value = trackerValue.toString();
-    });
-    
-    channel.AttachAudioClip(audioClip);
 
-    audioClip.EnablePreAnalyser();
-    audioClip.GetWaveformFloatData("pre");
+        const data: Float32Array | null = audioClip.GetWaveformFloatData("pre");
+
+    });
     
     btnPlay.addEventListener("click", () => audioClip.Play());
     btnStop.addEventListener("click", () => audioClip.Stop());
