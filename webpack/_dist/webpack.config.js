@@ -44,6 +44,13 @@ const config = {
                 type: "asset/source"
             },
             {
+                test: /\.wasm$/,
+                generator: {
+                    filename: "[name][ext]"
+                },
+                type: "asset/resource"
+            },
+            {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
                 use: 'ts-loader',

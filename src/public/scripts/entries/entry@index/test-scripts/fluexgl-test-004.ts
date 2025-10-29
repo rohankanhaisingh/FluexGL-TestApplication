@@ -11,7 +11,9 @@ import {
 (async function() {
 
     // Make sure that FluexGL can access audio devices.
-    const hasInitialized = await InitializeDspPipeline();
+    const hasInitialized = await InitializeDspPipeline({
+        pathToWasmFileInServer: "/assets/_dist/fluex_dsp_bg.wasm"
+    });
 
     if(!hasInitialized) return null;
 

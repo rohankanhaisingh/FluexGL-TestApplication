@@ -17,7 +17,9 @@ const btnPlay = document.querySelector("#btn-play") as HTMLButtonElement,
 
 async function init() {
 
-    const hasInitialized = await InitializeDspPipeline();
+    const hasInitialized = await InitializeDspPipeline({
+        pathToWasmFileInServer: "/assets/_dist/fluex_dsp_bg.wasm"
+    });
 
     if(!hasInitialized) return null;
 

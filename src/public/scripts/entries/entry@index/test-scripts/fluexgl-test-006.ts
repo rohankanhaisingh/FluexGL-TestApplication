@@ -7,7 +7,6 @@ import {
     AudioSourceData, 
     AudioClip, 
     AudioClipOnProgressEvent,
-    FluexGLWasmDSP,
     SoftClip
 } from "@fluexgl/dsp";
 
@@ -19,7 +18,9 @@ const btnPlay = document.querySelector("#btn-play") as HTMLButtonElement,
 
 async function init() {
 
-    const hasInitialized = await InitializeDspPipeline();
+    const hasInitialized = await InitializeDspPipeline({
+        pathToWasmFileInServer: "/assets/dist/fluex_dsp_bg.wasm"
+    });
 
     if(!hasInitialized) return null;
 

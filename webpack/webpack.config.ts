@@ -56,6 +56,13 @@ const config: webpack.Configuration = {
 				type: "asset/source"
 			},
 			{
+				test: /\.wasm$/,
+				type: "asset/resource",
+				generator: {
+					filename: "[name][ext]"
+				},
+			},
+			{
 				test: /\.tsx?$/,
 				exclude: /node_modules/,
 				use: 'ts-loader',
