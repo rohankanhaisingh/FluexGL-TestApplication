@@ -52,13 +52,7 @@ const config: webpack.Configuration = {
 	module: {
 		rules: [
 			{
-				test: /\.jsworklet$/,
-				enforce: "pre",
-				use: [
-					{
-						loader: path.resolve("./webpack/_dist/webpack-log-loader.cjs"),
-					}
-				],
+				test: /\.worklet$/,
 				type: "asset/source"
 			},
 			{
