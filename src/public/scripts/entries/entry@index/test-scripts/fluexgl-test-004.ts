@@ -1,6 +1,6 @@
 import { 
     AudioDevice, 
-    EnsureAudioPermission, 
+    InitializeDspPipeline, 
     LoadAudioSource, 
     ResolveDefaultAudioOutputDevice, 
     Channel, 
@@ -11,9 +11,9 @@ import {
 (async function() {
 
     // Make sure that FluexGL can access audio devices.
-    const canAccessAudioDevices = await EnsureAudioPermission();
+    const hasInitialized = await InitializeDspPipeline();
 
-    if(!canAccessAudioDevices) return null;
+    if(!hasInitialized) return null;
 
     // Resolves the default audio output device.
     const audioDevice: AudioDevice | null = await ResolveDefaultAudioOutputDevice();

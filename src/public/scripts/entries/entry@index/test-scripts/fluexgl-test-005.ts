@@ -1,6 +1,6 @@
 import { 
     AudioDevice, 
-    EnsureAudioPermission, 
+    InitializeDspPipeline, 
     LoadAudioSource, 
     ResolveDefaultAudioOutputDevice, 
     Channel, 
@@ -17,9 +17,9 @@ const btnPlay = document.querySelector("#btn-play") as HTMLButtonElement,
 
 async function init() {
 
-    const canAccessAudioDevices = await EnsureAudioPermission();
+    const hasInitialized = await InitializeDspPipeline();
 
-    if(!canAccessAudioDevices) return null;
+    if(!hasInitialized) return null;
 
     const audioDevice: AudioDevice | null = await ResolveDefaultAudioOutputDevice();
 

@@ -1,12 +1,14 @@
 import { 
     AudioDevice, 
-    EnsureAudioPermission, 
+    InitializeDspPipeline, 
     LoadAudioSource, 
     ResolveDefaultAudioOutputDevice, 
     Channel, 
     AudioSourceData, 
     AudioClip, 
-    AudioClipOnProgressEvent
+    AudioClipOnProgressEvent,
+    FluexGLWasmDSP,
+    SoftClip
 } from "@fluexgl/dsp";
 
 const btnPlay = document.querySelector("#btn-play") as HTMLButtonElement,
@@ -17,19 +19,26 @@ const btnPlay = document.querySelector("#btn-play") as HTMLButtonElement,
 
 async function init() {
 
-    const canAccessAudioDevices = await EnsureAudioPermission();
+    const hasInitialized = await InitializeDspPipeline();
 
-    if(!canAccessAudioDevices) return null;
+    if(!hasInitialized) return null;
 
     const audioDevice: AudioDevice | null = await ResolveDefaultAudioOutputDevice();
 
     if(!audioDevice) return;
 
     const masterChannel = audioDevice.GetMasterChannel();
+
+    await masterChannel.InitializeAudioWorklets();
+
     const channel = new Channel();
 
     channel.SetLabel("BackgroundMusic");
     masterChannel.AttachChannel(channel);
+    
+    const softClip = new SoftClip();
+    
+    await softClip.Initialize();
 
     const audioSourceData: AudioSourceData | null = await LoadAudioSource("/assets/data/Chill Instrumental [Non Copyrighted Music] Embrace by @Sappheiros.mp3");
 

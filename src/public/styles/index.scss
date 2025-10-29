@@ -1,9 +1,9 @@
-@import "./utilities/variables.scss";
-@import "./utilities/default-styles.scss";
-@import "./utilities/font-families.scss";
+@use  "./utilities/variables.scss";
+@use  "./utilities/default-styles.scss";
+@use  "./utilities/font-families.scss";
 
-@import "./components/button.scss";
-@import "./components/text.scss";
+@use  "./components/button.scss";
+@use  "./components/text.scss";
 
 .app {
     background-size: cover;

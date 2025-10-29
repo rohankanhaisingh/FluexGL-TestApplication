@@ -40,13 +40,19 @@ const config = {
     module: {
         rules: [
             {
+                test: /\.jsworklet$/,
+                enforce: "pre",
+                use: [
+                    {
+                        loader: path_1.default.resolve("./webpack/_dist/webpack-log-loader.cjs"),
+                    }
+                ],
+                type: "asset/source"
+            },
+            {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
                 use: 'ts-loader',
-            },
-            {
-                test: /\.wgsl$/i,
-                type: 'asset/source',
             },
             {
                 test: /\.scss$/,
