@@ -19,7 +19,7 @@ const btnPlay = document.querySelector("#btn-play") as HTMLButtonElement,
 async function init() {
 
     const hasInitialized = await InitializeDspPipeline({
-        pathToWasmFileInServer: "/assets/dist/fluex_dsp_bg.wasm"
+        pathToWasm: location.href + "assets/dist/fluex_dsp_bg.wasm"
     });
 
     if(!hasInitialized) return null;
@@ -29,8 +29,6 @@ async function init() {
     if(!audioDevice) return;
 
     const masterChannel = audioDevice.GetMasterChannel();
-
-    await masterChannel.InitializeAudioWorklets();
 
     const channel = new Channel();
 
