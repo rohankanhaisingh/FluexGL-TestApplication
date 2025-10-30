@@ -12,7 +12,7 @@ export default function analyseCorrespondingScripts(): ScriptEntries {
 
 	const ejsViewFiles: string[] = fs.readdirSync(constants.VIEWS_PATH, "utf-8");
 
-	logInfo(`${ejsViewFiles.length.toString().yellow} aantal bestanden gevonden in ${constants.VIEWS_PATH.toString().yellow}.`);
+	logInfo(`${ejsViewFiles.length.toString().yellow} files found in ${constants.VIEWS_PATH.toString().yellow}.`);
 
 	for (let file of ejsViewFiles) {
 
@@ -29,12 +29,12 @@ export default function analyseCorrespondingScripts(): ScriptEntries {
 				if (fs.existsSync(correspondingScriptPath)) {
 
 					scriptEntries[pageName] = correspondingScriptPath;
-					logInfo(`Bestand '${pageName}' toegevoegd aan entries.`, "Script analyser");
+					logInfo(`File '${pageName}' added to list of entries.`, "Script analyser");
 				} else {
-					logWarning(`Bestand '${pageName}' heeft geen bijbehorende 'entry.ts' script gelokaliseerd in ${physicalScriptDirectoryPath}.`, "Script analyser")
+					logWarning(`File '${pageName}' has no associated 'entry.ts' file located in ${physicalScriptDirectoryPath}.`, "Script analyser")
 				}
 			} else {
-				logWarning(`Bestand '${pageName}' heeft geen bijbehorende script gelokaliseerd in ${constants.SCRIPTS_PATH}.`);
+				logWarning(`File '${pageName}' has no associated script file in ${constants.SCRIPTS_PATH}.`);
 			}
 		}
 	}

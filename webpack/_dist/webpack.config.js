@@ -40,13 +40,20 @@ const config = {
     module: {
         rules: [
             {
+                test: /\.worklet$/,
+                type: "asset/source"
+            },
+            {
+                test: /\.wasm$/,
+                generator: {
+                    filename: "[name][ext]"
+                },
+                type: "asset/resource"
+            },
+            {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
                 use: 'ts-loader',
-            },
-            {
-                test: /\.wgsl$/i,
-                type: 'asset/source',
             },
             {
                 test: /\.scss$/,

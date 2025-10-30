@@ -1,12 +1,13 @@
 import { 
     AudioDevice, 
-    EnsureAudioPermission, 
+    InitializeDspPipeline, 
     LoadAudioSource, 
     ResolveDefaultAudioOutputDevice, 
     Channel, 
     AudioSourceData, 
     AudioClip, 
-    AudioClipOnProgressEvent
+    AudioClipOnProgressEvent,
+    SoftClip
 } from "@fluexgl/dsp";
 
 const btnPlay = document.querySelector("#btn-play") as HTMLButtonElement,
@@ -17,25 +18,36 @@ const btnPlay = document.querySelector("#btn-play") as HTMLButtonElement,
 
 async function init() {
 
-    const canAccessAudioDevices = await EnsureAudioPermission();
+    const hasInitialized = await InitializeDspPipeline({
+        pathToWasm: location.href + "assets/dist/fluex_dsp_bg.wasm"
+    });
 
-    if(!canAccessAudioDevices) return null;
+    if(!hasInitialized) return null;
 
     const audioDevice: AudioDevice | null = await ResolveDefaultAudioOutputDevice();
 
     if(!audioDevice) return;
 
     const masterChannel = audioDevice.GetMasterChannel();
+
     const channel = new Channel();
 
     channel.SetLabel("BackgroundMusic");
     masterChannel.AttachChannel(channel);
+    
+    const softClip = new SoftClip();
+    
+    await softClip.Initialize();
 
     const audioSourceData: AudioSourceData | null = await LoadAudioSource("/assets/data/Chill Instrumental [Non Copyrighted Music] Embrace by @Sappheiros.mp3");
 
     if(!audioSourceData) return;
 
     const audioClip = new AudioClip(audioSourceData);
+
+    channel.AttachAudioClip(audioClip);
+
+    audioClip.EnablePreAnalyser();
 
     audioClip.AddEventListener("progress", function(event: AudioClipOnProgressEvent) {
         
@@ -46,11 +58,6 @@ async function init() {
 
         playbackTracker.value = trackerValue.toString();
     });
-    
-    channel.AttachAudioClip(audioClip);
-
-    audioClip.EnablePreAnalyser();
-    audioClip.GetWaveformFloatData("pre");
     
     btnPlay.addEventListener("click", () => audioClip.Play());
     btnStop.addEventListener("click", () => audioClip.Stop());

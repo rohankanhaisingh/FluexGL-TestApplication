@@ -52,13 +52,20 @@ const config: webpack.Configuration = {
 	module: {
 		rules: [
 			{
+				test: /\.worklet$/,
+				type: "asset/source"
+			},
+			{
+				test: /\.wasm$/,
+				type: "asset/resource",
+				generator: {
+					filename: "[name][ext]"
+				},
+			},
+			{
 				test: /\.tsx?$/,
 				exclude: /node_modules/,
 				use: 'ts-loader',
-			},
-			{
-				test: /\.wgsl$/i,
-				type: 'asset/source',
 			},
 			{
 				test: /\.scss$/,
