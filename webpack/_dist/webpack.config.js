@@ -45,10 +45,10 @@ const config = {
             },
             {
                 test: /\.wasm$/,
+                type: "asset/resource",
                 generator: {
                     filename: "[name][ext]"
                 },
-                type: "asset/resource"
             },
             {
                 test: /\.tsx?$/,
