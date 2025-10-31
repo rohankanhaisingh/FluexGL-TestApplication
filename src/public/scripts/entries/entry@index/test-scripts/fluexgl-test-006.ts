@@ -36,8 +36,7 @@ async function init() {
     masterChannel.AttachChannel(channel);
     
     const softClip = new SoftClip();
-    
-    await softClip.Initialize();
+    channel.AddEffect(softClip);
 
     const audioSourceData: AudioSourceData | null = await LoadAudioSource("/assets/data/Chill Instrumental [Non Copyrighted Music] Embrace by @Sappheiros.mp3");
 
